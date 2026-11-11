@@ -1,0 +1,690 @@
+/* ==========================================
+   ABOUT PAGE (MIHMC)
+========================================== */
+
+.mihmc-about,
+.mihmc-about * {
+  box-sizing: border-box;
+}
+
+.mihmc-about {
+  width: 100%;
+  background: #ffffff;
+  color: #0a3024;
+  font-family: "DM Sans", Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+.mihmc-about h1,
+.mihmc-about h2,
+.mihmc-about h3,
+.mihmc-about p {
+  margin: 0;
+}
+
+.mihmc-about h1,
+.mihmc-about h2 {
+  color: #073326;
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: -0.5px;
+}
+
+.mihmc-about-kicker {
+  display: block;
+  color: #8b6127;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.6px;
+}
+
+/* ---------- Buttons ---------- */
+
+.mihmc-about-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease,
+    background-color 0.2s ease, color 0.2s ease;
+}
+
+.mihmc-about-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 41, 29, 0.14);
+}
+
+.mihmc-about-btn.dark {
+  background: #0a3322;
+  color: #fff;
+}
+
+.mihmc-about-btn.dark:hover {
+  background: #14503a;
+}
+
+.mihmc-about-btn.light {
+  border-color: #e7e3da;
+  background: #fff;
+  color: #0a3322;
+}
+
+.mihmc-about-btn.white {
+  background: #fff;
+  color: #0a3322;
+}
+
+.mihmc-about-btn.ghost {
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.mihmc-about-btn.ghost:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+/* ==========================================
+   HERO
+========================================== */
+
+.mihmc-about-hero {
+  position: relative;
+  padding: 36px 28px 56px;
+  background: #fdf8f1;
+  overflow: hidden;
+}
+
+/* soft drifting green glows (left + right) */
+.mihmc-about-hero::before,
+.mihmc-about-hero::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.mihmc-about-hero::before {
+  top: 120px;
+  left: -140px;
+  width: 300px;
+  height: 300px;
+  background: #f7e9d6;
+  opacity: 0.7;
+  animation: mihmcGlowA 16s ease-in-out infinite alternate;
+}
+
+.mihmc-about-hero::after {
+  top: -40px;
+  right: -120px;
+  width: 360px;
+  height: 360px;
+  background: #dcebdc;
+  opacity: 0.7;
+  animation: mihmcGlowB 18s ease-in-out infinite alternate;
+}
+
+@keyframes mihmcGlowA {
+  to { transform: translate(50px, 40px) scale(1.15); }
+}
+
+@keyframes mihmcGlowB {
+  to { transform: translate(-50px, 40px) scale(1.12); }
+}
+
+.mihmc-about-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1256px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.mihmc-about-pill {
+  display: inline-block;
+  padding: 6px 14px;
+  border: 1px solid #c9dfc9;
+  border-radius: 999px;
+  background: #d9ead9;
+  color: #1e5a3a;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.6px;
+}
+
+.mihmc-about-hero h1 {
+  margin-top: 14px;
+  font-size: 40px;
+  line-height: 1.1;
+}
+
+.mihmc-about-hero-text {
+  max-width: 640px;
+  margin: 14px auto 0 !important;
+  color: #4d514b;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.mihmc-about-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.mihmc-about-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mihmc-about-chips li {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 14px;
+  border: 1px solid #ece7dc;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.7);
+  color: #3f453f;
+  font-size: 12px;
+  letter-spacing: 0.6px;
+}
+
+.mihmc-about-chips svg {
+  color: #8b6127;
+}
+
+.mihmc-about-hero-image {
+  position: relative;
+  isolation: isolate;
+
+  max-width: 1000px;
+  margin: 28px auto 0;
+  overflow: hidden;
+  border-radius: 22px;
+  border: 1px solid rgba(139, 97, 39, 0.18);
+  background: #efe6d6;
+  box-shadow: 0 16px 40px rgba(0, 41, 29, 0.12);
+  transform: translateZ(0); 
+}
+
+.mihmc-about-hero-image img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3.4 / 1;
+  object-fit: cover;
+ 
+  /* lift shadows, soften contrast, add a little warmth */
+  filter: brightness(1.07) contrast(0.95) saturate(1.06) sepia(0.1);
+ 
+  animation: mihmcKenBurns 14s ease-in-out infinite alternate;
+}
+
+.mihmc-about-hero-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      360deg,
+      rgba(0, 37, 23, 0.50) 0%,
+      rgba(0, 37, 23, 0.20) 50%,
+      rgba(0, 37, 23, 0) 100%
+    ),
+    radial-gradient(
+      ellipse at center,
+      rgba(253, 248, 241, 0) 55%,
+      rgba(0, 41, 29, 0.1) 100%
+    ),
+    rgba(255, 224, 170, 0.1);
+}
+
+@keyframes mihmcKenBurns {
+  from { transform: scale(1); }
+  to   { transform: scale(1.06); }
+}
+
+/* ==========================================
+   OUR STORY
+========================================== */
+
+.mihmc-about-story {
+  padding: 72px 28px 64px;
+  background: #fff;
+}
+
+.mihmc-about-story-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+  align-items: center;
+  gap: 48px;
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.mihmc-about-story-text h2 {
+  margin: 14px 0 18px;
+  font-size: 36px;
+  line-height: 1.1;
+}
+
+.mihmc-about-story-text > p {
+  color: #3f453f;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.mihmc-about-story-text > p + p {
+  margin-top: 14px;
+}
+
+/* Mission quote */
+
+.mihmc-about-quote {
+  position: relative;
+  margin: 22px 0 0;
+  padding: 14px 18px 14px 20px;
+  border-left: 3px solid #a47a38;
+  border-radius: 0 12px 12px 0;
+  background: #f7f3eb;
+}
+
+.mihmc-about-quote > svg {
+  display: none;
+}
+
+.mihmc-about-quote p {
+  color: #1c3d2f;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.mihmc-about-quote cite {
+  display: block;
+  margin-top: 8px;
+  color: #6b5a34;
+  font-size: 10px;
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0.8px;
+}
+
+/* Photo + floating badge */
+
+.mihmc-about-story-media {
+  position: relative;
+  padding-bottom: 34px;
+}
+
+.mihmc-about-story-photo {
+  overflow: hidden;
+  border-radius: 14px;
+  box-shadow: 0 14px 34px rgba(0, 41, 29, 0.14);
+}
+
+.mihmc-about-story-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.25 / 1;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.mihmc-about-story-media:hover .mihmc-about-story-photo img {
+  transform: scale(1.04);
+}
+
+.mihmc-about-badge {
+  position: absolute;
+  bottom: 0;
+  left: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 220px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #00291d;
+  color: #fff;
+  box-shadow: 0 12px 28px rgba(0, 41, 29, 0.28);
+}
+
+.mihmc-about-badge-icon {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: #f2c77e;
+}
+
+.mihmc-about-badge strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.mihmc-about-badge span:not(.mihmc-about-badge-icon) {
+  display: block;
+  color: #cfdcd3;
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+/* ==========================================
+   APPROACH
+========================================== */
+
+.mihmc-about-approach {
+  padding: 78px 28px 84px;
+  border-top: 1px solid #f0ece3;
+  border-bottom: 1px solid #f0ece3;
+  background: #fdf8f1;
+}
+
+.mihmc-about-approach-inner {
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.mihmc-about-approach-head {
+  text-align: center;
+}
+
+.mihmc-about-approach-head h2 {
+  margin: 12px 0 8px;
+  font-size: 38px;
+  line-height: 1.1;
+}
+
+.mihmc-about-approach-head p {
+  color: #53564f;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.mihmc-about-protocols {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 44px;
+}
+
+.mihmc-about-protocol {
+  padding: 24px 26px 30px;
+  border: 1px solid #ece7dc;
+  border-radius: 14px;
+  background: #f7f3eb;
+  box-shadow: 0 1px 2px rgba(25, 37, 28, 0.04);
+  transition: box-shadow 0.25s ease;
+}
+
+.mihmc-about-protocol:hover {
+  box-shadow: 0 14px 30px rgba(25, 37, 28, 0.1);
+}
+
+.mihmc-about-protocol-icon {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  margin-bottom: 18px;
+  border-radius: 8px;
+  background: #0a3322;
+  color: #fff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.mihmc-about-protocol:hover .mihmc-about-protocol-icon {
+  background: #14503a;
+  color: #f2c77e;
+}
+
+.mihmc-about-protocol-no {
+  display: block;
+  color: #8b6127;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1.2px;
+}
+
+.mihmc-about-protocol h3 {
+  margin: 5px 0 8px;
+  color: #0a3024;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.mihmc-about-protocol p {
+  color: #585b55;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* ==========================================
+   CTA
+========================================== */
+
+.mihmc-about-cta-wrap {
+  padding: 56px 28px 64px;
+  background: #fff;
+}
+
+.mihmc-about-cta {
+  position: relative;
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 44px 32px 40px;
+  overflow: hidden;
+  border-radius: 28px;
+  background: linear-gradient(135deg, #17402e 0%, #1f4a37 55%, #1c4532 100%);
+  box-shadow: 0 24px 50px rgba(0, 41, 29, 0.22);
+  color: #fff;
+  text-align: center;
+}
+
+.mihmc-about-cta::before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  left: -60px;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.07);
+  filter: blur(50px);
+  pointer-events: none;
+  animation: mihmcGlowA 14s ease-in-out infinite alternate;
+}
+
+.mihmc-about-cta > * {
+  position: relative;
+}
+
+.mihmc-about-cta-pill {
+  display: inline-block;
+  padding: 6px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #FFDEAC;
+  font-size: 12px;
+  letter-spacing: 1.8px;
+}
+
+.mihmc-about-cta h2 {
+  margin: 18px 0 12px;
+  color: #fff;
+  font-size: 46px;
+  line-height: 1.15;
+}
+
+.mihmc-about-cta p {
+  color: #d3e0d7;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.mihmc-about-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 900px) {
+  .mihmc-about-hero h1 {
+    font-size: 36px;
+  }
+
+  .mihmc-about-story {
+    padding: 56px 22px 48px;
+  }
+
+  .mihmc-about-story-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .mihmc-about-story-media {
+    max-width: 520px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .mihmc-about-approach {
+    padding: 60px 22px 64px;
+  }
+
+  .mihmc-about-protocols {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .mihmc-about-cta h2 {
+    font-size: 36px;
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 600px) {
+  .mihmc-br {
+    display: none;
+  }
+
+  .mihmc-about-hero {
+    padding: 30px 16px 40px;
+  }
+
+  .mihmc-about-hero h1 {
+    font-size: 30px;
+  }
+
+  .mihmc-about-hero-text {
+    font-size: 12px;
+  }
+
+  .mihmc-about-actions .mihmc-about-btn,
+  .mihmc-about-cta-actions .mihmc-about-btn {
+    width: 100%;
+  }
+
+  .mihmc-about-hero-image {
+    border-radius: 16px;
+  }
+
+  .mihmc-about-hero-image img {
+    aspect-ratio: 16 / 10;
+  }
+
+  .mihmc-about-story-text h2,
+  .mihmc-about-approach-head h2 {
+    font-size: 28px;
+  }
+
+  .mihmc-about-quote p {
+    font-size: 14px;
+  }
+
+  .mihmc-about-cta-wrap {
+    padding: 40px 16px 48px;
+  }
+
+  .mihmc-about-cta {
+    padding: 36px 18px 32px;
+    border-radius: 20px;
+  }
+
+  .mihmc-about-cta h2 {
+    font-size: 28px;
+  }
+
+  .mihmc-about-cta p {
+    font-size: 12px;
+  }
+}
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .mihmc-about-hero::before,
+  .mihmc-about-hero::after,
+  .mihmc-about-cta::before,
+  .mihmc-about-hero-image img {
+    animation: none;
+  }
+
+  .mihmc-about-btn,
+  .mihmc-about-protocol,
+  .mihmc-about-protocol-icon,
+  .mihmc-about-story-photo img {
+    transition: none;
+  }
+}
+/* ---------- Extra sections added in the CMS ---------- */
+
+.mihmc-about-story-grid.mihmc-about-flip .mihmc-about-story-text {
+  order: 2;
+}
+
+@media (max-width: 900px) {
+  .mihmc-about-story-grid.mihmc-about-flip .mihmc-about-story-text {
+    order: 0;
+  }
+}

@@ -1,0 +1,120 @@
+/* =========================================
+   LOGO MARK
+   1. Bloom reveal on load (grows up from the base, like a lotus opening)
+   2. Light sheen that sweeps across the logo shape only
+   3. Gentle sway on hover
+========================================= */
+
+.logomark {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: center bottom;
+}
+
+.logomark-img {
+  display: block;
+  position: relative;
+  transform-origin: center bottom;
+
+  animation: logomark-bloom 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.2s backwards;
+}
+
+/* ---- 1. Bloom reveal ---- */
+@keyframes logomark-bloom {
+  0% {
+    opacity: 0;
+    transform: scale(0.55) translateY(14px);
+    clip-path: inset(100% 0 0 0);
+    filter: blur(6px) saturate(0.4);
+  }
+
+  60% {
+    opacity: 1;
+    filter: blur(0) saturate(1.2);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    clip-path: inset(0 0 0 0);
+    filter: blur(0) saturate(1);
+  }
+}
+
+/* ---- 2. Sheen, masked to the logo's own shape ---- */
+.logomark-sheen {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgba(255, 244, 205, 0.95) 50%,
+    transparent 65%
+  );
+  background-size: 300% 100%;
+  background-position: 160% 0;
+  background-repeat: no-repeat;
+
+  -webkit-mask-image: var(--logo-src);
+  mask-image: var(--logo-src);
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+
+  animation: logomark-sheen 6s ease-in-out 2.4s infinite;
+}
+
+@keyframes logomark-sheen {
+  0%,
+  65% {
+    background-position: 160% 0;
+  }
+
+  100% {
+    background-position: -60% 0;
+  }
+}
+
+/* ---- 3. Hover sway ---- */
+.logomark:hover {
+  animation: logomark-sway 0.9s ease-in-out;
+}
+
+@keyframes logomark-sway {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+
+  25% {
+    transform: rotate(-4deg) scale(1.04);
+  }
+
+  50% {
+    transform: rotate(3deg) scale(1.04);
+  }
+
+  75% {
+    transform: rotate(-1.5deg) scale(1.02);
+  }
+}
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .logomark-img,
+  .logomark-sheen,
+  .logomark:hover {
+    animation: none;
+  }
+
+  .logomark-sheen {
+    display: none;
+  }
+}

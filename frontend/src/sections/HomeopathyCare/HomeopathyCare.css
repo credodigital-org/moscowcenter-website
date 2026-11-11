@@ -1,0 +1,483 @@
+/* ==========================================
+   PERSONALISED HOMEOPATHY CARE
+========================================== */
+
+.homeopathy-care-section,
+.homeopathy-care-section * {
+  box-sizing: border-box;
+}
+
+.homeopathy-care-section {
+  width: 100%;
+  padding: 88px 30px 105px;
+  background: #ffffff;
+  color: #123e13;
+  font-family: "DM Sans", Arial, sans-serif;
+}
+
+.homeopathy-care-container {
+  width: 100%;
+  max-width: 1250px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1.04fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 52px;
+}
+
+/* ==========================================
+   IMAGE
+========================================== */
+
+.homeopathy-care-image-wrapper {
+  width: 100%;
+  height: 346px;
+  overflow: hidden;
+  border-radius: 13px;
+  background: #f0eee5;
+}
+
+.homeopathy-care-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+
+  transition: transform 0.5s ease;
+}
+
+.homeopathy-care-image-wrapper:hover .homeopathy-care-image {
+  transform: scale(1.025);
+}
+
+/* ==========================================
+   CONTENT
+========================================== */
+
+.homeopathy-care-content {
+  width: 100%;
+  min-width: 0;
+}
+
+.homeopathy-care-content h2 {
+  margin: 0 0 17px;
+  color: #17480f;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 38px;
+  font-weight: 400;
+  line-height: 1.18;
+  letter-spacing: -0.7px;
+}
+
+.homeopathy-care-content p {
+  margin: 0 0 18px;
+  color: #5b5751;
+
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.85;
+}
+
+/* ==========================================
+   CONSULTATION BUTTON
+========================================== */
+
+.homeopathy-consultation-button {
+  min-height: 37px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 0;
+  padding: 0 20px;
+
+  border: 1px solid #063a28;
+  border-radius: 3px;
+
+  background: #003725;
+  color: #ffffff;
+
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.12);
+
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.homeopathy-consultation-button:hover {
+  background: #17522e;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.homeopathy-consultation-button:focus-visible {
+  outline: 2px solid #c3a35c;
+  outline-offset: 4px;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 900px) {
+  .homeopathy-care-section {
+    padding: 65px 25px 75px;
+  }
+
+  .homeopathy-care-container {
+    max-width: 720px;
+    gap: 32px;
+  }
+
+  .homeopathy-care-image-wrapper {
+    height: 310px;
+  }
+
+  .homeopathy-care-content h2 {
+    font-size: 32px;
+  }
+
+  .homeopathy-care-content p {
+    font-size: 11.5px;
+    line-height: 1.8;
+    margin-bottom: 14px;
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 600px) {
+  .homeopathy-care-section {
+    padding: 40px 18px 50px;
+  }
+
+  .homeopathy-care-container {
+    max-width: 440px;
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .homeopathy-care-image-wrapper {
+    height: auto;
+    aspect-ratio: 1.35 / 1;
+    border-radius: 12px;
+  }
+
+  .homeopathy-care-content h2 {
+    margin-bottom: 15px;
+    font-size: 33px;
+    line-height: 1.2;
+  }
+
+  .homeopathy-desktop-break {
+    display: none;
+  }
+
+  .homeopathy-care-content p {
+    margin-bottom: 16px;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .homeopathy-consultation-button {
+    min-height: 42px;
+    padding: 0 19px;
+    font-size: 12px;
+  }
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 360px) {
+  .homeopathy-care-section {
+    padding-right: 13px;
+    padding-left: 13px;
+  }
+
+  .homeopathy-care-container {
+    gap: 23px;
+  }
+
+  .homeopathy-care-content h2 {
+    font-size: 29px;
+  }
+
+  .homeopathy-care-content p {
+    font-size: 12px;
+  }
+}
+
+/* Respect reduced-motion settings */
+
+@media (prefers-reduced-motion: reduce) {
+  .homeopathy-care-image,
+  .homeopathy-consultation-button {
+    transition: none;
+  }
+}
+
+
+/* ==========================================
+   SCROLL REVEAL
+========================================== */
+
+.hc-reveal {
+  opacity: 0;
+}
+
+.hc-left  { --fx: -50px; --fy: 0px; }
+.hc-right { --fx: 50px;  --fy: 0px; }
+.hc-up    { --fx: 0px;   --fy: 28px; }
+
+.is-visible .hc-reveal {
+  opacity: 1;
+  animation: hcIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0s) backwards;
+}
+
+@keyframes hcIn {
+  from { opacity: 0; transform: translate(var(--fx, 0), var(--fy, 28px)); }
+  to   { opacity: 1; transform: translate(0, 0); }
+}
+
+/* Single column on mobile: everything slides up */
+@media (max-width: 600px) {
+  .hc-left,
+  .hc-right {
+    --fx: 0px;
+    --fy: 30px;
+  }
+}
+
+/* ==========================================
+   LIVE (CONTINUOUS) ANIMATIONS
+   Same on desktop and mobile, no hover needed.
+   Uses `translate` / pseudo-elements so it
+   doesn't clash with the reveal transforms.
+========================================== */
+
+/* Soft drifting background glows */
+.homeopathy-care-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.homeopathy-care-container {
+  position: relative;
+  z-index: 1;
+}
+
+.homeopathy-care-section::before,
+.homeopathy-care-section::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  filter: blur(70px);
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+.homeopathy-care-section::before {
+  width: 280px;
+  height: 280px;
+  top: 5%;
+  right: -90px;
+  background: #dfecde;
+  animation: hcGlowA 15s ease-in-out infinite alternate;
+}
+
+.homeopathy-care-section::after {
+  width: 320px;
+  height: 320px;
+  bottom: -80px;
+  left: -100px;
+  background: #efe9da;
+  animation: hcGlowB 18s ease-in-out infinite alternate;
+}
+
+@keyframes hcGlowA {
+  to { transform: translate(-60px, 50px) scale(1.2); }
+}
+
+@keyframes hcGlowB {
+  to { transform: translate(60px, -40px) scale(1.15); }
+}
+
+/* Image: floating card */
+.homeopathy-care-image-wrapper {
+  position: relative;
+}
+
+.is-visible .homeopathy-care-image-wrapper {
+  animation:
+    hcIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0s) backwards,
+    hcImageFloat 6s ease-in-out 1.5s infinite;
+}
+
+@keyframes hcImageFloat {
+  0%, 100% { translate: 0 0; }
+  50%      { translate: 0 -10px; }
+}
+
+/* Image: slow Ken Burns zoom */
+.is-visible .homeopathy-care-image {
+  animation: hcKenBurns 14s ease-in-out infinite alternate;
+}
+
+/* Replace the hover zoom with the continuous zoom */
+.homeopathy-care-image-wrapper:hover .homeopathy-care-image {
+  transform: none;
+}
+
+@keyframes hcKenBurns {
+  from { transform: scale(1); }
+  to   { transform: scale(1.09); }
+}
+
+/* Image: light shimmer sweep */
+.homeopathy-care-image-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -70%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    100deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+}
+
+.is-visible .homeopathy-care-image-wrapper::after {
+  animation: hcShimmer 7s ease-in-out 2.5s infinite;
+}
+
+@keyframes hcShimmer {
+  0%        { left: -70%; }
+  35%, 100% { left: 150%; }
+}
+
+/* Heading underline: draws in, then breathes */
+.homeopathy-care-content h2 {
+  position: relative;
+  padding-bottom: 14px;
+}
+
+.homeopathy-care-content h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  height: 3px;
+  border-radius: 2px;
+  background: #236b17;
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+.is-visible .homeopathy-care-content h2::after {
+  animation:
+    hcLineIn 0.9s ease 1s forwards,
+    hcLineBreathe 3s ease-in-out 2s infinite;
+}
+
+@keyframes hcLineIn {
+  to { transform: scaleX(1); }
+}
+
+@keyframes hcLineBreathe {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.4; }
+}
+
+/* Button: pulsing ring + shimmer sweep */
+.homeopathy-consultation-button {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.is-visible .homeopathy-consultation-button {
+  animation: hcPulse 2.6s ease-out 1.8s infinite;
+}
+
+.homeopathy-consultation-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    100deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+  transform: skewX(-20deg);
+  z-index: -1;
+}
+
+.is-visible .homeopathy-consultation-button::after {
+  animation: hcButtonShimmer 3.5s ease-in-out 2.2s infinite;
+}
+
+@keyframes hcPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(0, 55, 37, 0.45); }
+  70%  { box-shadow: 0 0 0 14px rgba(0, 55, 37, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 55, 37, 0); }
+}
+
+@keyframes hcButtonShimmer {
+  0%        { left: -75%; }
+  60%, 100% { left: 130%; }
+}
+
+/* ==========================================
+   REDUCED MOTION (replace your old block)
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .homeopathy-care-image,
+  .homeopathy-consultation-button {
+    transition: none;
+  }
+
+  .hc-reveal {
+    opacity: 1;
+  }
+
+  .homeopathy-care-content h2::after {
+    transform: scaleX(1);
+  }
+
+  .homeopathy-care-section::before,
+  .homeopathy-care-section::after,
+  .hc-reveal,
+  .homeopathy-care-image-wrapper,
+  .homeopathy-care-image,
+  .homeopathy-care-image-wrapper::after,
+  .homeopathy-care-content h2::after,
+  .homeopathy-consultation-button,
+  .homeopathy-consultation-button::after {
+    animation: none !important;
+  }
+}

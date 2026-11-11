@@ -1,0 +1,234 @@
+/* Moscow Centre CMS — matches the site's deep green / gold palette */
+.mca-shell, .mca-login {
+  --green: #0a3024;
+  --green-2: #124a39;
+  --gold: #8b6127;
+  --cream: #fdf8f1;
+  --line: #e6dfd0;
+  --muted: #667069;
+  font-family: "DM Sans", Arial, sans-serif;
+  color: var(--green);
+}
+.mca-shell *, .mca-login * { box-sizing: border-box; }
+
+.mca-shell { display: flex; min-height: 100vh; background: var(--cream); }
+
+/* sidebar */
+.mca-sidebar {
+  position: sticky; top: 0; align-self: flex-start;
+  display: flex; flex-direction: column; width: 270px; height: 100vh; overflow-y: auto;
+  padding: 18px 14px 14px; background: var(--green); color: #fff; flex-shrink: 0;
+}
+.mca-brand { padding: 0 10px 14px; border-bottom: 1px solid rgba(255,255,255,.14); }
+.mca-brand strong { display: block; font-size: 20px; letter-spacing: .3px; }
+.mca-brand span { color: #d9c08f; font-size: 12px; letter-spacing: 1.4px; text-transform: uppercase; }
+.mca-sidebar nav { display: flex; flex-direction: column; gap: 3px; margin-top: 12px; flex: 1 0 auto; }
+.mca-sidebar nav button {
+  display: flex; flex-direction: column; gap: 2px; text-align: left;
+  padding: 8px 12px; border: 0; border-radius: 10px; background: transparent; color: #fff; cursor: pointer;
+}
+.mca-sidebar nav button strong { font-size: 15px; font-weight: 600; line-height: 1.25; }
+.mca-sidebar nav button span { font-size: 11.5px; line-height: 1.3; color: rgba(255,255,255,.72); }
+.mca-sidebar nav button:hover { background: rgba(255,255,255,.14); }
+.mca-sidebar nav button.active { background: #fff; color: var(--green); }
+.mca-sidebar nav button.active span { color: var(--muted); }
+.mca-sidebar-foot { display: flex; flex-direction: column; gap: 2px; margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,.14); }
+.mca-sidebar-foot a, .mca-sidebar-foot button {
+  padding: 8px 10px; border: 0; background: none; color: #d9c08f; font: inherit; font-size: 13px; text-align: left; cursor: pointer; text-decoration: none;
+}
+
+/* main */
+.mca-main { flex: 1; min-width: 0; }
+.mca-topbar { display: flex; align-items: center; gap: 12px; padding: 22px 32px 0; }
+.mca-topbar h1 { margin: 0; font-size: 28px; }
+.mca-menu { display: none; border: 1px solid var(--line); background: #fff; border-radius: 8px; padding: 6px 10px; font-size: 18px; cursor: pointer; }
+.mca-content { padding: 18px 32px 60px; max-width: 980px; }
+
+.mca-intro { margin: 0 0 16px; color: var(--muted); font-size: 14.5px; line-height: 1.55; }
+.mca-muted { color: var(--muted); }
+.mca-empty { padding: 28px; border: 1px dashed var(--line); border-radius: 12px; background: #fff; color: var(--muted); text-align: center; }
+
+/* buttons */
+.mca-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 9px 16px; border: 1px solid var(--green); border-radius: 999px;
+  background: #fff; color: var(--green); font: inherit; font-size: 13.5px; font-weight: 600; cursor: pointer; text-decoration: none;
+}
+.mca-btn.primary { background: var(--green); color: #fff; }
+.mca-btn.primary:hover { background: var(--green-2); }
+.mca-btn.ghost { border-color: var(--line); }
+.mca-btn.ghost:hover { border-color: var(--green); }
+.mca-btn.danger { color: #a52a2a; }
+.mca-btn.danger:hover { border-color: #a52a2a; }
+.mca-btn:disabled { opacity: .6; cursor: wait; }
+
+/* toolbar & notices */
+.mca-toolbar { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 16px; }
+.mca-toolbar select { padding: 9px 12px; border: 1px solid var(--line); border-radius: 10px; background: #fff; font: inherit; }
+.mca-notice { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; margin-bottom: 14px; padding: 11px 14px; border-radius: 10px; font-size: 14px; }
+.mca-notice.error { background: #fdecec; color: #8a1f1f; border: 1px solid #f3c2c2; }
+.mca-notice.success { background: #eaf6ef; color: #145a38; border: 1px solid #bfe3cd; }
+.mca-notice button { border: 0; background: none; font-size: 18px; line-height: 1; cursor: pointer; color: inherit; }
+
+/* list */
+.mca-list { display: flex; flex-direction: column; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.mca-list li {
+  display: grid; grid-template-columns: 64px 1fr auto auto; gap: 14px; align-items: center;
+  padding: 12px 14px; border: 1px solid var(--line); border-radius: 14px; background: #fff;
+}
+.mca-list li.hidden-item { opacity: .65; }
+.mca-list-main { min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.mca-list-main strong { font-size: 15px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mca-list-main span { color: var(--muted); font-size: 12.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mca-thumb { width: 64px; height: 52px; border-radius: 9px; object-fit: cover; background: #efe9dc; }
+.mca-thumb.empty { display: grid; place-items: center; color: var(--muted); }
+.mca-actions { display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; }
+.mca-actions .mca-btn { padding: 6px 12px; font-size: 12.5px; }
+.mca-pill { padding: 4px 10px; border-radius: 999px; font-size: 11.5px; font-weight: 600; white-space: nowrap; }
+.mca-pill.on { background: #e3f3ea; color: #145a38; }
+.mca-pill.off { background: #efece4; color: var(--muted); }
+
+/* home slots */
+.mca-slots { display: flex; flex-direction: column; gap: 10px; }
+.mca-slot {
+  display: grid; grid-template-columns: 96px 1fr auto; gap: 14px; align-items: center;
+  padding: 12px 14px; border: 1px solid var(--line); border-radius: 14px; background: #fff;
+}
+.mca-slot .mca-thumb { width: 96px; height: 64px; }
+.mca-slot-body { display: flex; flex-direction: column; gap: 4px; align-items: flex-start; min-width: 0; }
+.mca-slot-body span:not(.mca-pill) { color: var(--muted); font-size: 12.5px; }
+
+/* tabs */
+.mca-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; border-bottom: 1px solid var(--line); }
+.mca-tabs button { padding: 10px 16px; border: 0; border-bottom: 2px solid transparent; background: none; font: inherit; font-weight: 600; color: var(--muted); cursor: pointer; }
+.mca-tabs button.active { color: var(--green); border-color: var(--gold); }
+
+/* form */
+.mca-form { padding: 24px; border: 1px solid var(--line); border-radius: 16px; background: #fff; }
+.mca-form-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 8px; }
+.mca-form-head h3 { margin: 0; font-size: 22px; }
+.mca-fields { display: flex; flex-direction: column; gap: 16px; }
+.mca-group { margin: 14px 0 0; padding-top: 14px; border-top: 1px solid var(--line); color: var(--gold); font-size: 12px; letter-spacing: 1.4px; text-transform: uppercase; }
+.mca-group:first-child { margin-top: 0; padding-top: 0; border-top: 0; }
+.mca-field { display: flex; flex-direction: column; gap: 6px; }
+.mca-field > label { font-size: 13.5px; font-weight: 600; }
+.mca-field > label em { color: #a52a2a; font-style: normal; }
+.mca-field small { color: var(--muted); font-size: 12px; line-height: 1.45; }
+.mca-field input[type="text"], .mca-field input[type="url"], .mca-field input[type="number"], .mca-field select, .mca-field textarea,
+.mca-login input {
+  width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: #fff; color: var(--green); font: inherit; font-size: 14.5px;
+}
+.mca-field textarea { resize: vertical; line-height: 1.5; }
+.mca-field input:focus, .mca-field select:focus, .mca-field textarea:focus, .mca-login input:focus { outline: 2px solid rgba(139,97,39,.35); border-color: var(--gold); }
+.mca-check { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 14px; cursor: pointer; }
+.mca-check input { width: 18px; height: 18px; accent-color: var(--green); }
+.mca-form-actions { display: flex; gap: 10px; margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--line); }
+
+.mca-file { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+.mca-file img, .mca-file video { max-width: 320px; width: 100%; max-height: 220px; object-fit: cover; border-radius: 12px; border: 1px solid var(--line); background: #0a3024; }
+.mca-file-empty { padding: 18px 22px; border: 1px dashed var(--line); border-radius: 12px; color: var(--muted); font-size: 13px; }
+.mca-file-actions { display: flex; gap: 8px; }
+
+/* page text editor */
+.mca-search { flex: 1; min-width: 220px; max-width: 420px; padding: 10px 14px; border: 1px solid var(--line); border-radius: 999px; background: #fff; font: inherit; font-size: 14.5px; color: var(--green); }
+.mca-textgroup { margin-bottom: 12px; border: 1px solid var(--line); border-radius: 14px; background: #fff; }
+.mca-textgroup > summary { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 18px; list-style: none; cursor: pointer; }
+.mca-textgroup > summary::-webkit-details-marker { display: none; }
+.mca-textgroup > summary strong { font-size: 15.5px; }
+.mca-textgroup > summary span { color: var(--muted); font-size: 12.5px; }
+.mca-textgroup[open] > summary { border-bottom: 1px solid var(--line); }
+.mca-textlist { display: flex; flex-direction: column; gap: 18px; padding: 18px; }
+.mca-textrow { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
+.mca-textrow > label { font-size: 12.5px; font-weight: 600; color: var(--muted); }
+.mca-textrow input, .mca-textrow textarea { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: #fff; color: var(--green); font: inherit; font-size: 14.5px; line-height: 1.5; }
+.mca-textrow textarea { resize: vertical; }
+.mca-textrow.edited input, .mca-textrow.edited textarea { border-color: var(--gold); background: #fffaf0; }
+.mca-textrow small { color: var(--muted); font-size: 12px; }
+.mca-textrow .mca-btn { padding: 5px 12px; font-size: 12px; }
+.mca-edited { margin-left: 8px; padding: 2px 8px; border-radius: 999px; background: #f6ead2; color: var(--gold); font-style: normal; font-size: 11px; }
+.mca-savebar { position: sticky; bottom: 0; z-index: 5; display: flex; justify-content: space-between; align-items: center; gap: 14px; margin-top: 18px; padding: 14px 18px; border: 1px solid var(--line); border-radius: 14px; background: #fff; box-shadow: 0 -6px 20px rgba(10, 48, 36, .08); font-size: 14px; }
+body .mca-shell input[type="search"] { cursor: text !important; }
+
+/* enquiries inbox */
+.mca-badge { margin-left: 8px; padding: 1px 8px; border-radius: 999px; background: #d9c08f; color: var(--green); font-style: normal; font-size: 11.5px; font-weight: 700; }
+.mca-refresh { margin-left: auto; }
+.mca-enq-list { display: flex; flex-direction: column; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.mca-enq-list li { padding: 16px 18px; border: 1px solid var(--line); border-left: 4px solid var(--gold); border-radius: 14px; background: #fff; }
+.mca-enq-list li.done { border-left-color: var(--line); opacity: .75; }
+.mca-enq-head { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.mca-enq-head strong { font-size: 16px; }
+.mca-enq-head small { margin-left: auto; color: var(--muted); }
+.mca-enq-meta { display: flex; flex-wrap: wrap; gap: 6px 22px; margin: 10px 0 0; }
+.mca-enq-meta div { display: flex; gap: 6px; font-size: 13.5px; }
+.mca-enq-meta dt { color: var(--muted); }
+.mca-enq-meta dd { margin: 0; font-weight: 600; }
+.mca-enq-meta a { color: var(--green); }
+.mca-enq-concern { margin: 10px 0 0; padding: 10px 12px; border-radius: 10px; background: var(--cream); font-size: 14px; line-height: 1.55; white-space: pre-wrap; }
+.mca-enq-list .mca-actions { margin-top: 12px; justify-content: flex-start; }
+.mca-enq-list .mca-actions a.mca-btn { text-decoration: none; }
+
+/* login */
+.mca-login { min-height: 100vh; display: grid; place-items: center; padding: 24px; background: linear-gradient(160deg, var(--green), var(--green-2)); }
+.mca-login form { width: 100%; max-width: 380px; display: flex; flex-direction: column; gap: 14px; padding: 32px; border-radius: 18px; background: #fff; box-shadow: 0 24px 60px rgba(0,0,0,.25); }
+.mca-login h1 { margin: 0; font-size: 28px; }
+.mca-login p { margin: 0 0 4px; color: var(--muted); font-size: 14px; }
+.mca-login label { display: flex; flex-direction: column; gap: 6px; font-size: 13.5px; font-weight: 600; }
+.mca-back { text-align: center; color: var(--gold); font-size: 13px; text-decoration: none; }
+
+/* On short screens (or browser zoom) drop the small hint lines so every menu item fits */
+@media (max-height: 820px) {
+  .mca-sidebar nav button span { display: none; }
+  .mca-brand span { display: none; }
+}
+
+/* The public site hides the normal mouse pointer (it draws its own custom cursor,
+   which is not loaded here). Restore a visible pointer throughout the admin. */
+body .mca-shell,
+body .mca-shell *,
+body .mca-login,
+body .mca-login * {
+  cursor: auto !important;
+}
+body .mca-shell button,
+body .mca-shell a,
+body .mca-shell label.mca-btn,
+body .mca-shell select,
+body .mca-shell .mca-check,
+body .mca-shell .mca-check *,
+body .mca-shell summary,
+body .mca-login button,
+body .mca-login a {
+  cursor: pointer !important;
+}
+body .mca-shell input[type="text"],
+body .mca-shell input[type="url"],
+body .mca-shell input[type="number"],
+body .mca-shell textarea,
+body .mca-login input {
+  cursor: text !important;
+}
+body .mca-shell button:disabled,
+body .mca-login button:disabled {
+  cursor: wait !important;
+}
+
+.mca-file-note { color: var(--muted); font-size: 12px; }
+
+/* responsive */
+@media (max-width: 900px) {
+  .mca-shell { display: block; }
+  .mca-sidebar { position: fixed; inset: 0 auto 0 0; z-index: 50; transform: translateX(-100%); transition: transform .25s ease; box-shadow: 0 0 40px rgba(0,0,0,.3); }
+  .mca-sidebar.open { transform: none; }
+  .mca-menu { display: inline-block; }
+  .mca-topbar { padding: 18px 18px 0; }
+  .mca-content { padding: 14px 18px 48px; }
+  .mca-list li { grid-template-columns: 56px 1fr; }
+  .mca-list li .mca-pill { justify-self: start; grid-column: 2; }
+  .mca-list li .mca-actions { grid-column: 1 / -1; justify-content: flex-start; }
+  .mca-slot { grid-template-columns: 80px 1fr; }
+  .mca-slot .mca-actions { grid-column: 1 / -1; justify-content: flex-start; }
+  .mca-form { padding: 18px; }
+}
+
+.mca-build { color: rgba(255,255,255,.45); font-size: 11px; padding: 4px 10px 0; }
+.mca-login .mca-build { color: var(--muted); text-align: center; padding: 0; }

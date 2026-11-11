@@ -1,0 +1,573 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
+
+.svc2-section,
+.svc2-section * {
+  box-sizing: border-box;
+}
+
+.svc2-section {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  padding: 25px 30px 55px;
+  overflow: hidden;
+  background: #fff;
+  color: #173526;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+/* Soft drifting background glow */
+.svc2-section::before,
+.svc2-section::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.45;
+  pointer-events: none;
+  animation: svc2-drift 14s ease-in-out infinite alternate;
+}
+
+.svc2-section::before {
+  top: -120px;
+  left: -90px;
+  background: #dcebdc;
+}
+
+.svc2-section::after {
+  right: -100px;
+  bottom: -140px;
+  background: #f3e6cf;
+  animation-delay: -6s;
+}
+
+.svc2-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+/* Header */
+
+.svc2-header {
+  margin: 0 auto 45px;
+  text-align: center;
+}
+
+.svc2-header h2 {
+  margin: 0;
+  color: #164719;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.svc2-tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 6px;
+  color: #183d2b;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.svc2-tag span {
+  display: inline-block;
+  color: #92703c;
+  animation: svc2-sway 3.5s ease-in-out infinite;
+}
+
+.svc2-header > p {
+  margin: 10px 0 0;
+  color: #565c58;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* Grid */
+
+.svc2-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 29px 45px;
+  align-items: stretch;
+}
+
+/* Cards */
+
+.svc2-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 19px;
+  min-width: 0;
+  min-height: 103px;
+  padding: 13px 18px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  background: #f6f3ed;
+  overflow: hidden;
+  transition: background-color 0.25s ease, box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.svc2-card:hover {
+  background: #f2f4ec;
+  box-shadow: 0 8px 22px rgba(22, 60, 37, 0.1);
+  transform: translateY(-4px);
+}
+
+/* Light sweep across the card on hover */
+.svc2-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    100deg,
+    transparent,
+    rgba(255, 255, 255, 0.7),
+    transparent
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+}
+
+.svc2-card:hover::after {
+  animation: svc2-sweep 0.9s ease;
+}
+
+/* Icon */
+
+.svc2-icon {
+  position: relative;
+  display: flex;
+  flex: 0 0 60px;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 13px;
+  background: #dcebdc;
+  color: #173d2c;
+  animation: svc2-float 4s ease-in-out infinite;
+  animation-delay: calc(var(--card-index, 0) * -0.6s);
+  transition: background-color 0.25s ease;
+}
+
+/* Pulsing ring behind the icon */
+.svc2-icon::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: #dcebdc;
+  z-index: -1;
+  animation: svc2-pulse 2.8s ease-out infinite;
+  animation-delay: calc(var(--card-index, 0) * -0.4s);
+}
+
+.svc2-icon svg {
+  transition: transform 0.35s ease;
+}
+
+.svc2-card:hover .svc2-icon {
+  background: #cfe3cf;
+}
+
+.svc2-card:hover .svc2-icon svg {
+  transform: scale(1.15) rotate(-6deg);
+}
+
+/* Content */
+
+.svc2-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.svc2-content h3 {
+  margin: 0;
+  color: #092e20;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.svc2-content p {
+  margin: 3px 0 0;
+  color: #4f5551;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+/* ------------------------------------------------------------------
+   Reveal animation (plays once when the section scrolls into view)
+   Items are only hidden once JS has run (.svc2-ready) and before the
+   section is in view, so nothing can stay invisible if JS fails.
+   Animations use "backwards" fill so hover effects keep working after.
+------------------------------------------------------------------- */
+
+/* Hidden start state */
+.svc2-ready:not(.svc2-in-view) .svc2-header h2 {
+  opacity: 0;
+  clip-path: inset(0 100% 0 0);
+}
+
+.svc2-ready:not(.svc2-in-view) .svc2-tag,
+.svc2-ready:not(.svc2-in-view) .svc2-header > p {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.svc2-ready:not(.svc2-in-view) .svc2-card,
+.svc2-ready:not(.svc2-in-view) .svc2-icon svg,
+.svc2-ready:not(.svc2-in-view) .svc2-content h3,
+.svc2-ready:not(.svc2-in-view) .svc2-content p {
+  opacity: 0;
+}
+
+/* Heading: wipe reveal from left to right + drawn underline */
+.svc2-header h2 {
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.svc2-header h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 64px;
+  height: 2px;
+  margin-left: -32px;
+  border-radius: 2px;
+  background: #92703c;
+}
+
+.svc2-in-view .svc2-header h2 {
+  animation: svc2-wipe 0.9s cubic-bezier(0.77, 0, 0.18, 1) 0.05s backwards;
+}
+
+.svc2-in-view .svc2-header h2::after {
+  animation: svc2-line 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.7s backwards;
+}
+
+.svc2-in-view .svc2-tag {
+  animation: svc2-fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.35s backwards;
+}
+
+.svc2-in-view .svc2-header > p {
+  animation: svc2-fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.5s backwards;
+}
+
+/* Cards: slide in from alternating sides with a wipe */
+.svc2-in-view .svc2-card {
+  animation: svc2-reveal-left 0.85s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  animation-delay: calc(0.7s + var(--card-index, 0) * 0.14s);
+}
+
+.svc2-in-view .svc2-card:nth-child(even) {
+  animation-name: svc2-reveal-right;
+}
+
+/* Icon pops in after its card, then text slides up */
+.svc2-in-view .svc2-icon svg {
+  animation: svc2-pop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+  animation-delay: calc(1.05s + var(--card-index, 0) * 0.14s);
+}
+
+.svc2-in-view .svc2-content h3 {
+  animation: svc2-text-in 0.6s ease backwards;
+  animation-delay: calc(1.15s + var(--card-index, 0) * 0.14s);
+}
+
+.svc2-in-view .svc2-content p {
+  animation: svc2-text-in 0.6s ease backwards;
+  animation-delay: calc(1.3s + var(--card-index, 0) * 0.14s);
+}
+
+/* Keyframes */
+
+@keyframes svc2-wipe {
+  from {
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes svc2-line {
+  from {
+    width: 0;
+    margin-left: 0;
+  }
+  to {
+    width: 64px;
+    margin-left: -32px;
+  }
+}
+
+@keyframes svc2-reveal-left {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+    clip-path: inset(0 100% 0 0 round 9px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+    clip-path: inset(0 0 0 0 round 9px);
+  }
+}
+
+@keyframes svc2-reveal-right {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+    clip-path: inset(0 0 0 100% round 9px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+    clip-path: inset(0 0 0 0 round 9px);
+  }
+}
+
+@keyframes svc2-pop {
+  from {
+    opacity: 0;
+    scale: 0;
+    rotate: -120deg;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+    rotate: 0deg;
+  }
+}
+
+@keyframes svc2-text-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes svc2-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes svc2-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes svc2-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.45);
+    opacity: 0;
+  }
+}
+
+@keyframes svc2-sweep {
+  from {
+    left: -60%;
+  }
+  to {
+    left: 130%;
+  }
+}
+
+@keyframes svc2-sway {
+  0%,
+  100% {
+    transform: rotate(-8deg);
+  }
+  50% {
+    transform: rotate(8deg);
+  }
+}
+
+@keyframes svc2-drift {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(50px, 30px) scale(1.15);
+  }
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+  .svc2-section {
+    padding: 35px 25px 45px;
+  }
+
+  .svc2-container {
+    max-width: 720px;
+  }
+
+  .svc2-grid {
+    gap: 22px;
+  }
+
+  .svc2-card {
+    gap: 14px;
+    padding: 15px;
+  }
+
+  .svc2-icon {
+    flex-basis: 52px;
+    width: 52px;
+    height: 52px;
+  }
+
+  .svc2-content h3 {
+    font-size: 15px;
+  }
+
+  .svc2-content p {
+    font-size: 12px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .svc2-in-view .svc2-card:nth-child(even) {
+    animation-name: svc2-reveal-left;
+  }
+
+  .svc2-section {
+    padding: 35px 18px 45px;
+  }
+
+  .svc2-header {
+    margin-bottom: 30px;
+  }
+
+  .svc2-header h2 {
+    font-size: 32px;
+  }
+
+  .svc2-header > p {
+    max-width: 360px;
+    margin: 10px auto 0;
+    font-size: 12px;
+  }
+
+  .svc2-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .svc2-card {
+    min-height: 100px;
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .svc2-icon {
+    flex-basis: 52px;
+    width: 52px;
+    height: 52px;
+  }
+
+  .svc2-content h3 {
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  .svc2-content p {
+    font-size: 12px;
+    line-height: 1.6;
+  }
+}
+
+/* Small phones */
+
+@media (max-width: 360px) {
+  .svc2-section {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .svc2-card {
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .svc2-icon {
+    flex-basis: 46px;
+    width: 46px;
+    height: 46px;
+  }
+
+  .svc2-content h3 {
+    font-size: 14px;
+  }
+
+  .svc2-content p {
+    font-size: 11px;
+  }
+}
+
+/* Accessible motion: turn everything off, show content immediately */
+
+@media (prefers-reduced-motion: reduce) {
+  .svc2-section *,
+  .svc2-section *::before,
+  .svc2-section *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .svc2-ready .svc2-header h2,
+  .svc2-ready .svc2-tag,
+  .svc2-ready .svc2-header > p,
+  .svc2-ready .svc2-card,
+  .svc2-ready .svc2-icon svg,
+  .svc2-ready .svc2-content h3,
+  .svc2-ready .svc2-content p {
+    opacity: 1 !important;
+    clip-path: none !important;
+    transform: none !important;
+  }
+}

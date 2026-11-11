@@ -1,0 +1,89 @@
+import React, { useState } from "react";
+import { useSiteInfo } from "./siteInfo";
+
+/* Appointment forms send the visitor to WhatsApp with a prepared message.
+   No appointment data is posted to or stored by the backend. */
+
+export function useEnquiryForm(_source, toPayload) {
+  const [status, setStatus] = useState({ state: "idle", message: "" });
+  const site = useSiteInfo();
+
+  function submit(event) {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    // Keep the honeypot behavior: silently accept bot submissions without opening an app.
+    if (String(data.get("website") || "").trim()) {
+      setStatus({ state: "sent", message: "Thank you." });
+      return;
+    }
+
+    const payload = toPayload(data);
+    const labels = {
+      full_name: "Name",
+      phone: "Phone",
+      email: "Email",
+      department: "Department / treatment",
+      preferred_date: "Preferred date",
+      preferred_time: "Preferred time",
+      concern: "Health concern / note",
+    };
+    const lines = ["Appointment request", ...Object.entries(labels)
+      .filter(([key]) => payload[key])
+      .map(([key, label]) => `${label}: ${payload[key]}`)];
+    const message = lines.join("\n");
+    const subject = "Appointment request";
+    const emailBody = encodeURIComponent(message);
+    const emailHref = `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${emailBody}`;
+    const whatsappHref = `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+    // This call stays directly in the submit gesture so browsers are less likely to block it.
+    window.open(whatsappHref, "_blank", "noopener,noreferrer");
+    form.reset();
+    setStatus({
+      state: "sent",
+      message: "WhatsApp opened with your request. Review it and tap Send. If WhatsApp isn’t available, send it by email:",
+      emailHref,
+      whatsappHref,
+    });
+  }
+
+  return { status, submit };
+}
+
+/** Hidden field that only spam bots fill in; real visitors never see it. */
+export function EnquiryHoneypot() {
+  return (
+    <input
+      type="text"
+      name="website"
+      tabIndex={-1}
+      autoComplete="off"
+      aria-hidden="true"
+      style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }}
+    />
+  );
+}
+
+export function EnquiryStatus({ status }) {
+  if (!status.message) return null;
+  return (
+    <p
+      role={status.state === "error" ? "alert" : "status"}
+      style={{
+        margin: "14px 0 0",
+        textAlign: "center",
+        fontSize: 14,
+        lineHeight: 1.5,
+        color: status.state === "error" ? "#a52a2a" : "#145a38",
+      }}
+    >
+      {status.message}
+      {status.emailHref && (
+        <> {" "}<a href={status.emailHref}>Email the request instead</a>.{" "}
+          <a href={status.whatsappHref} target="_blank" rel="noreferrer">Open WhatsApp again</a>.
+        </>
+      )}
+    </p>
+  );
+}

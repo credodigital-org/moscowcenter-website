@@ -1,0 +1,217 @@
+/* ==========================================
+   RELAXATION SLIDER + FLIP CARDS
+========================================== */
+
+.mihmc-slider {
+  --green: #00291d;
+  --gold: #8b6127;
+  --line: #ece7dc;
+  --card: #f7f3eb;
+  width: 100%;
+}
+
+.mihmc-slider-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+/* ---------- Flip mechanics ---------- */
+
+.mihmc-flip {
+  perspective: 1200px;
+}
+
+.mihmc-flip-inner {
+  display: grid; /* front + back share one cell, so height = tallest face */
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.mihmc-flip.is-flipped .mihmc-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.mihmc-flip-face {
+  grid-area: 1 / 1;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+/* ---------- Front ---------- */
+
+.mihmc-flip-face.front {
+  padding: 8px 8px 16px;
+  background: var(--card);
+  transition: box-shadow 0.25s ease;
+}
+
+.mihmc-flip:hover .mihmc-flip-face.front {
+  box-shadow: 0 16px 34px rgba(25, 37, 28, 0.11);
+}
+
+.mihmc-flip-photo {
+  height: 380px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.mihmc-flip-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.mihmc-flip:hover .mihmc-flip-photo img {
+  transform: scale(1.06);
+}
+
+.mihmc-flip-face.front h4 {
+  margin: 14px 10px 4px;
+  color: #0a3024;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.mihmc-flip-face.front p {
+  margin: 0 10px;
+  color: #585b55;
+  font-size: 15px;
+}
+
+/* ---------- Back ---------- */
+
+.mihmc-flip-face.back {
+  display: flex;
+  flex-direction: column;
+  padding: 22px 22px 18px;
+  background: #fff;
+  transform: rotateY(180deg);
+  box-shadow: 0 16px 34px rgba(25, 37, 28, 0.11);
+}
+
+.mihmc-flip-tag {
+  align-self: flex-end;
+  color: #7a7d75;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1.4px;
+}
+
+.mihmc-flip-face.back h4 {
+  margin: 4px 0 8px;
+  color: #0a3024;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.mihmc-flip-face.back .detail {
+  margin: 0 0 14px;
+  color: #585b55;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.mihmc-flip-face.back ul {
+  margin: 0 0 14px;
+  padding: 14px 0 0;
+  border-top: 1px solid var(--line);
+  list-style: none;
+}
+
+.mihmc-flip-face.back li {
+  position: relative;
+  padding: 3px 0 3px 14px;
+  color: #3f453f;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.mihmc-flip-face.back li::before {
+  content: "";
+  position: absolute;
+  top: 9px;
+  left: 0;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+/* ---------- Buttons ---------- */
+
+.mihmc-flip-link {
+  align-self: flex-start;
+  margin: 12px 10px 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--gold);
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.mihmc-flip-link:hover {
+  text-decoration: underline;
+}
+
+.mihmc-flip-face.back .mihmc-flip-link {
+  margin: auto 0 0;
+}
+
+/* ---------- Dots ---------- */
+
+.mihmc-slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 22px;
+}
+
+.mihmc-slider-dots button {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: #d9d3c4;
+  cursor: pointer;
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.mihmc-slider-dots button.active {
+  width: 24px;
+  background: var(--green);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 600px) {
+  .mihmc-slider-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mihmc-flip-photo {
+    height: 200px;
+  }
+
+  .mihmc-flip-face.back .detail,
+  .mihmc-flip-face.back li {
+    font-size: 11px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mihmc-flip-inner,
+  .mihmc-flip-photo img {
+    transition: none;
+  }
+}

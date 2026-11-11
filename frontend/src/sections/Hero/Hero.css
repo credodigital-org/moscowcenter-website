@@ -1,0 +1,884 @@
+/* =========================================
+   MOSCOW HERO SECTION
+========================================= */
+
+.moscow-hero,
+.moscow-hero * {
+  box-sizing: border-box;
+}
+
+.moscow-hero {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  height: 553px;
+  min-height: 553px;
+  overflow: hidden;
+  background: #ffffff;
+  font-family: "DM Sans", Arial, sans-serif;
+}
+
+/* =========================================
+   THREE BACKGROUND IMAGE PANELS
+========================================= */
+
+.treatment-panels {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.treatment-panel {
+  position: relative;
+  height: 100%;
+  flex-shrink: 0;
+  overflow: hidden;
+
+  /* background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  transition: background-size 0.4s ease; */
+}
+
+/* Ayurveda: left image */
+
+.ayurveda-panel {
+  z-index: 1;
+  width: 36%;
+  margin-right: -6.0%;
+
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    82% 100%,
+    0 100%
+  );
+
+  background-position: center center;
+}
+
+/* Hijama: middle image */
+
+.hijama-panel {
+  z-index: 2;
+  width: 39%;
+  margin-right: -6.0%;
+
+  clip-path: polygon(
+    18% 0,
+    100% 0,
+    83% 100%,
+    0 100%
+  );
+
+  background-position: center center;
+}
+
+/* Homeopathy: right image */
+
+.homeopathy-panel {
+  z-index: 1;
+  flex: 1;
+  min-width: 0;
+
+  clip-path: polygon(
+    18% 0,
+    100% 0,
+    100% 100%,
+    0 100%
+  );
+
+  background-position: center center;
+}
+
+/* Image fade */
+
+.treatment-image-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 80%,
+    rgba(255, 255, 255, 0.08) 80%,
+    /* rgba(255, 255, 255, 0.35) 76%, */
+    #ffffff 88%,
+    #ffffff 100%
+  );
+}
+
+.moscow-hero-bottom-fade {
+  display: none;
+}
+/* =========================================
+   TREATMENT TITLES
+========================================= */
+
+.treatment-title-wrap {
+  position: absolute;
+  right: 0;
+  bottom: 23px;
+  left: 0;
+  z-index: 3;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0 8px;
+}
+
+.treatment-title-wrap h2 {
+  margin: 0;
+  padding: 0 2px 3px;
+
+  border-bottom: 2px solid #b59a35;
+
+  color: #063126;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(20px, 2.8vw, 34px);
+  font-weight: 400;
+  line-height: 1.15;
+  text-align: center;
+  white-space: nowrap;
+}
+
+
+/* =========================================
+   LEFT TRANSLUCENT CONTENT CARD
+========================================= */
+
+.moscow-hero-content {
+  position: absolute;
+  top: 8px;
+  left: max(8.7%, calc((100% - 1056px) / 2));
+  z-index: 5;
+
+  width: 310px;
+  min-height: 413px;
+  padding: 42px 36px 25px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 5px;
+
+  background: rgba(111, 76, 37, 0.67);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.13);
+
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+
+  color: #ffffff;
+}
+
+/* Main heading */
+
+.moscow-hero-content h1 {
+  margin: 0;
+
+  color: #ffffff;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 27px;
+  font-weight: 700;
+  line-height: 1.17;
+  letter-spacing: -0.6px;
+}
+
+/* Italic subtitle */
+
+.moscow-hero-subtitle {
+  margin: 3px 0 11px;
+
+  color: #f8dfb3;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.17;
+  letter-spacing: -0.5px;
+}
+
+/* Description */
+
+.moscow-hero-description {
+  margin: 0 0 21px;
+
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.48;
+}
+
+/* Consultation button */
+
+.moscow-hero-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 38px;
+  padding: 0 20px;
+
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 3px;
+
+  background: #ffffff;
+  color: #123e0c;
+
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.moscow-hero-button:hover {
+  background: #104b05;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.moscow-hero-button:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 4px;
+}
+
+/* =========================================
+   WHITE BOTTOM FADE
+========================================= */
+
+.moscow-hero-bottom-fade {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 4;
+
+  height: 82px;
+  pointer-events: none;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.65) 58%,
+    #ffffff 100%
+  );
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .moscow-hero {
+    height: 430px;
+    min-height: 430px;
+  }
+
+  .moscow-hero-content {
+    left: 5%;
+    width: 285px;
+    min-height: 390px;
+    padding: 34px 27px 22px;
+  }
+
+  .moscow-hero-content h1,
+  .moscow-hero-subtitle {
+    font-size: 25px;
+  }
+
+  .moscow-hero-description {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .treatment-title-wrap h2 {
+    font-size: clamp(18px, 2.5vw, 27px);
+  }
+
+  .treatment-title-wrap {
+    bottom: 18px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .moscow-hero {
+    display: flex;
+    flex-direction: column;
+
+    height: auto;
+    min-height: 0;
+    overflow: hidden;
+
+    padding-bottom: 20px;
+    background: #ffffff;
+  }
+
+  .treatment-panels {
+    position: relative;
+    inset: auto;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+
+    width: 100%;
+    height: auto;
+  }
+
+  .treatment-panel,
+  .ayurveda-panel,
+  .hijama-panel,
+  .homeopathy-panel {
+    width: 100%;
+    height: 350px;
+    min-width: 0;
+    margin-right: 0;
+
+    clip-path: none;
+    flex: initial;
+
+    background-position: center 42%;
+  }
+
+  .treatment-title-wrap {
+    bottom: 12px;
+  }
+
+  .treatment-title-wrap h2 {
+    font-size: 25px;
+  }
+
+  .treatment-image-shade {
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0) 80%,
+      rgba(255, 255, 255, 0.08) 80%,
+      /* rgba(255, 255, 255, 0.35) 76%, */
+      #ffffff 88%,
+      #ffffff 100%
+    );
+  }
+
+  .moscow-hero-content {
+    position: relative;
+    top: auto;
+    left: auto;
+    z-index: 5;
+
+    width: calc(100% - 32px);
+    min-height: 0;
+
+    margin: -15px auto 0;
+    padding: 28px 25px;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+
+    background: rgba(91, 65, 35, 0.96);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.13);
+
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .moscow-hero-content h1 {
+    font-size: 27px;
+    line-height: 1.2;
+  }
+
+  .moscow-hero-subtitle {
+    margin-top: 5px;
+    font-size: 27px;
+    line-height: 1.2;
+  }
+
+  .moscow-hero-description {
+    margin-bottom: 20px;
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  .moscow-hero-bottom-fade {
+    display: none;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 360px) {
+  .treatment-panel,
+  .ayurveda-panel,
+  .hijama-panel,
+  .homeopathy-panel {
+    height: 290px;
+  }
+
+  .treatment-title-wrap h2 {
+    font-size: 22px;
+  }
+
+  .moscow-hero-content {
+    width: calc(100% - 24px);
+    padding: 24px 20px;
+  }
+
+  .moscow-hero-content h1,
+  .moscow-hero-subtitle {
+    font-size: 24px;
+  }
+
+  .moscow-hero-description {
+    font-size: 12px;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .moscow-hero-button {
+    transition: none;
+  }
+}
+
+/* =========================================
+   HIGH-LEVEL ANIMATION STYLES
+========================================= */
+
+/* Image layer (parallax / zoom) */
+.treatment-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  will-change: transform, filter;
+}
+
+/* Curtain wipe */
+.treatment-curtain {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+  background: linear-gradient(135deg, #063126 0%, #0b4a39 100%);
+  will-change: transform;
+}
+
+/* Heading line masks */
+.reveal-line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.1em;
+  margin-bottom: -0.1em;
+}
+
+.reveal-line-inner {
+  display: block;
+  transform-origin: left bottom;
+  will-change: transform;
+}
+
+/* Title letters */
+.title-letters {
+  display: inline-flex;
+  justify-content: center;
+}
+
+.title-mask {
+  display: inline-block;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+}
+
+.title-char {
+  display: inline-block;
+  will-change: transform;
+}
+
+.treatment-title-wrap h2 .title-line {
+  position: absolute;
+  right: 2px;
+  bottom: 0;
+  left: 2px;
+  height: 2px;
+  background: #b59a35;
+  transform-origin: center;
+}
+
+/* Button */
+.moscow-hero-button-wrap {
+  display: inline-block;
+}
+
+.moscow-hero-button {
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.moscow-hero-button .btn-label {
+  position: relative;
+  z-index: 1;
+}
+
+.moscow-hero-button .btn-shine {
+  position: absolute;
+  top: 0;
+  left: -75%;
+  z-index: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    100deg,
+    transparent,
+    rgba(181, 154, 53, 0.45),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: left 0.7s ease;
+}
+
+.moscow-hero-button:hover .btn-shine {
+  left: 125%;
+}
+
+/* Mobile: keep your original image focus point */
+@media (max-width: 600px) {
+  .treatment-bg {
+    background-position: center 42%;
+  }
+}
+/* =========================================
+   HERO: LIVE FOOTAGE (desktop / tablet)
+   Append to the END of Hero.css
+========================================= */
+
+/* 1. Slow camera drift on each image, like a looping video.
+      Uses the individual `scale` / `translate` properties so it
+      stacks on top of Framer Motion's own transform without clashing. */
+.treatment-bg {
+  animation: hero-drift-a 18s ease-in-out 2.4s infinite alternate;
+}
+
+.hijama-panel .treatment-bg {
+  animation-name: hero-drift-b;
+  animation-duration: 22s;
+}
+
+.homeopathy-panel .treatment-bg {
+  animation-name: hero-drift-c;
+  animation-duration: 20s;
+}
+
+@keyframes hero-drift-a {
+  from { scale: 1;    translate: 0 0; }
+  to   { scale: 1.07; translate: -1.6% 1%; }
+}
+
+@keyframes hero-drift-b {
+  from { scale: 1.05; translate: 1.2% 0.8%; }
+  to   { scale: 1;    translate: -1.2% -1%; }
+}
+
+@keyframes hero-drift-c {
+  from { scale: 1;    translate: 0 1%; }
+  to   { scale: 1.06; translate: 1.6% -0.8%; }
+}
+
+/* 2. Floating golden dust + slow light sweep */
+.hero-live {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-mote {
+  position: absolute;
+  bottom: -12px;
+  left: var(--x);
+  width: var(--s);
+  height: var(--s);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 236, 180, 0.95) 0%,
+    rgba(255, 236, 180, 0) 70%
+  );
+  opacity: 0;
+  animation: hero-mote-rise var(--dur) linear var(--delay) infinite;
+}
+
+@keyframes hero-mote-rise {
+  0%   { opacity: 0;   transform: translate(0, 0); }
+  12%  { opacity: 0.9; }
+  60%  { opacity: 0.7; }
+  100% { opacity: 0;   transform: translate(var(--drift), -520px); }
+}
+
+.hero-lightsweep {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    transparent 40%,
+    rgba(255, 240, 200, 0.26) 50%,
+    transparent 60%
+  );
+  background-size: 300% 100%;
+  background-repeat: no-repeat;
+  background-position: 160% 0;
+  mix-blend-mode: screen;
+  animation: hero-lightsweep 10s ease-in-out 3s infinite;
+}
+
+@keyframes hero-lightsweep {
+  0%, 55% { background-position: 160% 0; }
+  100%    { background-position: -60% 0; }
+}
+
+/* =========================================
+   HERO: MOBILE CAROUSEL (600px and below)
+   Replaces the three stacked images with one
+   swipeable, auto-playing treatment slider.
+========================================= */
+
+.m-slider {
+  position: relative;
+  width: 100%;
+  padding-bottom: 22px;
+}
+
+.m-stage {
+  position: relative;
+  width: 100%;
+  height: 360px;
+  overflow: hidden;
+  touch-action: pan-y;
+  cursor: grab;
+  background: #063126;
+}
+
+.m-stage:active {
+  cursor: grabbing;
+}
+
+.m-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.m-slide.is-active {
+  opacity: 1;
+}
+
+.m-slide-img {
+  position: absolute;
+  inset: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center 42%;
+  scale: 1.15;
+}
+
+/* Slow push-in on the slide that is showing */
+.m-slide.is-active .m-slide-img {
+  animation: m-push-in 3s ease-out forwards;
+}
+
+@keyframes m-push-in {
+  from { scale: 1.15; translate: 0 0; }
+  to   { scale: 1.02; translate: 0 -1.5%; }
+}
+
+.m-slide-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(6, 49, 38, 0) 45%,
+    rgba(6, 49, 38, 0.72) 100%
+  );
+}
+
+.m-slide-title {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 22px;
+  margin: 0;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  color: #ffffff;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  line-height: 1.1;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
+}
+
+.m-letter {
+  display: inline-block;
+  opacity: 0;
+}
+
+.m-slide.is-active .m-letter {
+  animation: m-letter-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  animation-delay: calc(var(--n, 0) * 45ms + 250ms);
+  opacity: 1;
+}
+
+@keyframes m-letter-in {
+  from {
+    opacity: 0;
+    transform: translateY(26px) rotate(6deg);
+  }
+}
+
+/* Tabs with a progress line inside the active one */
+.m-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 14px 16px 0;
+}
+
+.m-tab {
+  position: relative;
+  padding: 8px 0 12px;
+
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+
+  color: #7d8a83;
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: left;
+
+  transition: color 0.3s ease;
+}
+
+.m-tab.is-active {
+  color: #063126;
+  font-weight: 700;
+}
+
+.m-tab:focus-visible {
+  outline: 2px solid #b59a35;
+  outline-offset: 2px;
+}
+
+.m-tab-track {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  border-radius: 3px;
+  background: rgba(6, 49, 38, 0.14);
+  overflow: hidden;
+}
+
+.m-tab::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  border-radius: 3px;
+  background: rgba(6, 49, 38, 0.14);
+}
+
+.m-tab-progress {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #b59a35;
+  transform-origin: left;
+  animation: m-progress 2.5s linear forwards;
+}
+
+@keyframes m-progress {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+@media (max-width: 600px) {
+  /* The card now sits cleanly under the tabs */
+  .moscow-hero-content {
+    margin: 4px auto 0;
+  }
+}
+
+@media (max-width: 360px) {
+  .m-stage {
+    height: 300px;
+  }
+
+  .m-slide-title {
+    font-size: 25px;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION (new effects)
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .treatment-bg,
+  .hero-mote,
+  .hero-lightsweep,
+  .m-slide.is-active .m-slide-img,
+  .m-slide.is-active .m-letter {
+    animation: none;
+  }
+
+  .hero-live {
+    display: none;
+  }
+
+  .m-slide.is-active .m-letter {
+    opacity: 1;
+  }
+
+  .m-slide {
+    transition: none;
+  }
+
+  .m-tab-progress {
+    animation: none;
+    transform: scaleX(1);
+  }
+}

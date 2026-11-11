@@ -1,0 +1,429 @@
+import React from "react";
+import { motion, useReducedMotion } from "motion/react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  ShieldCheck,
+  BriefcaseMedical,
+  CalendarDays,
+  Zap,
+  ArrowRight,
+  Navigation,
+} from "lucide-react";
+import "./Contact.css";
+
+import mapImage from "../../assets/images/map.png";
+import { slotImgProps, useSlotImage } from "../../lib/cms";
+
+import T from "../../components/T";
+import { useSiteInfo } from "../../lib/siteInfo";
+import { EnquiryHoneypot, EnquiryStatus, useEnquiryForm } from "../../lib/enquiry";
+export default function Contact() {
+  const site = useSiteInfo();
+  const mapSrc = useSlotImage("home-contact-map", mapImage);
+  const reduceMotion = useReducedMotion();
+
+  // Sends the request to WhatsApp on phones/tablets or email on desktop; no backend record is created.
+  const enquiry = useEnquiryForm("home", (d) => ({
+    full_name: d.get("name") || "",
+    phone: `+971 ${d.get("phone") || ""}`.trim(),
+    department: d.get("department") || "",
+    preferred_date: d.get("appointmentDate") || "",
+    concern: d.get("concern") || "",
+  }));
+  const handleSubmit = enquiry.submit;
+
+  const revealFromBottom = {
+    initial: reduceMotion
+      ? { opacity: 1 }
+      : { opacity: 0, y: 30, scale: 0.98 },
+    whileInView: { opacity: 1, y: 0, scale: 1 },
+    viewport: { once: true, amount: 0.2 },
+    transition: { duration: 0.75, ease: "easeOut" },
+  };
+
+  return (
+    <section className="healthcare-contact-section" id="appointment">
+      <div className="healthcare-contact-container">
+        {/* Animated section heading */}
+        <motion.header
+          className="healthcare-contact-header"
+          initial={
+            reduceMotion
+              ? { opacity: 1 }
+              : { opacity: 0, y: 35, scale: 0.97 }
+          }
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <h2>
+            <T k="home.contact-section.connect-with-our-healthcar-af03" d={"Connect With Our Healthcare\nTeam"} br={""} /></h2>
+
+          <p>
+            <T k="home.contact-section.book-your-consultation-and-2b77" d={"Book your consultation and discover personalised holistic care through Homeopathy,\nAyurveda, and Cupping Therapy, tailored to your individual needs."} br={"className=\"contact-desktop-break\""} /></p>
+        </motion.header>
+
+        {/* Main content */}
+        <div className="healthcare-contact-layout">
+          {/* Left contact column */}
+          <motion.div
+            className="healthcare-contact-left"
+            initial={
+              reduceMotion ? { opacity: 1 } : { opacity: 0, x: -45 }
+            }
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{
+              duration: 0.8,
+              delay: reduceMotion ? 0 : 0.12,
+              ease: "easeOut",
+            }}
+          >
+            {/* Contact information card */}
+            <motion.div
+              className="healthcare-contact-info-card"
+              {...revealFromBottom}
+              whileHover={
+                reduceMotion
+                  ? undefined
+                  : { y: -3, transition: { duration: 0.25 } }
+              }
+            >
+              {/* Phone */}
+              <motion.div
+                className="healthcare-contact-item"
+                initial={reduceMotion ? false : { opacity: 0, x: -12 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: 0.1 }}
+              >
+                <div className="healthcare-contact-icon">
+                  <Phone size={14} />
+                </div>
+
+                <div className="healthcare-contact-item-content">
+                  <h3><T k="home.contact-section.telephone-whatsapp-b52d" d={"TELEPHONE & WHATSAPP"} /></h3>
+                  <a href={site.tel ?? "tel:+971 50 780 0163"}>{site.phone ?? "+971 50 780 0163"}</a>
+                  <p>WhatsApp: {site.phone ?? "+971 50 780 0163"}</p>
+                </div>
+              </motion.div>
+
+              {/* Email */}
+              <motion.div
+                className="healthcare-contact-item"
+                initial={reduceMotion ? false : { opacity: 0, x: -12 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: 0.18 }}
+              >
+                <div className="healthcare-contact-icon">
+                  <Mail size={14} />
+                </div>
+
+                <div className="healthcare-contact-item-content">
+                  <h3><T k="home.contact-section.email-inquiries-bc38" d={"EMAIL INQUIRIES"} /></h3>
+                  <a href={site.mailto ?? "mailto:info@moscowcenter.ae"}>
+                    {site.email ?? "info@moscowcenter.ae"}
+                  </a>
+                  <a
+                    className="healthcare-contact-secondary-link"
+                    href={site.mailto ?? "mailto:info@moscowcenter.ae"}
+                  >
+                    {site.email ?? "info@moscowcenter.ae"}
+                  </a>
+                </div>
+              </motion.div>
+
+              {/* Location */}
+              <motion.div
+                className="healthcare-contact-item"
+                initial={reduceMotion ? false : { opacity: 0, x: -12 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: 0.26 }}
+              >
+                <div className="healthcare-contact-icon">
+                  <MapPin size={14} />
+                </div>
+
+                <div className="healthcare-contact-item-content">
+                  <h3><T k="home.contact-section.hospital-location-19cf" d={"HOSPITAL LOCATION"} /></h3>
+                  <p className="healthcare-contact-strong">
+                    <T k="home.contact-section.shabeeb-al-dehari-building-fad2" d={"Shabeeb Al Dehari Building Khalifa Street"} /></p>
+                  <p><T k="home.contact-section.abu-dhabi-united-arab-emir-e053" d={"Abu Dhabi, United Arab Emirates"} /></p>
+
+                  <span className="healthcare-location-badge">
+                    <Navigation size={10} />
+                    <T k="home.contact-section.near-khalifa-street-d9e0" d={"Near Khalifa Street"} /></span>
+                </div>
+              </motion.div>
+
+              {/* Consultation timings */}
+              <motion.div
+                className="healthcare-contact-item"
+                initial={reduceMotion ? false : { opacity: 0, x: -12 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: 0.34 }}
+              >
+                <div className="healthcare-contact-icon">
+                  <Clock size={14} />
+                </div>
+
+                <div className="healthcare-contact-item-content">
+                  <h3><T k="home.contact-section.consultation-timings-17b4" d={"CONSULTATION TIMINGS"} /></h3>
+                  <p className="healthcare-contact-strong">
+                    <T k="home.contact-section.tue-sun-10-00-am-9-00-pm-8324" d={"Tue – Sun: 10:00 AM – 9:00 PM"} /></p>
+                  <p><T k="home.contact-section.sunday-prior-appointment-o-f1d0" d={"Sunday: Prior Appointment Only"} /></p>
+                </div>
+              </motion.div>
+            </motion.div>
+
+            {/* Support cards */}
+            <motion.div
+              className="healthcare-contact-support-grid"
+              initial={
+                reduceMotion ? { opacity: 1 } : { opacity: 0, y: 22 }
+              }
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.65, delay: 0.15 }}
+            >
+              <motion.div
+                className="healthcare-support-card"
+                whileHover={
+                  reduceMotion
+                    ? undefined
+                    : { y: -5, scale: 1.025 }
+                }
+                transition={{ duration: 0.22 }}
+              >
+                <ShieldCheck size={16} />
+                <h4><T k="home.contact-section.insurance-claims-ae42" d={"Insurance Claims"} /></h4>
+                <p><T k="home.contact-section.reimbursement-support-e14e" d={"Reimbursement Support"} /></p>
+              </motion.div>
+
+              <motion.div
+                className="healthcare-support-card"
+                whileHover={
+                  reduceMotion
+                    ? undefined
+                    : { y: -5, scale: 1.025 }
+                }
+                transition={{ duration: 0.22 }}
+              >
+                <BriefcaseMedical size={16} />
+                <h4><T k="home.contact-section.direct-care-20c3" d={"Direct Care"} /></h4>
+                <p><T k="home.contact-section.holistic-follow-up-b03c" d={"Holistic Follow-up"} /></p>
+              </motion.div>
+
+              {/* Animated map preview */}
+              <motion.a
+                className="healthcare-map-card"
+                href="https://maps.google.com/maps?q=24.491975784301758%2C54.36055374145508&z=17&hl=en"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Open Khalifa Street Abu Dhabi in Google Maps"
+                whileHover={
+                  reduceMotion ? undefined : { scale: 1.025 }
+                }
+                transition={{ duration: 0.25 }}
+              >
+                <img
+                  className="healthcare-map-image"
+                  {...slotImgProps(mapSrc)}
+                  alt="Map showing the Moscow International Holistic Centre location"
+                  loading="lazy"
+                />
+
+                <motion.span
+                  className="healthcare-map-pin"
+                  animate={
+                    reduceMotion
+                      ? undefined
+                      : { y: [0, -5, 0], scale: [1, 1.08, 1] }
+                  }
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <MapPin size={10} />
+                </motion.span>
+              </motion.a>
+            </motion.div>
+          </motion.div>
+
+          {/* Right appointment form */}
+          <motion.div
+            className="healthcare-appointment-card"
+            initial={
+              reduceMotion
+                ? { opacity: 1 }
+                : { opacity: 0, x: 45, scale: 0.98 }
+            }
+            whileInView={{ opacity: 1, x: 0, scale: 1 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{
+              duration: 0.85,
+              delay: reduceMotion ? 0 : 0.2,
+              ease: "easeOut",
+            }}
+            whileHover={
+              reduceMotion
+                ? undefined
+                : {
+                    boxShadow: "0 14px 32px rgba(16, 53, 40, 0.08)",
+                    transition: { duration: 0.3 },
+                  }
+            }
+          >
+            <div className="healthcare-appointment-header">
+              <div>
+                <h3><T k="home.contact-section.book-a-consultation-685a" d={"Book a Consultation"} /></h3>
+                <p>
+                  <T k="home.contact-section.experience-authentic-diagn-84af" d={"Experience authentic diagnostic evaluation & personalized therapy regimens"} /></p>
+              </div>
+
+              <motion.span
+                className="healthcare-rapid-badge"
+                animate={
+                  reduceMotion
+                    ? undefined
+                    : { opacity: [1, 0.75, 1] }
+                }
+                transition={{
+                  duration: 2.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              >
+                <Zap size={11} />
+                <T k="home.contact-section.rapid-confirmation-cc51" d={"Rapid Confirmation"} /></motion.span>
+            </div>
+
+            <div className="healthcare-appointment-divider" />
+
+            <form
+              className="healthcare-appointment-form"
+              onSubmit={handleSubmit}
+            >
+              <EnquiryHoneypot />
+              <div className="healthcare-form-grid">
+                {/* Full name */}
+                <div className="healthcare-form-field">
+                  <label htmlFor="patient-name">FULL NAME *</label>
+                  <input
+                    id="patient-name"
+                    name="name"
+                    type="text"
+                    placeholder="e.g. Fatima Al Suwaidi"
+                    autoComplete="name"
+                    required
+                  />
+                </div>
+
+                {/* Phone number */}
+                <div className="healthcare-form-field">
+                  <label htmlFor="patient-phone">PHONE NUMBER *</label>
+
+                  <div className="healthcare-phone-input">
+                    <span>+971</span>
+                    <input
+                      id="patient-phone"
+                      name="phone"
+                      type="tel"
+                      placeholder="50 123 4567"
+                      autoComplete="tel-national"
+                      required
+                    />
+                  </div>
+                </div>
+
+                {/* Department */}
+                <div className="healthcare-form-field">
+                  <label htmlFor="patient-department">
+                    PREFERRED DEPARTMENT / TREATMENT *
+                  </label>
+
+                  <select
+                    id="patient-department"
+                    name="department"
+                    defaultValue="General Vaidya Consultation"
+                    required
+                  >
+                    <option value="General Vaidya Consultation">
+                      General Vaidya Consultation
+                    </option>
+                    <option value="Ayurvedic Treatments">
+                      Ayurvedic Treatments
+                    </option>
+                    <option value="Homeopathy">Homeopathy</option>
+                    <option value="Cupping Therapy">Cupping Therapy</option>
+                    <option value="Panchakarma">Panchakarma</option>
+                    <option value="General Consultation">
+                      General Consultation
+                    </option>
+                  </select>
+                </div>
+
+                {/* Date and time */}
+                <div className="healthcare-form-field">
+                  <label htmlFor="patient-date">
+                    PREFERRED DATE &amp; TIME *
+                  </label>
+
+                  <input
+                    id="patient-date"
+                    name="appointmentDate"
+                    type="datetime-local"
+                    required
+                  />
+                </div>
+
+                {/* Health concern */}
+                <div className="healthcare-form-field healthcare-form-full">
+                  <label htmlFor="patient-concern">
+                    BRIEF HEALTH CONCERN / NOTE
+                  </label>
+
+                  <textarea
+                    id="patient-concern"
+                    name="concern"
+                    placeholder="Describe your symptoms, chronic conditions, or specific Panchakarma requirements..."
+                    rows={3}
+                  />
+                </div>
+              </div>
+
+              {/* Animated submit button */}
+              <motion.button
+                type="submit"
+                disabled={enquiry.status.state === "sending"}
+                className="healthcare-appointment-submit"
+                whileHover={
+                  reduceMotion
+                    ? undefined
+                    : { scale: 1.015, y: -2 }
+                }
+                whileTap={
+                  reduceMotion ? undefined : { scale: 0.98 }
+                }
+                transition={{ duration: 0.2 }}
+              >
+                <CalendarDays size={14} />
+                <span><T k="home.contact-section.request-doctor-appointment-e784" d={"Request Doctor Appointment"} /></span>
+                <ArrowRight size={15} />
+              </motion.button>
+              <EnquiryStatus status={enquiry.status} />
+
+              <p className="healthcare-appointment-note">
+                <Clock size={10} />
+                <T k="home.contact-section.our-clinical-coordinator-w-566c" d={"Our clinical coordinator will confirm your appointment within 30 minutes."} /></p>
+            </form>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}

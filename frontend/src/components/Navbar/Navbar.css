@@ -1,0 +1,828 @@
+/* =========================================
+   MOSCOW MEDICAL CENTER HEADER
+   Fixed header that morphs into a floating pill on scroll
+========================================= */
+
+.moscow-header,
+.moscow-header * {
+  box-sizing: border-box;
+}
+
+.moscow-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+  width: 100%;
+  height: 109px;
+  margin: 0 auto;
+  border-radius: 0;
+
+  background: rgba(255, 255, 255, 0.97);
+  border: 1px solid #d6d6d6;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+
+  animation: moscow-header-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+
+  transition:
+    top 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    width 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    height 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-radius 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 350ms ease,
+    box-shadow 350ms ease,
+    border-color 350ms ease;
+}
+
+@keyframes moscow-header-in {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+
+/* Floating glass pill while scrolling */
+.moscow-header.is-scrolled {
+  top: 10px;
+  width: calc(100% - 32px);
+  height: 76px;
+  border-radius: 18px;
+  border-color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow:
+    0 10px 34px rgba(16, 75, 5, 0.16),
+    0 2px 8px rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.moscow-header-container {
+  width: calc(100% - 80px);
+  max-width: 1270px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  transition: width 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.moscow-header.is-scrolled .moscow-header-container {
+  width: calc(100% - 48px);
+}
+
+/* =========================================
+   LOGO (animation lives in LogoMark.css)
+========================================= */
+
+.moscow-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.moscow-logo img {
+  display: block;
+  width: 100px;
+  height: 88px;
+  object-fit: contain;
+  transition:
+    width 350ms ease,
+    height 350ms ease;
+}
+
+.moscow-header.is-scrolled .moscow-logo img {
+  width: 66px;
+  height: 60px;
+}
+
+/* =========================================
+   HEADER BUTTONS
+========================================= */
+
+.moscow-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.moscow-header-btn,
+.moscow-menu-btn {
+  position: relative;
+  overflow: hidden;
+  min-height: 37px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 3px;
+  background: #104b05;
+  color: #ffffff;
+  text-decoration: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16);
+  transition:
+    background-color 250ms ease,
+    transform 250ms ease,
+    box-shadow 250ms ease,
+    min-height 350ms ease;
+}
+
+.moscow-header.is-scrolled .moscow-header-btn,
+.moscow-header.is-scrolled .moscow-menu-btn {
+  min-height: 34px;
+}
+
+.moscow-header-btn {
+  padding: 0 20px;
+  font-size: 15px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.moscow-header-btn:hover,
+.moscow-menu-btn:hover {
+  background: #176c09;
+  transform: translateY(-1px);
+}
+
+.consultation-btn {
+  min-width: 143px;
+}
+
+.call-btn {
+  min-width: 78px;
+}
+
+.moscow-menu-btn {
+  width: 47px;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* Buttons drop in, consultation button pulses */
+.moscow-header-actions > .consultation-btn {
+  animation:
+    moscow-drop-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.35s backwards,
+    moscow-pulse 3.4s ease-out 2.2s infinite;
+}
+
+.moscow-header-actions > .call-btn {
+  animation: moscow-drop-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.45s backwards;
+}
+
+.moscow-header-actions > .moscow-menu-btn {
+  animation: moscow-drop-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.55s backwards;
+}
+
+@keyframes moscow-drop-in {
+  from {
+    opacity: 0;
+    translate: 0 -18px;
+  }
+}
+
+@keyframes moscow-pulse {
+  0% {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), 0 0 0 0 rgba(16, 75, 5, 0.45);
+  }
+  70%,
+  100% {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), 0 0 0 12px rgba(16, 75, 5, 0);
+  }
+}
+
+/* Shine sweep on hover */
+.moscow-header-btn::after,
+.moscow-menu-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 50%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(
+    100deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: left 0.7s ease;
+}
+
+.moscow-header-btn:hover::after,
+.moscow-menu-btn:hover::after {
+  left: 130%;
+}
+
+/* Menu icon swap */
+.moscow-menu-icon {
+  display: inline-flex;
+  animation: moscow-icon-spin 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes moscow-icon-spin {
+  from {
+    opacity: 0;
+    rotate: -90deg;
+    scale: 0.5;
+  }
+}
+
+/* =========================================
+   SCROLL PROGRESS LINE
+========================================= */
+
+.moscow-scroll-progress {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 3px;
+  pointer-events: none;
+  background: linear-gradient(90deg, #104b05, #80c85b, #b59a35);
+  transform-origin: left;
+  will-change: transform;
+}
+
+.moscow-header.is-scrolled .moscow-scroll-progress {
+  left: 18px;
+  right: 18px;
+  bottom: 3px;
+  width: auto;
+  border-radius: 3px;
+}
+
+/* =========================================
+   BLURRED BACKDROP
+========================================= */
+
+.moscow-menu-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 10001;
+  background: rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.45s ease,
+    visibility 0.45s ease;
+}
+
+.moscow-menu-backdrop.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* =========================================
+   GLASS SIDE MENU
+========================================= */
+
+.moscow-side-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 10002;
+
+  width: min(307px, 82vw);
+  height: 100vh;
+  height: 100dvh;
+
+  overflow-y: auto;
+  overscroll-behavior: contain;
+
+  padding: 128px 28px 32px;
+
+  background: rgba(24, 75, 13, 0.68);
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: -12px 0 35px rgba(0, 0, 0, 0.14);
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  transform: translateX(102%);
+  visibility: hidden;
+
+  transition:
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0.6s;
+}
+
+.moscow-side-menu.open {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+/* Light sheen sweeping across the panel on open */
+.moscow-side-menu::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -70%;
+  width: 60%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(
+    100deg,
+    transparent,
+    rgba(255, 255, 255, 0.14),
+    transparent
+  );
+  transform: skewX(-18deg);
+}
+
+.moscow-side-menu.open::before {
+  animation: moscow-menu-sheen 1.4s ease 0.25s;
+}
+
+@keyframes moscow-menu-sheen {
+  0% {
+    left: -70%;
+    opacity: 1;
+  }
+  100% {
+    left: 130%;
+    opacity: 1;
+  }
+}
+
+/* =========================================
+   CLOSE BUTTON
+========================================= */
+
+.moscow-menu-close {
+  position: absolute;
+  top: 128px;
+  right: 38px;
+
+  width: 35px;
+  height: 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 3px solid #80c85b;
+  border-radius: 50%;
+
+  background: transparent;
+  color: #80c85b;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.moscow-menu-close:hover {
+  color: #ffffff;
+  border-color: #ffffff;
+  transform: rotate(90deg);
+}
+
+.moscow-side-menu.open .moscow-menu-close {
+  animation: moscow-close-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.3s backwards;
+}
+
+@keyframes moscow-close-in {
+  from {
+    opacity: 0;
+    rotate: -180deg;
+    scale: 0;
+  }
+}
+
+/* =========================================
+   NAVIGATION LINKS
+========================================= */
+
+.moscow-side-menu-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.moscow-side-menu-links a {
+  position: relative;
+  display: inline-block;
+  padding: 0;
+
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.35;
+
+  text-decoration: none;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.moscow-side-menu.open .moscow-side-menu-links a {
+  animation: moscow-link-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  animation-delay: calc(var(--item-i, 0) * 90ms + 150ms);
+}
+
+@keyframes moscow-link-in {
+  from {
+    opacity: 0;
+    translate: 36px 0;
+  }
+}
+
+/* Inactive link hover */
+.moscow-side-menu-links a:not(.active):hover,
+.moscow-side-menu-links a:not(.active):focus-visible {
+  color: #80c85b;
+  transform: translateX(4px);
+  outline: none;
+}
+
+/* Active page: dark green */
+.moscow-side-menu-links a.active {
+  color: #104b05;
+  font-weight: 700;
+}
+
+.moscow-side-menu-links a.active:hover,
+.moscow-side-menu-links a.active:focus-visible {
+  color: #104b05;
+  transform: translateX(4px);
+  outline: none;
+}
+
+/* Underline that draws on hover */
+.moscow-side-menu-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 2px;
+  height: 2px;
+  background: #80c85b;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.moscow-side-menu-links a:hover::after,
+.moscow-side-menu-links a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.moscow-side-menu-links a.active::after {
+  background: #104b05;
+  transform: scaleX(1);
+}
+
+/* =========================================
+   CONTACT DETAILS
+========================================= */
+
+.moscow-side-menu-contact {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  margin-top: 34px;
+  padding-top: 20px;
+
+  border-top: 1px solid transparent;
+
+  color: #ffffff;
+  font-size: 13px;
+}
+
+/* Divider line that draws itself */
+.moscow-side-menu-contact::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.25);
+  transform-origin: left;
+}
+
+.moscow-side-menu.open .moscow-side-menu-contact::before {
+  animation: moscow-line-draw 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.7s backwards;
+}
+
+.moscow-side-menu.open .moscow-side-menu-contact > * {
+  animation: moscow-link-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  animation-delay: calc(var(--item-i, 0) * 100ms + 850ms);
+}
+
+@keyframes moscow-line-draw {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes moscow-link-up {
+  from {
+    opacity: 0;
+    translate: 0 14px;
+  }
+}
+
+.moscow-side-menu-contact a,
+.moscow-side-menu-contact > span {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  color: inherit;
+  text-decoration: none;
+}
+
+.moscow-side-menu-contact svg {
+  flex-shrink: 0;
+}
+
+.moscow-side-menu-contact a:hover {
+  color: #80c85b;
+}
+
+/* =========================================
+   WAVE LETTER REVEAL
+========================================= */
+
+.moscow-wave-text {
+  display: inline-block;
+  white-space: pre;
+}
+
+.moscow-wave-letter {
+  display: inline-block;
+  transform-origin: center bottom;
+}
+
+.moscow-side-menu.open .moscow-wave-letter {
+  animation: moscow-letter-wave 650ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  animation-delay: calc(var(--wave-delay, 0ms) + 100ms);
+}
+
+@keyframes moscow-letter-wave {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) rotate(7deg);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateY(-4px) rotate(-2deg);
+  }
+
+  80% {
+    transform: translateY(2px) rotate(1deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+  }
+}
+
+/* =========================================
+   PREVENT BACKGROUND SCROLL
+========================================= */
+
+body.moscow-menu-is-open {
+  overflow: hidden;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 768px) {
+  .moscow-header {
+    height: 90px;
+  }
+
+  .moscow-header-container {
+    width: calc(100% - 36px);
+    gap: 12px;
+  }
+
+  .moscow-logo img {
+    width: 85px;
+    height: 76px;
+  }
+
+  .moscow-header-actions {
+    gap: 6px;
+  }
+
+  .moscow-header-btn {
+    min-height: 35px;
+    padding: 0 12px;
+    font-size: 10px;
+  }
+
+  .consultation-btn,
+  .call-btn {
+    min-width: auto;
+  }
+
+  .moscow-menu-btn {
+    width: 40px;
+    min-height: 35px;
+  }
+
+  .moscow-side-menu {
+    width: min(307px, 84vw);
+    padding: 120px 26px 28px;
+  }
+
+  .moscow-menu-close {
+    top: 120px;
+    right: 38px;
+  }
+
+  .moscow-side-menu-links {
+    gap: 17px;
+  }
+
+  .moscow-side-menu-links a {
+    font-size: 22px;
+  }
+
+  .moscow-header.is-scrolled {
+    top: 8px;
+    width: calc(100% - 20px);
+    height: 70px;
+    border-radius: 14px;
+  }
+
+  .moscow-header.is-scrolled .moscow-header-container {
+    width: calc(100% - 28px);
+  }
+
+  .moscow-header.is-scrolled .moscow-logo img {
+    width: 58px;
+    height: 52px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+  .moscow-header {
+    height: 78px;
+  }
+
+  .moscow-header-container {
+    width: calc(100% - 24px);
+    gap: 8px;
+  }
+
+  .moscow-logo img {
+    width: 69px;
+    height: 66px;
+  }
+
+  .moscow-header-actions {
+    gap: 5px;
+  }
+
+  .moscow-header-btn {
+    min-height: 32px;
+    padding: 0 8px;
+    font-size: 9px;
+  }
+
+  .moscow-menu-btn {
+    width: 35px;
+    min-height: 32px;
+  }
+
+  .moscow-menu-btn svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .moscow-side-menu {
+    width: min(310px, 86vw);
+    padding: 105px 25px 26px;
+  }
+
+  .moscow-menu-close {
+    top: 105px;
+    right: 30px;
+    width: 34px;
+    height: 34px;
+  }
+
+  .moscow-side-menu-links {
+    gap: 16px;
+  }
+
+  .moscow-side-menu-links a {
+    font-size: 21px;
+  }
+
+  .moscow-side-menu-contact {
+    margin-top: 28px;
+    font-size: 11px;
+  }
+
+  .moscow-header.is-scrolled {
+    top: 6px;
+    width: calc(100% - 12px);
+    height: 62px;
+    border-radius: 12px;
+  }
+
+  .moscow-header.is-scrolled .moscow-header-container {
+    width: calc(100% - 20px);
+  }
+
+  .moscow-header.is-scrolled .moscow-logo img {
+    width: 50px;
+    height: 46px;
+  }
+
+  .moscow-header.is-scrolled .moscow-header-btn,
+  .moscow-header.is-scrolled .moscow-menu-btn {
+    min-height: 30px;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 350px) {
+  .moscow-logo img {
+    width: 57px;
+  }
+
+  .moscow-header-btn {
+    padding: 0 6px;
+    font-size: 8px;
+  }
+
+  .moscow-menu-btn {
+    width: 31px;
+  }
+
+  .moscow-side-menu-links a {
+    font-size: 19px;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .moscow-header,
+  .moscow-header-actions > *,
+  .moscow-menu-icon,
+  .moscow-side-menu.open::before,
+  .moscow-side-menu.open .moscow-side-menu-links a,
+  .moscow-side-menu.open .moscow-menu-close,
+  .moscow-side-menu.open .moscow-side-menu-contact::before,
+  .moscow-side-menu.open .moscow-side-menu-contact > *,
+  .moscow-side-menu.open .moscow-wave-letter {
+    animation: none !important;
+  }
+
+  .moscow-header,
+  .moscow-header-container,
+  .moscow-logo img,
+  .moscow-menu-backdrop,
+  .moscow-side-menu,
+  .moscow-header-btn,
+  .moscow-menu-btn,
+  .moscow-menu-close,
+  .moscow-side-menu-links a,
+  .moscow-side-menu-links a::after,
+  .moscow-header-btn::after,
+  .moscow-menu-btn::after {
+    transition: none;
+  }
+}

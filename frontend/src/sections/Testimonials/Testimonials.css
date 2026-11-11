@@ -1,0 +1,629 @@
+/* ==========================================
+   PATIENT TESTIMONIALS SECTION
+========================================== */
+
+.patient-testimonials-section,
+.patient-testimonials-section * {
+  box-sizing: border-box;
+}
+
+.patient-testimonials-section {
+  width: 100%;
+  min-height: 565px;
+  padding: 68px 30px 90px;
+
+  background: #f7f3ec;
+  color: #103528;
+
+  font-family: "DM Sans", Arial, sans-serif;
+}
+
+.patient-testimonials-container {
+  width: 100%;
+  max-width: 1156px;
+  margin: 0 auto;
+}
+
+/* ==========================================
+   HEADER LAYOUT
+========================================== */
+
+.patient-testimonials-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 326px;
+  align-items: center;
+  gap: 28px;
+
+  margin-bottom: 45px;
+}
+
+.patient-testimonials-intro {
+  min-width: 0;
+}
+
+/* Eyebrow */
+
+.patient-testimonials-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  min-height: 20px;
+  margin-bottom: 8px;
+  padding: 3px 11px;
+
+  border-radius: 20px;
+  background: #d5e8d7;
+  color: #173b2c;
+
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.25px;
+  line-height: 1.3;
+}
+
+.patient-testimonials-eyebrow svg {
+  flex-shrink: 0;
+}
+
+/* Main heading */
+
+.patient-testimonials-intro h2 {
+  margin: 0 0 5px;
+
+  color: #073629;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 38px;
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.7px;
+}
+
+/* Intro text */
+
+.patient-testimonials-intro > p {
+  max-width: 590px;
+  margin: 0;
+
+  color: #53564f;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+/* ==========================================
+   GOOGLE RATING PANEL
+========================================== */
+
+.patient-google-rating {
+  min-height: 84px;
+  padding: 14px 16px;
+
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  border: 1px solid #e6e1d8;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.12);
+
+  box-shadow: 0 1px 2px rgba(34, 42, 31, 0.025);
+}
+
+.patient-google-icon {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.testimonial-google-mark {
+  display: inline-block;
+
+  font-family: Arial, sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 1;
+
+  background: conic-gradient(
+    from -45deg,
+    #4285f4 0deg 85deg,
+    #34a853 85deg 165deg,
+    #fbbc05 165deg 235deg,
+    #ea4335 235deg 300deg,
+    #4285f4 300deg 360deg
+  );
+
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.patient-google-rating-info {
+  min-width: 0;
+}
+
+.patient-google-rating-top {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  margin-bottom: 2px;
+}
+
+.patient-google-rating-top strong {
+  color: #12392b;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.testimonial-stars {
+  color: #866126;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.patient-google-rating-top .testimonial-stars {
+  font-size: 15px;
+}
+
+.patient-google-rating-info > p {
+  margin: 0 0 3px;
+
+  color: #56564f;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.patient-google-rating-caption {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+
+  color: #80561b;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.patient-google-rating-caption svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ==========================================
+   TESTIMONIAL CARDS GRID
+========================================== */
+
+.patient-testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 19px;
+  align-items: stretch;
+}
+
+/* Individual card */
+
+.testimonial-review-card {
+  min-width: 0;
+  min-height: 205px;
+  padding: 15px 16px 14px;
+
+  display: flex;
+  flex-direction: column;
+
+  border: 1px solid #e5e5e2;
+  border-radius: 14px;
+  background: #ffffff;
+
+  box-shadow: 0 1px 2px rgba(20, 40, 29, 0.025);
+
+  will-change: transform, opacity;
+
+  transition:
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.testimonial-review-card:hover {
+  /* transform: translateY(-3px);
+  box-shadow: 0 7px 20px rgba(20, 40, 29, 0.06); */
+  border-color: #cbdcc9;
+  box-shadow: 0 14px 32px rgba(20, 40, 29, 0.11);
+}
+
+/* Card top row */
+
+.testimonial-review-top {
+  min-height: 21px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 7px;
+
+  margin-bottom: 8px;
+}
+
+.testimonial-review-top > .testimonial-stars {
+  font-size: 16px;
+}
+
+/* Google Review label */
+
+.testimonial-google-badge {
+  flex-shrink: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+
+  min-height: 17px;
+  padding: 2px 6px;
+
+  border-radius: 2px;
+  background: #f2eee7;
+  color: #725526;
+
+  font-size: 13px;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.testimonial-google-badge .testimonial-google-mark {
+  font-size: 15px;
+}
+
+/* Review quote */
+
+.testimonial-review-text {
+  flex: 1;
+
+  margin: 0;
+  padding: 0;
+
+  color: #4f5550;
+
+  font-size: 15px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.58;
+}
+
+/* Divider */
+
+.testimonial-review-divider {
+  width: 100%;
+  height: 1px;
+  flex-shrink: 0;
+
+  margin: 10px 0 9px;
+
+  background: #efefec;
+}
+
+/* ==========================================
+   PATIENT INFORMATION
+========================================== */
+
+.testimonial-patient {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.testimonial-patient-avatar {
+  width: 33px;
+  height: 33px;
+  flex: 0 0 33px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+  background: #143f2f;
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.testimonial-patient-info {
+  min-width: 0;
+}
+
+.testimonial-patient-info h3 {
+  margin: 0 0 2px;
+
+  color: #123528;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.testimonial-patient-info > p {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 3px;
+
+  margin: 0;
+
+  color: #666861;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.testimonial-patient-info > p svg {
+  flex-shrink: 0;
+  color: #98783e;
+}
+
+.testimonial-patient-dot {
+  padding: 0 1px;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 1000px) {
+  .patient-testimonials-section {
+    padding: 60px 24px 70px;
+  }
+
+  .patient-testimonials-header {
+    grid-template-columns: minmax(0, 1fr) 285px;
+    gap: 20px;
+    margin-bottom: 35px;
+  }
+
+  .patient-testimonials-intro h2 {
+    font-size: 33px;
+  }
+
+  .patient-google-rating {
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .patient-testimonials-grid {
+    gap: 14px;
+  }
+
+  .testimonial-review-card {
+    padding: 13px 12px;
+  }
+
+  .testimonial-review-text {
+    font-size: 11px;
+  }
+
+  .testimonial-patient {
+    gap: 7px;
+  }
+}
+
+/* ==========================================
+   TABLET PORTRAIT / SMALL LAPTOP
+========================================== */
+
+@media (max-width: 760px) {
+  .patient-testimonials-header {
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 20px;
+  }
+
+  .patient-google-rating {
+    width: min(100%, 340px);
+  }
+
+  .patient-testimonials-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .testimonial-review-card {
+    min-height: 210px;
+    padding: 15px;
+  }
+
+  .testimonial-review-text {
+    font-size: 12px;
+  }
+
+  .testimonial-patient-info > p {
+    font-size: 9px;
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 520px) {
+  .patient-testimonials-section {
+    min-height: 0;
+    padding: 42px 17px 48px;
+  }
+
+  .patient-testimonials-header {
+    gap: 19px;
+    margin-bottom: 26px;
+  }
+
+  .patient-testimonials-intro h2 {
+    font-size: 32px;
+    line-height: 1.12;
+    letter-spacing: -0.4px;
+  }
+
+  .patient-testimonials-intro > p {
+    font-size: 12px;
+    line-height: 1.75;
+  }
+
+  .patient-testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .testimonial-review-card {
+    min-height: 0;
+    padding: 16px;
+  }
+
+  .testimonial-review-top {
+    margin-bottom: 10px;
+  }
+
+  .testimonial-review-text {
+    font-size: 12.5px;
+    line-height: 1.7;
+  }
+
+  .testimonial-review-divider {
+    margin: 14px 0 11px;
+  }
+
+  .testimonial-patient-avatar {
+    width: 36px;
+    height: 36px;
+    flex-basis: 36px;
+  }
+
+  .testimonial-patient-info h3 {
+    font-size: 12px;
+  }
+
+  .testimonial-patient-info > p {
+    font-size: 9px;
+  }
+}
+
+/* ==========================================
+   VERY SMALL MOBILE
+========================================== */
+
+@media (max-width: 360px) {
+  .patient-testimonials-section {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .patient-testimonials-intro h2 {
+    font-size: 29px;
+  }
+
+  .patient-google-rating {
+    align-items: flex-start;
+  }
+
+  .patient-google-rating-caption {
+    font-size: 8px;
+  }
+
+  .testimonial-review-card {
+    padding: 13px;
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .testimonial-review-card {
+    transition: none;
+  }
+}
+
+/* ==========================================
+   LIVE TESTIMONIAL ANIMATIONS
+========================================== */
+
+/* Smooth star animation */
+
+.testimonial-stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 1px;
+}
+
+.testimonial-star {
+  display: inline-block;
+  color: #d6a33c;
+  transform-origin: center;
+}
+
+/* Smooth Google rating panel */
+
+.patient-google-rating {
+  transition:
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.patient-google-rating:hover {
+  border-color: #d2dfce;
+  box-shadow: 0 8px 22px rgba(20, 40, 29, 0.07);
+}
+
+/* Review card styling */
+
+.testimonial-review-card {
+  overflow: hidden;
+  backface-visibility: hidden;
+}
+
+/* Patient avatar */
+
+.testimonial-patient-avatar {
+  transform-origin: center;
+}
+
+/* Better rendering on mobile */
+
+@media (max-width: 760px) {
+  .testimonial-review-card {
+    will-change: auto;
+  }
+}
+
+/* Respect accessibility preferences */
+
+@media (prefers-reduced-motion: reduce) {
+  .testimonial-review-card,
+  .patient-google-rating {
+    transition: none !important;
+  }
+}
+
+/* CENTER-OUTWARD REVEAL */
+
+.patient-testimonials-grid {
+  perspective: 1000px;
+}
+
+.testimonial-review-card {
+  transform-origin: center center;
+  backface-visibility: hidden;
+  will-change: transform, opacity, filter;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testimonial-review-card {
+    will-change: auto;
+  }
+}

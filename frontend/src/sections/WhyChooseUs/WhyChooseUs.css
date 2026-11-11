@@ -1,0 +1,561 @@
+/* =========================================
+   WHY CHOOSE MOSCOW MEDICAL CENTRE
+========================================= */
+
+.why-moscow-section,
+.why-moscow-section * {
+  box-sizing: border-box;
+}
+
+.why-moscow-section {
+  position: relative;
+  width: 100%;
+  padding: 39px 32px 60px;
+  background: #ffffff;
+  color: #183d13;
+  font-family: "DM Sans", Arial, sans-serif;
+}
+
+.why-moscow-container {
+  width: 100%;
+  max-width: 1170px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   SERVICE TAGS
+========================================= */
+
+.why-moscow-tags {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 11px;
+  width: 100%;
+  margin: 0 auto 61px;
+}
+
+.why-moscow-tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 37px;
+  flex: 1 1 auto;
+  padding: 8px 13px;
+
+  border: 1px solid #d0d8c8;
+  border-radius: 12px;
+  background: #fcfbf7;
+  box-shadow: 0 1px 2px rgba(25, 55, 15, 0.06);
+
+  color: #23471c;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.35;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* =========================================
+   MAIN TWO-COLUMN LAYOUT
+========================================= */
+
+.why-moscow-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  column-gap: 78px;
+  width: 100%;
+}
+
+/* =========================================
+   LEFT TEXT
+========================================= */
+
+.why-moscow-text {
+  min-width: 0;
+}
+
+.why-moscow-text h2 {
+  margin: 0 0 19px;
+
+  color: #17450e;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 39px;
+  font-weight: 400;
+  line-height: 1.14;
+  letter-spacing: -1.15px;
+}
+
+.why-moscow-text p {
+  margin: 0 0 18px;
+
+  color: #6b655e;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.78;
+}
+
+/* Discover button */
+
+.why-moscow-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 39px;
+  margin-top: 9px;
+  padding: 0 21px;
+
+  border: 1px solid #16450b;
+  border-radius: 3px;
+  background: #104706;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.12);
+
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.why-moscow-button:hover {
+  background: #236b17;
+  box-shadow: 0 5px 12px rgba(16, 71, 6, 0.18);
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+  .why-moscow-section {
+    padding: 35px 28px 50px;
+  }
+
+  .why-moscow-tags {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 45px;
+  }
+
+  .why-moscow-tag {
+    flex: 1 1 28%;
+    white-space: normal;
+  }
+
+  .why-moscow-content {
+    column-gap: 38px;
+  }
+
+  .why-moscow-text h2 {
+    font-size: 32px;
+    letter-spacing: -0.6px;
+  }
+
+  .why-moscow-text p {
+    font-size: 12px;
+    line-height: 1.75;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+  .why-moscow-section {
+    padding: 28px 20px 42px;
+  }
+
+  .why-moscow-tags {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+    margin-bottom: 35px;
+  }
+
+  .why-moscow-tag {
+    min-height: 42px;
+    padding: 8px 10px;
+    font-size: 11px;
+    white-space: normal;
+  }
+
+  .why-moscow-tag:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .why-moscow-content {
+    grid-template-columns: 1fr;
+    row-gap: 30px;
+  }
+
+  .why-moscow-text h2 {
+    margin-bottom: 18px;
+    font-size: clamp(30px, 7vw, 37px);
+    line-height: 1.16;
+    letter-spacing: -0.7px;
+  }
+
+  .desktop-break {
+    display: none;
+  }
+
+  .why-moscow-text p {
+    margin-bottom: 16px;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .why-moscow-button {
+    min-height: 43px;
+    margin-top: 4px;
+    padding: 0 20px;
+    font-size: 12px;
+  }
+}
+
+/* Small mobile */
+
+@media (max-width: 380px) {
+  .why-moscow-section {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
+  .why-moscow-tags {
+    gap: 7px;
+  }
+
+  .why-moscow-tag {
+    padding: 8px 6px;
+    font-size: 10px;
+  }
+
+  .why-moscow-text h2 {
+    font-size: 29px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .why-moscow-image,
+  .why-moscow-button,
+  .reveal {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .why-moscow-section::before,
+  .why-moscow-section::after,
+  .why-moscow-tag,
+  .why-moscow-image-wrap,
+  .why-moscow-image,
+  .why-moscow-button,
+  .why-moscow-button::after,
+  .why-moscow-text h2::after {
+    animation: none !important;
+  }
+
+  .why-moscow-text h2::after {
+    transform: scaleX(1);
+  }
+}
+
+/* =========================================
+   SCROLL REVEAL ANIMATIONS
+========================================= */
+
+.reveal {
+  opacity: 0;
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--delay, 0s);
+  will-change: opacity, transform;
+}
+
+.reveal-up    { transform: translateY(28px); }
+.reveal-left  { transform: translateX(-44px); }
+.reveal-right { transform: translateX(44px); }
+
+.is-visible .reveal {
+  opacity: 1;
+  transform: none;
+}
+
+/* Stack vertically on mobile, so slide up instead of sideways */
+@media (max-width: 650px) {
+  .reveal-left,
+  .reveal-right {
+    transform: translateY(28px);
+  }
+}
+
+/* =========================================
+   LIVE (CONTINUOUS) ANIMATIONS
+   Same on desktop and mobile, no hover needed.
+   Uses the `translate` property so it doesn't
+   clash with the reveal's `transform`.
+========================================= */
+
+/* Soft drifting background glows */
+.why-moscow-section {
+  overflow: hidden;
+}
+
+.why-moscow-container {
+  position: relative;
+  z-index: 1;
+}
+
+.why-moscow-section::before,
+.why-moscow-section::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+  opacity: 0.35;
+}
+
+.why-moscow-section::before {
+  width: 260px;
+  height: 260px;
+  top: 10%;
+  left: -80px;
+  background: #cfe3c4;
+  animation: moscowGlowA 14s ease-in-out infinite alternate;
+}
+
+.why-moscow-section::after {
+  width: 300px;
+  height: 300px;
+  bottom: -60px;
+  right: -90px;
+  background: #e6efd9;
+  animation: moscowGlowB 17s ease-in-out infinite alternate;
+}
+
+@keyframes moscowGlowA {
+  to { transform: translate(60px, 40px) scale(1.2); }
+}
+
+@keyframes moscowGlowB {
+  to { transform: translate(-50px, -40px) scale(1.15); }
+}
+
+/* Tags: gentle staggered floating (starts after reveal finishes) */
+.is-visible .why-moscow-tag {
+  animation: moscowTagFloat 4s ease-in-out infinite;
+}
+
+.is-visible .why-moscow-tag:nth-child(1) { animation-delay: 1.2s; }
+.is-visible .why-moscow-tag:nth-child(2) { animation-delay: 1.5s; }
+.is-visible .why-moscow-tag:nth-child(3) { animation-delay: 1.8s; }
+.is-visible .why-moscow-tag:nth-child(4) { animation-delay: 2.1s; }
+.is-visible .why-moscow-tag:nth-child(5) { animation-delay: 2.4s; }
+
+@keyframes moscowTagFloat {
+  0%, 100% { translate: 0 0; }
+  50%      { translate: 0 -5px; }
+}
+
+/* Button: pulsing ring + light shimmer sweep */
+.why-moscow-button {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.is-visible .why-moscow-button {
+  animation: moscowPulse 2.6s ease-out 1.6s infinite;
+}
+
+.why-moscow-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    100deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+  transform: skewX(-20deg);
+  z-index: -1;
+}
+
+.is-visible .why-moscow-button::after {
+  animation: moscowShimmer 3.5s ease-in-out 2s infinite;
+}
+
+@keyframes moscowPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(35, 107, 23, 0.45); }
+  70%  { box-shadow: 0 0 0 14px rgba(35, 107, 23, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(35, 107, 23, 0); }
+}
+
+@keyframes moscowShimmer {
+  0%   { left: -75%; }
+  60%, 100% { left: 130%; }
+}
+
+/* Heading underline that draws in and breathes */
+.why-moscow-text h2 {
+  position: relative;
+  padding-bottom: 14px;
+}
+
+.why-moscow-text h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  height: 3px;
+  border-radius: 2px;
+  background: #236b17;
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+.is-visible .why-moscow-text h2::after {
+  animation:
+    moscowLineIn 0.9s ease 1s forwards,
+    moscowLineBreathe 3s ease-in-out 2s infinite;
+}
+
+@keyframes moscowLineIn {
+  to { transform: scaleX(1); }
+}
+
+@keyframes moscowLineBreathe {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.45; }
+}
+
+
+/* =========================================
+   RIGHT VIDEO SECTION
+========================================= */
+
+.why-moscow-video-wrap {
+  position: relative;
+  width: 100%;
+  height: 443px;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #101010;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.09);
+}
+
+.why-moscow-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  background: #101010;
+}
+
+/* Custom play button */
+
+.why-video-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 3;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 76px;
+  height: 76px;
+
+  border: 2px solid rgba(255,255,255,.9);
+  border-radius: 50%;
+
+  background: rgba(16, 71, 6, .82);
+  color: white;
+
+  cursor: pointer;
+
+  transform: translate(-50%, -50%);
+  transition: .3s ease;
+
+  animation: whyVideoPulse 2s ease-in-out infinite;
+}
+
+.why-video-play:hover {
+  background: #287b12;
+  transform: translate(-50%, -50%) scale(1.12);
+}
+
+.why-video-play-icon {
+  font-size: 27px;
+  margin-left: 5px;
+}
+
+@keyframes whyVideoPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(255,255,255,.35);
+  }
+
+  50% {
+    box-shadow: 0 0 0 15px rgba(255,255,255,0);
+  }
+}
+
+/* Keep existing floating animation */
+
+.is-visible .why-moscow-video-wrap {
+  animation: moscowImageFloat 6s ease-in-out 1.5s infinite;
+}
+
+/* Responsive */
+
+@media (max-width: 1000px) {
+  .why-moscow-video-wrap {
+    height: 390px;
+  }
+}
+
+@media (max-width: 650px) {
+  .why-moscow-video-wrap {
+    height: auto;
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+  }
+
+  .why-video-play {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 380px) {
+  .why-moscow-video-wrap {
+    aspect-ratio: 0.95 / 1;
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .why-video-play {
+    animation: none;
+  }
+}

@@ -1,0 +1,976 @@
+/* ==========================================
+   HEALTHCARE CONTACT SECTION
+========================================== */
+
+.healthcare-contact-section,
+.healthcare-contact-section * {
+  box-sizing: border-box;
+}
+
+.healthcare-contact-section {
+  width: 100%;
+  padding: 43px 28px 94px;
+
+  background: #fbf8f3;
+  color: #0b3327;
+
+  font-family: "DM Sans", Arial, sans-serif;
+}
+
+.healthcare-contact-container {
+  width: 100%;
+  max-width: 1156px;
+  margin: 0 auto;
+}
+
+/* ==========================================
+   SECTION HEADING
+========================================== */
+
+.healthcare-contact-header {
+  margin: 0 auto 42px;
+  text-align: center;
+}
+
+.healthcare-contact-header h2 {
+  margin: 0 0 7px;
+
+  color: #073629;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 38px;
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.6px;
+}
+
+.healthcare-contact-header > p {
+  margin: 0;
+
+  color: #53564f;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* ==========================================
+   MAIN TWO-COLUMN LAYOUT
+========================================== */
+
+.healthcare-contact-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.79fr) minmax(0, 1.12fr);
+  align-items: start;
+  gap: 19px;
+}
+
+.healthcare-contact-left {
+  min-width: 0;
+}
+
+/* ==========================================
+   LEFT CONTACT INFORMATION CARD
+========================================== */
+
+.healthcare-contact-info-card {
+  min-height: 337px;
+  padding: 38px 35px 28px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  border: 1px solid #e6e6e1;
+  border-radius: 14px;
+  background: #ffffff;
+
+  box-shadow: 0 1px 2px rgba(20, 40, 29, 0.025);
+}
+
+.healthcare-contact-item {
+  display: grid;
+  grid-template-columns: 26px minmax(0, 1fr);
+  align-items: start;
+  gap: 10px;
+}
+
+.healthcare-contact-icon {
+  width: 26px;
+  height: 26px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+  background: #f1eee7;
+  color: #103d2d;
+}
+
+.healthcare-contact-item-content {
+  min-width: 0;
+  padding-top: 1px;
+}
+
+.healthcare-contact-item-content h3 {
+  margin: 0 0 4px;
+
+  color: #8a5b19;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: 0.15px;
+}
+
+.healthcare-contact-item-content p,
+.healthcare-contact-item-content a {
+  display: block;
+
+  margin: 0 0 3px;
+
+  color: #555a54;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+  text-decoration: none;
+}
+
+.healthcare-contact-item-content a:first-of-type {
+  color: #0c3326;
+  font-weight: 600;
+}
+
+.healthcare-contact-item-content a:hover {
+  color: #8b6729;
+}
+
+.healthcare-contact-item-content .healthcare-contact-secondary-link {
+  color: #555a54;
+  font-weight: 400;
+}
+
+.healthcare-contact-item-content .healthcare-contact-strong {
+  color: #12372a;
+  font-weight: 600;
+}
+
+/* Location badge */
+
+.healthcare-location-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+
+  margin-top: 3px;
+  padding: 4px 7px;
+
+  border-radius: 2px;
+  background: #fff0d7;
+  color: #89602a;
+
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+/* ==========================================
+   SUPPORT CARDS AND MAP
+========================================== */
+
+.healthcare-contact-support-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+
+  margin-top: 15px;
+}
+
+.healthcare-support-card {
+  min-width: 0;
+  min-height: 83px;
+  padding: 10px 5px 8px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #ededea;
+  border-radius: 7px;
+  background: #ffffff;
+
+  text-align: center;
+}
+
+.healthcare-support-card > svg {
+  margin-bottom: 8px;
+  color: #103d2d;
+}
+
+.healthcare-support-card h4 {
+  margin: 0 0 3px;
+
+  color: #10382a;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.healthcare-support-card p {
+  margin: 0;
+
+  color: #686b65;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+/* Decorative map preview */
+
+.healthcare-map-card {
+  position: relative;
+
+  min-width: 0;
+  min-height: 83px;
+
+  display: block;
+  overflow: hidden;
+
+  border: 1px solid #e4e3dc;
+  border-radius: 7px;
+  background: #e9eadf;
+
+  text-decoration: none;
+}
+
+.healthcare-map-pattern {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+
+  background-color: #f0f0e6;
+  background-image:
+    linear-gradient(24deg, transparent 44%, #d8e4ce 45%, #d8e4ce 51%, transparent 52%),
+    linear-gradient(115deg, transparent 34%, #e4d7bb 35%, #e4d7bb 39%, transparent 40%),
+    linear-gradient(75deg, transparent 61%, #ffffff 62%, #ffffff 68%, transparent 69%),
+    linear-gradient(0deg, transparent 48%, #d8d9c8 49%, #d8d9c8 52%, transparent 53%);
+
+  background-size: 73px 63px, 90px 75px, 82px 64px, 48px 44px;
+}
+
+.healthcare-map-road {
+  position: absolute;
+  display: block;
+
+  width: 150%;
+  height: 4px;
+
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(218, 215, 201, 0.65);
+}
+
+.healthcare-map-road.road-one {
+  top: 29%;
+  left: -15%;
+  transform: rotate(26deg);
+}
+
+.healthcare-map-road.road-two {
+  top: 67%;
+  left: -15%;
+  transform: rotate(-20deg);
+}
+
+.healthcare-map-road.road-three {
+  top: 45%;
+  left: -20%;
+  transform: rotate(75deg);
+}
+
+.healthcare-map-road.road-four {
+  top: 45%;
+  left: -20%;
+  transform: rotate(-53deg);
+}
+
+.healthcare-map-block {
+  position: absolute;
+  width: 14px;
+  height: 11px;
+
+  border-radius: 2px;
+  background: rgba(213, 226, 197, 0.9);
+}
+
+.map-block-one {
+  top: 13%;
+  left: 12%;
+}
+
+.map-block-two {
+  top: 64%;
+  left: 20%;
+}
+
+.map-block-three {
+  top: 15%;
+  right: 14%;
+}
+
+.map-block-four {
+  right: 13%;
+  bottom: 10%;
+}
+
+.healthcare-map-pin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 20px;
+  height: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #164632;
+
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+  transform: translate(-50%, -50%);
+}
+
+.healthcare-map-card:hover .healthcare-map-pin {
+  color: #b17d28;
+}
+
+/* ==========================================
+   APPOINTMENT FORM CARD
+========================================== */
+
+.healthcare-appointment-card {
+  min-width: 0;
+  padding: 27px 25px 23px;
+
+  border: 1px solid #e5e5e0;
+  border-radius: 14px;
+  background: #ffffff;
+
+  box-shadow: 0 1px 2px rgba(20, 40, 29, 0.025);
+}
+
+/* Appointment title and rapid badge */
+
+.healthcare-appointment-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.healthcare-appointment-header > div {
+  min-width: 0;
+}
+
+.healthcare-appointment-header h3 {
+  margin: 0 0 3px;
+
+  color: #103a2b;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.healthcare-appointment-header p {
+  margin: 0;
+
+  color: #62665f;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.healthcare-rapid-badge {
+  flex-shrink: 0;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+
+  padding: 5px 8px;
+
+  border-radius: 3px;
+  background: #fff0d9;
+  color: #90652c;
+
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.healthcare-rapid-badge svg {
+  flex-shrink: 0;
+}
+
+/* Divider */
+
+.healthcare-appointment-divider {
+  width: 100%;
+  height: 1px;
+  margin: 10px 0 17px;
+
+  background: #eeeee9;
+}
+
+/* ==========================================
+   FORM GRID
+========================================== */
+
+.healthcare-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px 12px;
+}
+
+.healthcare-form-field {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.healthcare-form-field > label {
+  margin-bottom: 6px;
+
+  color: #12372b;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.healthcare-form-field input,
+.healthcare-form-field select,
+.healthcare-form-field textarea {
+  display: block;
+  width: 100%;
+  min-width: 0;
+
+  border: 1px solid #e6e1d8;
+  border-radius: 4px;
+  outline: none;
+
+  background: #fbf8f3;
+  color: #303c34;
+
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.healthcare-form-field input,
+.healthcare-form-field select {
+  height: 35px;
+  padding: 0 11px;
+}
+
+.healthcare-form-field select {
+  cursor: pointer;
+}
+
+.healthcare-form-field textarea {
+  min-height: 69px;
+  padding: 10px 11px;
+
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.healthcare-form-field input::placeholder,
+.healthcare-form-field textarea::placeholder {
+  color: #9ba2b1;
+  opacity: 1;
+}
+
+.healthcare-form-field input:focus,
+.healthcare-form-field select:focus,
+.healthcare-form-field textarea:focus {
+  border-color: #285c42;
+  box-shadow: 0 0 0 2px rgba(40, 92, 66, 0.09);
+}
+
+.healthcare-form-full {
+  grid-column: 1 / -1;
+}
+
+/* Phone prefix */
+
+.healthcare-phone-input {
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+
+  height: 35px;
+
+  border: 1px solid #e6e1d8;
+  border-radius: 4px;
+  background: #fbf8f3;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.healthcare-phone-input:focus-within {
+  border-color: #285c42;
+  box-shadow: 0 0 0 2px rgba(40, 92, 66, 0.09);
+}
+
+.healthcare-phone-input > span {
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 10px;
+
+  background: #eeeee6;
+  color: #15382b;
+
+  font-size: 12px;
+}
+
+.healthcare-phone-input input {
+  height: 100%;
+  min-width: 0;
+
+  border: 0;
+  border-radius: 0;
+  box-shadow: none !important;
+  background: transparent;
+}
+
+/* ==========================================
+   SUBMIT BUTTON
+========================================== */
+
+.healthcare-appointment-submit {
+  width: 100%;
+  min-height: 41px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  margin-top: 21px;
+  padding: 10px 15px;
+
+  border: 1px solid #003323;
+  border-radius: 6px;
+
+  background: #003323;
+  color: #ffffff;
+
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.healthcare-appointment-submit:hover {
+  background: #124b35;
+}
+
+.healthcare-appointment-submit:active {
+  transform: translateY(1px);
+}
+
+.healthcare-appointment-submit:focus-visible {
+  outline: 2px solid #a9894c;
+  outline-offset: 3px;
+}
+
+.healthcare-appointment-submit svg {
+  flex-shrink: 0;
+}
+
+.healthcare-appointment-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  margin: 9px 0 0;
+
+  color: #6a6d66;
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.healthcare-appointment-note svg {
+  flex-shrink: 0;
+  color: #997333;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 900px) {
+  .healthcare-contact-section {
+    padding: 50px 22px 65px;
+  }
+
+  .healthcare-contact-container {
+    max-width: 720px;
+  }
+
+  .healthcare-contact-header {
+    margin-bottom: 32px;
+  }
+
+  .healthcare-contact-header h2 {
+    font-size: 34px;
+  }
+
+  .healthcare-contact-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .healthcare-contact-info-card {
+    min-height: 0;
+    padding: 28px;
+    gap: 20px;
+  }
+
+  .healthcare-contact-item-content p,
+  .healthcare-contact-item-content a {
+    font-size: 12px;
+  }
+
+  .healthcare-contact-support-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .healthcare-contact-support-grid > * {
+    min-height: 95px;
+  }
+
+  .healthcare-appointment-card {
+    padding: 25px;
+  }
+
+  .healthcare-appointment-header h3 {
+    font-size: 22px;
+  }
+
+  .healthcare-form-field > label {
+    font-size: 10px;
+  }
+
+  .healthcare-form-field input,
+  .healthcare-form-field select,
+  .healthcare-form-field textarea {
+    font-size: 12px;
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 520px) {
+  .healthcare-contact-section {
+    padding: 40px 16px 48px;
+  }
+
+  .healthcare-contact-header {
+    margin-bottom: 26px;
+  }
+
+  .healthcare-contact-header h2 {
+    font-size: 30px;
+    line-height: 1.1;
+  }
+
+  .healthcare-contact-header > p {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+
+  .contact-desktop-break {
+    display: none;
+  }
+
+  .healthcare-contact-layout {
+    gap: 18px;
+  }
+
+  .healthcare-contact-info-card {
+    padding: 24px 18px;
+    gap: 20px;
+    border-radius: 11px;
+  }
+
+  .healthcare-contact-item {
+    grid-template-columns: 29px minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .healthcare-contact-icon {
+    width: 29px;
+    height: 29px;
+  }
+
+  .healthcare-contact-item-content h3 {
+    font-size: 9px;
+  }
+
+  .healthcare-contact-item-content p,
+  .healthcare-contact-item-content a {
+    font-size: 11px;
+    line-height: 1.6;
+  }
+
+  .healthcare-contact-support-grid {
+    gap: 7px;
+    margin-top: 11px;
+  }
+
+  .healthcare-contact-support-grid > * {
+    min-height: 83px;
+  }
+
+  .healthcare-support-card h4 {
+    font-size: 8.5px;
+  }
+
+  .healthcare-support-card p {
+    font-size: 8px;
+  }
+
+  .healthcare-appointment-card {
+    padding: 22px 17px;
+    border-radius: 11px;
+  }
+
+  .healthcare-appointment-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .healthcare-appointment-header h3 {
+    font-size: 21px;
+  }
+
+  .healthcare-appointment-header p {
+    font-size: 11px;
+  }
+
+  .healthcare-rapid-badge {
+    font-size: 9px;
+  }
+
+  .healthcare-appointment-divider {
+    margin: 15px 0;
+  }
+
+  .healthcare-form-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .healthcare-form-full {
+    grid-column: auto;
+  }
+
+  .healthcare-form-field > label {
+    font-size: 10px;
+  }
+
+  .healthcare-form-field input,
+  .healthcare-form-field select {
+    height: 42px;
+    padding: 0 10px;
+    font-size: 12px;
+  }
+
+  .healthcare-form-field textarea {
+    min-height: 95px;
+    font-size: 12px;
+  }
+
+  .healthcare-phone-input {
+    height: 42px;
+  }
+
+  .healthcare-appointment-submit {
+    min-height: 47px;
+    gap: 7px;
+    margin-top: 19px;
+    padding: 10px 8px;
+    font-size: 11px;
+  }
+
+  .healthcare-appointment-note {
+    align-items: flex-start;
+    font-size: 9px;
+  }
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 360px) {
+  .healthcare-contact-section {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .healthcare-contact-header h2 {
+    font-size: 27px;
+  }
+
+  .healthcare-contact-support-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .healthcare-map-card {
+    grid-column: 1 / -1;
+    min-height: 100px;
+  }
+
+  .healthcare-appointment-card {
+    padding: 18px 13px;
+  }
+
+  .healthcare-appointment-submit {
+    font-size: 10px;
+  }
+}
+
+/* Reduced motion accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .healthcare-form-field input,
+  .healthcare-form-field select,
+  .healthcare-form-field textarea,
+  .healthcare-phone-input,
+  .healthcare-appointment-submit {
+    transition: none;
+  }
+}
+
+/* ==========================================
+   LIVE CONTACT SECTION ANIMATIONS
+========================================== */
+
+.healthcare-contact-info-card,
+.healthcare-appointment-card {
+  will-change: transform, opacity;
+  transition:
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.healthcare-contact-info-card:hover,
+.healthcare-appointment-card:hover {
+  border-color: #d9e2d7;
+  box-shadow: 0 12px 28px rgba(16, 53, 40, 0.07);
+}
+
+.healthcare-contact-icon {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.healthcare-contact-item:hover .healthcare-contact-icon {
+  background-color: #dcebdc;
+  color: #104b32;
+  transform: translateY(-2px);
+}
+
+.healthcare-map-card {
+  transition:
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.healthcare-map-card:hover {
+  border-color: #b6cbb3;
+  box-shadow: 0 5px 16px rgba(16, 53, 40, 0.1);
+}
+
+.healthcare-appointment-submit {
+  transition:
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.healthcare-appointment-submit:hover {
+  box-shadow: 0 6px 16px rgba(0, 51, 35, 0.16);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .healthcare-contact-info-card,
+  .healthcare-appointment-card,
+  .healthcare-contact-icon,
+  .healthcare-map-card,
+  .healthcare-appointment-submit {
+    transition: none !important;
+    will-change: auto;
+  }
+}
+
+/* ==========================================
+   MAP IMAGE (fills the card edge to edge)
+========================================== */
+
+.healthcare-map-card {
+  background: #e9eadf;
+}
+
+.healthcare-map-image {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+
+  /* zoom in slightly to crop the white border around the map image */
+  transform: scale(1.22);
+  transition: transform 0.5s ease;
+}
+
+.healthcare-map-card:hover .healthcare-map-image {
+  transform: scale(1.34);
+}
+
+.healthcare-map-pin {
+  z-index: 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .healthcare-map-image {
+    transition: none;
+  }
+}

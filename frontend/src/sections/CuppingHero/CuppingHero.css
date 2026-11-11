@@ -1,0 +1,521 @@
+/* ==========================================
+   CUPPING THERAPY HERO
+========================================== */
+
+.cupping-hero-section,
+.cupping-hero-section * {
+  box-sizing: border-box;
+}
+
+.cupping-hero-section {
+  position: relative;
+  isolation: isolate;
+
+  width: 100%;
+  height: 620px;
+  min-height: 500px;
+
+  overflow: hidden;
+  background: #39332a;
+  font-family: "DM Sans", Arial, sans-serif;
+}
+
+/* Background image */
+
+.cupping-hero-background {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center 52%;
+}
+
+/* Overall dark tint */
+
+.cupping-hero-shade {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+
+  background: rgba(0, 0, 0, 0.18);
+}
+
+/* Content alignment */
+
+.cupping-hero-container {
+  width: 100%;
+  max-width: 960px;
+  height: 100%;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: stretch;
+}
+
+/* ==========================================
+   LEFT GLASS PANEL
+========================================== */
+
+.cupping-hero-panel {
+  width: 310px;
+  height: 100%;
+  flex-shrink: 0;
+
+  padding: 45px 37px 30px;
+
+  background: rgba(125, 94, 47, 0.83);
+  color: #ffffff;
+
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
+
+/* Heading */
+
+.cupping-hero-panel h1 {
+  display: flex;
+  flex-direction: column;
+
+  margin: 0 0 7px;
+
+  color: #ffffff;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 52px;
+  font-weight: 400;
+  line-height: 1.18;
+  letter-spacing: -1.3px;
+}
+
+.cupping-heading-accent {
+  color: #f3d6a0;
+}
+
+/* Description */
+
+.cupping-hero-panel > p {
+  margin: 0 0 29px;
+
+  color: rgba(255, 255, 255, 0.97);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+/* ==========================================
+   CONSULTATION BUTTON
+========================================== */
+
+.cupping-hero-button {
+  min-height: 37px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 20px;
+
+  border-radius: 3px;
+  background: #ffffff;
+  color: #143d19;
+
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.cupping-hero-button:hover {
+  background: #f4ead8;
+  transform: translateY(-2px);
+}
+
+.cupping-hero-button:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 4px;
+}
+
+/* Thin line under the button */
+
+.cupping-panel-divider {
+  width: 100%;
+  height: 1px;
+  margin-top: 21px;
+
+  background: rgba(238, 215, 175, 0.18);
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 1020px) {
+  .cupping-hero-section {
+    height: 570px;
+  }
+
+  .cupping-hero-container {
+    max-width: 100%;
+    padding-left: 6%;
+  }
+
+  .cupping-hero-panel {
+    width: 310px;
+    padding: 40px 30px;
+  }
+
+  .cupping-hero-panel h1 {
+    font-size: 46px;
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 600px) {
+  .cupping-hero-section {
+    height: 580px;
+    min-height: 0;
+  }
+
+  .cupping-hero-background {
+    object-position: 58% center;
+  }
+
+  .cupping-hero-shade {
+    background: rgba(0, 0, 0, 0.28);
+  }
+
+  .cupping-hero-container {
+    padding: 0 16px;
+    align-items: center;
+  }
+
+  .cupping-hero-panel {
+    width: min(100%, 340px);
+    height: auto;
+    min-height: 0;
+
+    padding: 28px 24px;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    background: rgba(100, 75, 39, 0.88);
+  }
+
+  .cupping-hero-panel h1 {
+    margin-bottom: 12px;
+    font-size: 43px;
+    line-height: 1.12;
+  }
+
+  .cupping-hero-panel > p {
+    margin-bottom: 22px;
+    font-size: 12px;
+    line-height: 1.7;
+  }
+
+  .cupping-hero-button {
+    min-height: 40px;
+    padding: 0 16px;
+    font-size: 11px;
+  }
+
+  .cupping-panel-divider {
+    margin-top: 20px;
+  }
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 360px) {
+  .cupping-hero-section {
+    height: 540px;
+  }
+
+  .cupping-hero-container {
+    padding: 0 12px;
+  }
+
+  .cupping-hero-panel {
+    padding: 24px 20px;
+  }
+
+  .cupping-hero-panel h1 {
+    font-size: 38px;
+  }
+}
+
+/* Respect reduced-motion settings */
+
+@media (prefers-reduced-motion: reduce) {
+  .cupping-hero-button {
+    transition: none;
+  }
+}
+
+
+/* ==========================================
+   SCROLL REVEAL
+========================================== */
+
+.ch-reveal,
+.ch-panel {
+  opacity: 0;
+}
+
+/* Brown panel slides in from the left */
+.is-visible .ch-panel {
+  opacity: 1;
+  animation: chPanelIn 1s cubic-bezier(0.22, 1, 0.36, 1) 0.2s backwards;
+}
+
+/* Heading lines, text and button rise in sequence */
+.is-visible .ch-reveal {
+  opacity: 1;
+  animation: chFadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0s) backwards;
+}
+
+@keyframes chPanelIn {
+  from { opacity: 0; transform: translateX(-70px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes chFadeUp {
+  from { opacity: 0; transform: translateY(26px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Panel is centred on mobile, so slide up instead of sideways */
+@media (max-width: 600px) {
+  @keyframes chPanelIn {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+}
+
+/* Divider draws in from the left, then breathes */
+.cupping-panel-divider {
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+.is-visible .cupping-panel-divider {
+  animation:
+    chLineIn 0.9s ease 1.3s forwards,
+    chLineBreathe 3s ease-in-out 2.4s infinite;
+}
+
+@keyframes chLineIn {
+  to { transform: scaleX(1); }
+}
+
+@keyframes chLineBreathe {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.35; }
+}
+
+/* ==========================================
+   LIVE (CONTINUOUS) ANIMATIONS
+   Same on desktop and mobile, no hover needed.
+========================================== */
+
+/* Background: slow zoom + gentle drift (Ken Burns) */
+.is-visible .cupping-hero-background {
+  animation: chKenBurns 18s ease-in-out infinite alternate;
+}
+
+@keyframes chKenBurns {
+  from { transform: scale(1) translate(0, 0); }
+  to   { transform: scale(1.1) translate(-1.5%, -1%); }
+}
+
+/* Warm drifting light orbs over the photo */
+.cupping-hero-section::before,
+.cupping-hero-section::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  filter: blur(70px);
+  pointer-events: none;
+}
+
+.cupping-hero-section::before {
+  width: 320px;
+  height: 320px;
+  top: -80px;
+  right: 10%;
+  background: rgba(243, 214, 160, 0.35);
+  animation: chOrbA 14s ease-in-out infinite alternate;
+}
+
+.cupping-hero-section::after {
+  width: 360px;
+  height: 360px;
+  bottom: -120px;
+  right: -60px;
+  background: rgba(255, 240, 210, 0.25);
+  animation: chOrbB 17s ease-in-out infinite alternate;
+}
+
+@keyframes chOrbA {
+  to { transform: translate(-120px, 90px) scale(1.2); }
+}
+
+@keyframes chOrbB {
+  to { transform: translate(-100px, -70px) scale(1.15); }
+}
+
+/* Panel: light shimmer sweep */
+.cupping-hero-panel {
+  position: relative;
+  overflow: hidden;
+}
+
+.cupping-hero-panel::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -70%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    100deg,
+    transparent,
+    rgba(255, 255, 255, 0.16),
+    transparent
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+}
+
+.is-visible .cupping-hero-panel::after {
+  animation: chShimmer 7s ease-in-out 2.5s infinite;
+}
+
+@keyframes chShimmer {
+  0%        { left: -70%; }
+  35%, 100% { left: 160%; }
+}
+
+/* "Therapy." gold shimmer text */
+.cupping-heading-accent {
+  background: linear-gradient(
+    100deg,
+    #f3d6a0 35%,
+    #fffaf0 50%,
+    #f3d6a0 65%
+  );
+  background-size: 250% 100%;
+  background-position: 100% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.is-visible .cupping-heading-accent {
+  animation:
+    chFadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0s) backwards,
+    chTextShine 5s ease-in-out 2s infinite;
+}
+
+@keyframes chTextShine {
+  0%        { background-position: 100% 0; }
+  50%, 100% { background-position: 0% 0; }
+}
+
+/* Button: pulsing ring + shimmer sweep */
+.cupping-hero-button {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.is-visible .cupping-hero-button {
+  animation: chPulse 2.6s ease-out 2s infinite;
+}
+
+.cupping-hero-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    100deg,
+    transparent,
+    rgba(201, 160, 90, 0.45),
+    transparent
+  );
+  transform: skewX(-20deg);
+  z-index: -1;
+}
+
+.is-visible .cupping-hero-button::after {
+  animation: chButtonShimmer 3.5s ease-in-out 2.4s infinite;
+}
+
+@keyframes chPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.6); }
+  70%  { box-shadow: 0 0 0 14px rgba(255, 255, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+}
+
+@keyframes chButtonShimmer {
+  0%        { left: -75%; }
+  60%, 100% { left: 130%; }
+}
+
+/* ==========================================
+   REDUCED MOTION (replace your old block)
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .cupping-hero-button {
+    transition: none;
+  }
+
+  .ch-reveal,
+  .ch-panel {
+    opacity: 1;
+  }
+
+  .cupping-panel-divider {
+    transform: scaleX(1);
+  }
+
+  .cupping-heading-accent {
+    background: none;
+    color: #f3d6a0;
+    -webkit-text-fill-color: #f3d6a0;
+  }
+
+  .cupping-hero-background,
+  .cupping-hero-section::before,
+  .cupping-hero-section::after,
+  .cupping-hero-panel::after,
+  .cupping-heading-accent,
+  .cupping-hero-button,
+  .cupping-hero-button::after,
+  .cupping-panel-divider,
+  .ch-reveal,
+  .ch-panel {
+    animation: none !important;
+  }
+}

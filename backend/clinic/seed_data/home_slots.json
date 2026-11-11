@@ -1,0 +1,79 @@
+[
+ {
+  "key": "hero-ayurveda",
+  "file": "images/ayurveda.png"
+ },
+ {
+  "key": "hero-hijama",
+  "file": "images/hijama.png"
+ },
+ {
+  "key": "hero-homeopathy",
+  "file": "images/homeopathy.png"
+ },
+ {
+  "key": "why-choose-us",
+  "video": "videos/ayurveda-treatment.mp4"
+ },
+ {
+  "key": "stats-banner",
+  "file": "images/stats-bg.jpeg"
+ },
+ {
+  "key": "discipline-ayurveda",
+  "file": "images/authentic-ayurveda1.jpg",
+  "title": "Authentic Ayurveda",
+  "eyebrow": "CLASSICAL VEDIC MEDICINE",
+  "body": "Assessment dictates alignment. We carefully evaluate individual patient biology before prescribing a structured  Internal & External therapeutic protocol."
+ },
+ {
+  "key": "discipline-homeopathy",
+  "file": "images/clinical-homeopathy1.png",
+  "title": "Clinical Homeopathy",
+  "eyebrow": "INDIVIDUALIZED GENTLE HEALING",
+  "body": "Highly customized individual constitutional treatment that stimulates the body's innate vital force to support healing and address acute and chronic illnesses."
+ },
+ {
+  "key": "discipline-cupping",
+  "file": "images/medical-cupping.png",
+  "title": "Medical Cupping Therapy",
+  "eyebrow": "CIRCULATORY & PAIN DETOX",
+  "body": "Traditional suction and wet cupping (Hijama) promoting localized micro-circulation, lymphatic drainage, rapid myofascial release, and systemic pain relief."
+ },
+ {
+  "key": "homeopathy-care",
+  "file": "images/homeopathy-care1.png"
+ },
+ {
+  "key": "cupping-hero",
+  "file": "images/cupping-hero.png"
+ },
+ {
+  "key": "home-contact-map",
+  "file": "images/map.png"
+ },
+ {
+  "key": "page-hero-treatments",
+  "file": "images/treatments-hero1.jpeg"
+ },
+ {
+  "key": "treatments-cupping",
+  "file": "images/treatments/cupping-therapy.png"
+ },
+ {
+  "key": "page-hero-services",
+  "file": "images/service-hero.png"
+ },
+ {
+  "key": "page-hero-contact",
+  "file": "images/contact-hero.png"
+ },
+ {
+  "key": "contact-map",
+  "file": "images/contact-map1.jpeg"
+ },
+ {
+  "key": "site-logo",
+  "file": "images/moscow-logo.png"
+ }
+]

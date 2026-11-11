@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Icons: the clinic's leaf logo (favicon.ico + PNG sizes + home-screen icons) -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#0a3024" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Search engines. Each page replaces these when it loads (src/components/Seo.jsx);
+         they are what WhatsApp, Facebook and other link-preview tools read.
+         %VITE_SITE_URL% is the website address set in Vercel / frontend/.env.production -->
+    <title>Moscow International Holistic Medical Center, Abu Dhabi</title>
+    <meta
+      name="description"
+      content="Personalised Ayurveda, classical Homeopathy and Cupping (Hijama) therapy with licensed doctors in Khalifa Street, Abu Dhabi. Book a consultation."
+    />
+    <meta
+      name="keywords"
+      content="Moscow International Holistic Medical Center, holistic medical center Abu Dhabi, Ayurveda treatment Abu Dhabi, homeopathy Abu Dhabi, cupping therapy, Hijama, doctor consultation"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Moscow International Holistic Medical Center" />
+    <link rel="canonical" href="%VITE_SITE_URL%/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Moscow International Holistic Medical Center" />
+    <meta property="og:locale" content="en_AE" />
+    <meta property="og:title" content="Moscow International Holistic Medical Center, Abu Dhabi" />
+    <meta
+      property="og:description"
+      content="Personalised Ayurveda, classical Homeopathy and Cupping (Hijama) therapy with licensed doctors in Khalifa Street, Abu Dhabi."
+    />
+    <meta property="og:url" content="%VITE_SITE_URL%/" />
+    <meta property="og:image" content="%VITE_SITE_URL%/images/moscow-logo.png" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Moscow International Holistic Medical Center, Abu Dhabi" />
+    <meta
+      name="twitter:description"
+      content="Personalised Ayurveda, classical Homeopathy and Cupping (Hijama) therapy with licensed doctors in Khalifa Street, Abu Dhabi."
+    />
+    <meta name="twitter:image" content="%VITE_SITE_URL%/images/moscow-logo.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "name": "Moscow International Holistic Medical Center",
+            "url": "%VITE_SITE_URL%/"
+          },
+          {
+            "@type": "MedicalClinic",
+            "name": "Moscow International Holistic Medical Center",
+            "url": "%VITE_SITE_URL%/",
+            "logo": "%VITE_SITE_URL%/images/moscow-logo.png",
+            "image": "%VITE_SITE_URL%/images/moscow-logo.png",
+            "telephone": "+971507800163",
+            "email": "info@moscowcenter.ae",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Khalifa Street",
+              "addressLocality": "Abu Dhabi",
+              "addressCountry": "AE"
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

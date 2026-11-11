@@ -1,0 +1,590 @@
+
+/* =====================================
+   STATISTICS GLASS BANNER
+===================================== */
+
+.stats-banner-section,
+.stats-banner-section * {
+  box-sizing: border-box;
+}
+
+.stats-banner-section {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-height: 202px;
+  padding: 17px 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #e8e3d6;
+  overflow: hidden;
+
+  font-family: "DM Sans", Arial, sans-serif;
+}
+
+/* =====================================
+   CINEMATIC BACKGROUND IMAGE
+===================================== */
+
+.stats-banner-background {
+  position: absolute;
+  inset: -5%;
+  z-index: -2;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  transform: scale(1.05);
+  will-change: transform;
+
+  animation: statsBackgroundCinematic 22s
+    ease-in-out infinite alternate;
+}
+
+/* Slow camera movement and zoom */
+
+@keyframes statsBackgroundCinematic {
+  0% {
+    transform: scale(1.05) translate3d(-1%, 0, 0);
+  }
+
+  50% {
+    transform: scale(1.12) translate3d(1%, -1%, 0);
+  }
+
+  100% {
+    transform: scale(1.08) translate3d(-1%, 1%, 0);
+  }
+}
+
+/* =====================================
+   BACKGROUND OVERLAY AND MOVING LIGHT
+===================================== */
+
+.stats-banner-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background: linear-gradient(
+    110deg,
+    rgba(255, 250, 235, 0.58),
+    rgba(255, 255, 255, 0.22),
+    rgba(225, 216, 191, 0.42)
+  );
+
+  overflow: hidden;
+}
+
+/* Cinematic light sweep */
+
+.stats-banner-overlay::after {
+  content: "";
+  position: absolute;
+  top: -30%;
+  bottom: -30%;
+  left: -50%;
+
+  width: 35%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.32),
+    transparent
+  );
+
+  transform: skewX(-20deg);
+  pointer-events: none;
+}
+
+/* Start light animation when banner is visible */
+
+.is-visible .stats-banner-overlay::after {
+  animation: statsBackgroundLight 12s ease-in-out infinite;
+}
+
+@keyframes statsBackgroundLight {
+  0% {
+    left: -50%;
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  65% {
+    opacity: 0.8;
+  }
+
+  100% {
+    left: 130%;
+    opacity: 0;
+  }
+}
+
+/* =====================================
+   GLASS CONTAINER
+===================================== */
+
+.stats-banner {
+  position: relative;
+  z-index: 1;
+
+  width: 83.3%;
+  max-width: 1250px;
+  min-height: 168px;
+  padding: 22px 35px;
+
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr 1px 1fr;
+  align-items: center;
+  justify-items: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 29px;
+
+  background: rgba(255, 255, 255, 0.58);
+
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+
+  box-shadow:
+    0 5px 22px rgba(67, 53, 30, 0.04),
+    inset 0 1px 1px rgba(255, 255, 255, 0.5);
+
+  overflow: hidden;
+}
+
+/* =====================================
+   STATISTIC ITEMS
+===================================== */
+
+.stats-banner-item {
+  width: 100%;
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  color: #15480d;
+}
+
+/* Large numbers */
+
+.stats-banner-item h2 {
+  margin: 0 0 2px;
+
+  color: #15480d;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 45px;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -1px;
+
+  font-variant-numeric: tabular-nums;
+}
+
+/* Supporting text */
+
+.stats-banner-item p {
+  margin: 0;
+
+  color: #103d0a;
+
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+/* =====================================
+   VERTICAL DIVIDERS
+===================================== */
+
+.stats-banner-divider {
+  width: 1px;
+  height: 94px;
+
+  background: rgba(30, 83, 22, 0.75);
+  transform: scaleY(0);
+  transform-origin: center;
+}
+
+.is-visible .stats-banner-divider {
+  animation:
+    statsDividerIn 0.7s ease 0.4s forwards,
+    statsDividerPulse 3.5s ease-in-out 1.5s infinite;
+}
+
+@keyframes statsDividerIn {
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes statsDividerPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.35;
+  }
+}
+
+/* =====================================
+   GOOGLE RATING STARS
+===================================== */
+
+.stats-google-rating h2 {
+  margin-bottom: 1px;
+}
+
+.stats-stars {
+  margin: 0 0 2px;
+
+  color: #f4bd35;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.stats-star {
+  display: inline-block;
+}
+
+.is-visible .stats-star {
+  animation:
+    statsStarPop 0.5s ease
+      calc(1.2s + var(--s, 0) * 0.12s) backwards,
+    statsStarTwinkle 2.8s ease-in-out
+      calc(2s + var(--s, 0) * 0.25s) infinite;
+}
+
+@keyframes statsStarPop {
+  from {
+    opacity: 0;
+    scale: 0;
+    rotate: -90deg;
+  }
+
+  to {
+    opacity: 1;
+    scale: 1;
+    rotate: 0deg;
+  }
+}
+
+@keyframes statsStarTwinkle {
+  0%,
+  100% {
+    scale: 1;
+    filter: brightness(1);
+  }
+
+  50% {
+    scale: 1.3;
+    filter: brightness(1.35);
+  }
+}
+
+/* =====================================
+   SCROLL REVEAL ANIMATIONS
+===================================== */
+
+.stats-banner-reveal,
+.stats-reveal {
+  opacity: 0;
+}
+
+/* Main glass card entrance */
+
+.is-visible .stats-banner-reveal {
+  opacity: 1;
+
+  animation: statsBannerIn 0.9s
+    cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+@keyframes statsBannerIn {
+  from {
+    opacity: 0;
+    transform: translateY(36px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Staggered statistic entrance */
+
+.is-visible .stats-reveal {
+  opacity: 1;
+
+  animation: statsFadeUp 0.8s
+    cubic-bezier(0.22, 1, 0.36, 1)
+    var(--delay, 0s) backwards;
+}
+
+@keyframes statsFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =====================================
+   GLASS CARD FLOATING ANIMATION
+===================================== */
+
+.is-visible .stats-banner {
+  animation:
+    statsBannerIn 0.9s
+      cubic-bezier(0.22, 1, 0.36, 1) backwards,
+    statsBannerFloat 6s ease-in-out 1.5s infinite;
+}
+
+@keyframes statsBannerFloat {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -6px;
+  }
+}
+
+/* =====================================
+   GLASS SHIMMER SWEEP
+===================================== */
+
+.stats-banner::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+
+  width: 35%;
+  height: 100%;
+
+  background: linear-gradient(
+    100deg,
+    transparent,
+    rgba(255, 255, 255, 0.55),
+    transparent
+  );
+
+  transform: skewX(-20deg);
+  pointer-events: none;
+}
+
+.is-visible .stats-banner::after {
+  animation: statsShimmer 6s ease-in-out 2s infinite;
+}
+
+@keyframes statsShimmer {
+  0% {
+    left: -60%;
+  }
+
+  40%,
+  100% {
+    left: 140%;
+  }
+}
+
+/* =====================================
+   NUMBER GLOW
+===================================== */
+
+.is-visible .stats-banner-item h2 {
+  animation: statsGlow 3.5s ease-in-out 2s infinite;
+}
+
+.is-visible
+  .stats-banner-item:nth-child(1) h2 {
+  animation-delay: 2s;
+}
+
+.is-visible
+  .stats-banner-item:nth-child(3) h2 {
+  animation-delay: 2.5s;
+}
+
+.is-visible
+  .stats-banner-item:nth-child(5) h2 {
+  animation-delay: 3s;
+}
+
+@keyframes statsGlow {
+  0%,
+  100% {
+    text-shadow: 0 0 0 rgba(244, 189, 53, 0);
+  }
+
+  50% {
+    text-shadow: 0 0 14px rgba(244, 189, 53, 0.55);
+  }
+}
+
+/* =====================================
+   TABLET
+===================================== */
+
+@media (max-width: 768px) {
+  .stats-banner-section {
+    min-height: 180px;
+    padding: 16px 0;
+  }
+
+  .stats-banner {
+    width: 90%;
+    min-height: 145px;
+    padding: 18px 15px;
+    border-radius: 23px;
+  }
+
+  .stats-banner-item h2 {
+    font-size: 36px;
+  }
+
+  .stats-banner-item p {
+    font-size: 11px;
+  }
+
+  .stats-banner-divider {
+    height: 80px;
+  }
+
+  .stats-banner-background {
+    inset: -4%;
+  }
+}
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 480px) {
+  .stats-banner-section {
+    min-height: 155px;
+    padding: 14px 0;
+  }
+
+  .stats-banner {
+    width: calc(100% - 24px);
+    min-height: 125px;
+    padding: 15px 8px;
+    border-radius: 19px;
+
+    grid-template-columns: 1fr 1px 1fr 1px 1fr;
+  }
+
+  .stats-banner-item h2 {
+    font-size: clamp(25px, 7vw, 32px);
+    letter-spacing: -0.5px;
+  }
+
+  .stats-banner-item p {
+    font-size: 10px;
+    line-height: 1.4;
+  }
+
+  .stats-banner-divider {
+    height: 68px;
+  }
+
+  .stats-stars {
+    font-size: 10px;
+    letter-spacing: -1px;
+  }
+
+  .stats-banner-background {
+    inset: -5%;
+  }
+}
+
+/* =====================================
+   EXTRA-SMALL PHONES
+===================================== */
+
+@media (max-width: 350px) {
+  .stats-banner {
+    width: calc(100% - 16px);
+    padding: 12px 4px;
+  }
+
+  .stats-banner-item h2 {
+    font-size: 24px;
+  }
+
+  .stats-banner-item p {
+    font-size: 9px;
+  }
+
+  .stats-banner-divider {
+    height: 60px;
+  }
+
+  .stats-stars {
+    font-size: 9px;
+  }
+}
+
+/* =====================================
+   REDUCED MOTION ACCESSIBILITY
+===================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .stats-banner-background,
+  .stats-banner-overlay::after,
+  .stats-banner,
+  .stats-banner::after,
+  .stats-banner-item h2,
+  .stats-banner-divider,
+  .stats-star,
+  .stats-banner-reveal,
+  .stats-reveal {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .stats-banner-reveal,
+  .stats-reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .stats-banner-divider {
+    transform: scaleY(1);
+  }
+
+  .stats-banner-background {
+    transform: none;
+  }
+
+  .stats-banner {
+    translate: none;
+  }
+}

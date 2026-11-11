@@ -1,0 +1,830 @@
+/* ==========================================
+   SERVICES PAGE (MIHMC)
+========================================== */
+
+.mihmc-svc,
+.mihmc-svc * {
+  box-sizing: border-box;
+}
+
+.mihmc-svc {
+  width: 100%;
+  background: #fdf8f1;
+  color: #0a3024;
+  font-family: "DM Sans", Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+.mihmc-svc h1,
+.mihmc-svc h2,
+.mihmc-svc h3,
+.mihmc-svc h4,
+.mihmc-svc p {
+  margin: 0;
+}
+
+.mihmc-svc h1,
+.mihmc-svc h2,
+.mihmc-svc h3 {
+  color: #073326;
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
+
+.mihmc-svc-inner {
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.mihmc-svc-center {
+  text-align: center;
+}
+
+.mihmc-svc-kicker {
+  display: block;
+  color: #8b6127;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.6px;
+}
+
+/* ---------- Buttons ---------- */
+
+.mihmc-svc-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 22px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.6px;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.mihmc-svc-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 41, 29, 0.14);
+}
+
+.mihmc-svc-btn.dark {
+  background: #00291d;
+  color: #fff;
+}
+
+.mihmc-svc-btn.dark:hover {
+  background: #14503a;
+}
+
+.mihmc-svc-btn.soft {
+  background: #f1ede4;
+  color: #0a3322;
+}
+
+.mihmc-svc-btn.white {
+  background: #fff;
+  color: #0a3322;
+}
+
+.mihmc-svc-btn.ghost {
+  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.mihmc-svc-btn.ghost:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+/* ==========================================
+   HERO
+========================================== */
+
+.mihmc-svc-hero {
+  position: relative;
+  padding: 52px 28px 58px;
+  background: #fdf8f1;
+  overflow: hidden;
+}
+
+.mihmc-svc-hero::before {
+  content: "";
+  position: absolute;
+  top: 40px;
+  left: -160px;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: #dcebdc;
+  filter: blur(90px);
+  opacity: 0.7;
+  pointer-events: none;
+  animation: mihmcSvcGlow 16s ease-in-out infinite alternate;
+}
+
+@keyframes mihmcSvcGlow {
+  to { transform: translate(60px, 60px) scale(1.15); }
+}
+
+.mihmc-svc-hero-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  align-items: center;
+  gap: 56px;
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.mihmc-svc-pill {
+  display: inline-block;
+  padding: 6px 11px;
+  border-radius: 999px;
+  background: #ece8de;
+  color: #27382e;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.9px;
+}
+
+.mihmc-svc-hero h1 {
+  margin-top: 20px;
+  font-size: 40px;
+  line-height: 1.08;
+  letter-spacing: -0.5px;
+}
+
+.mihmc-svc-sub {
+  margin-top: 8px !important;
+  color: #8b6127;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 19px;
+  font-style: italic;
+  line-height: 1.3;
+}
+
+.mihmc-svc-lead {
+  max-width: 400px;
+  margin-top: 22px !important;
+  color: #4d514b;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.mihmc-svc-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 26px;
+}
+
+.mihmc-svc-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 30px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mihmc-svc-chips li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 200px;
+  padding: 10px 12px;
+  border-radius: 3px;
+  background: #f4f0e7;
+  color: #27382e;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.mihmc-svc-chips svg {
+  flex-shrink: 0;
+  color: #8b6127;
+}
+
+/* Hero photo */
+
+.mihmc-svc-hero-media {
+  position: relative;
+  isolation: isolate;           
+  min-height: 465px;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid rgba(139, 97, 39, 0.18);  
+  background: #efe6d6;                
+  box-shadow: 0 22px 50px rgba(0, 41, 29, 0.16);
+  transform: translateZ(0);
+}
+
+.mihmc-svc-hero-media > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: mihmcSvcZoom 14s ease-in-out infinite alternate;
+}
+
+.mihmc-svc-hero-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      360deg,
+      rgba(0, 37, 23, 0.50) 0%,
+      rgba(0, 37, 23, 0.20) 50%,
+      rgba(0, 37, 23, 0) 100%
+    ),
+    radial-gradient(
+      ellipse at center,
+      rgba(253, 248, 241, 0) 55%,
+      rgba(0, 41, 29, 0.1) 100%
+    ),
+    rgba(255, 224, 170, 0.1);
+}
+ 
+/* keep the info card above the overlay */
+.mihmc-svc-desk {
+  z-index: 2;
+}
+
+@keyframes mihmcSvcZoom {
+  from { transform: scale(1); }
+  to   { transform: scale(1.06); }
+}
+
+.mihmc-svc-desk {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  left: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: rgba(247, 243, 235, 0.96);
+}
+
+.mihmc-svc-desk-icon {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  background: #0a3322;
+  color: #fff;
+}
+
+.mihmc-svc-desk > div {
+  min-width: 0;
+  flex: 1;
+}
+
+.mihmc-svc-desk strong {
+  display: block;
+  color: #0a3024;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.mihmc-svc-desk span:not(.mihmc-svc-desk-icon) {
+  display: block;
+  color: #6a6d66;
+  font-size: 10px;
+}
+
+.mihmc-svc-desk em {
+  flex-shrink: 0;
+  color: #8b6127;
+  font-size: 9.5px;
+  font-style: normal;
+  letter-spacing: 0.6px;
+}
+
+/* ==========================================
+   PHILOSOPHY
+========================================== */
+
+.mihmc-svc-philosophy {
+  padding: 56px 28px 76px;
+  background: #f4f0e7;
+}
+
+.mihmc-svc-philosophy h2 {
+  margin-top: 14px;
+  font-size: 36px;
+  line-height: 1.12;
+  letter-spacing: -0.4px;
+}
+
+.mihmc-svc-philosophy-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  align-items: center;
+  gap: 32px;
+  margin-top: 48px;
+  padding: 36px 32px;
+  border: 1px solid #ece7dc;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(25, 37, 28, 0.04);
+}
+
+.mihmc-svc-philosophy-text {
+  padding-left: 8px;
+}
+
+.mihmc-svc-philosophy-text p {
+  color: #3f453f;
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+.mihmc-svc-philosophy-text p + p {
+  margin-top: 14px;
+}
+
+.mihmc-svc-quote {
+  margin: 0;
+  padding: 24px 22px;
+  border-radius: 8px;
+  background: #f1ede4;
+}
+
+.mihmc-svc-quote-mark {
+  display: block;
+  color: #8b6127;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.mihmc-svc-quote p {
+  margin-top: 10px;
+  color: #1c3d2f;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 18px;
+  font-style: italic;
+  line-height: 1.55;
+}
+
+.mihmc-svc-quote cite {
+  display: block;
+  margin-top: 28px;
+  color: #0a3024;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+}
+
+/* ==========================================
+   DISCIPLINES
+========================================== */
+
+.mihmc-svc-disciplines {
+  padding: 72px 28px 76px;
+  background: #fdf8f1;
+}
+
+.mihmc-svc-disc-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.mihmc-svc-disc-head h2 {
+  margin-top: 12px;
+  font-size: 36px;
+  line-height: 1.12;
+  letter-spacing: -0.4px;
+}
+
+.mihmc-svc-disc-head > p {
+  max-width: 300px;
+  color: #53564f;
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+
+.mihmc-svc-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 44px;
+}
+
+.mihmc-svc-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #ece7dc;
+  border-radius: 14px;
+  background: #f7f3eb;
+  box-shadow: 0 1px 2px rgba(25, 37, 28, 0.04);
+  transition: box-shadow 0.25s ease;
+}
+
+.mihmc-svc-card:hover {
+  box-shadow: 0 16px 34px rgba(25, 37, 28, 0.11);
+}
+
+.mihmc-svc-card-photo {
+  position: relative;
+  height: 262px;
+  overflow: hidden;
+  background: #e6e2d8;
+}
+
+.mihmc-svc-card-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.mihmc-svc-card:hover .mihmc-svc-card-photo img {
+  transform: scale(1.06);
+}
+
+.mihmc-svc-card-tag {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 3px 7px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #24372d;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.7px;
+}
+
+.mihmc-svc-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 20px 20px 22px;
+}
+
+.mihmc-svc-card-body h3 {
+  font-size: 20px;
+  line-height: 1.3;
+}
+
+.mihmc-svc-card-by {
+  margin-top: 6px !important;
+  color: #8b6127;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.mihmc-svc-card-text {
+  margin-top: 14px !important;
+  color: #4d514b;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.mihmc-svc-card-body h4 {
+  margin-top: 14px;
+  color: #0a3024;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+.mihmc-svc-card-body ul {
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mihmc-svc-card-body li {
+  position: relative;
+  padding-left: 14px;
+  color: #3f453f;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.mihmc-svc-card-body li::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 3px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #c0392b;
+}
+
+.mihmc-svc-card-btn {
+  display: block;
+  margin-top: auto;
+  padding: 11px 12px;
+  border-radius: 2px;
+  background: #00291d;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.mihmc-svc-card-body ul + .mihmc-svc-card-btn {
+  margin-top: 22px;
+}
+
+.mihmc-svc-card-btn:hover {
+  background: #14503a;
+}
+
+/* ==========================================
+   CTA
+========================================== */
+
+.mihmc-svc-cta-wrap {
+  padding: 24px 28px 70px;
+  background: #fdf8f1;
+}
+
+.mihmc-svc-cta {
+  position: relative;
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 46px 32px 36px;
+  overflow: hidden;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #17402e 0%, #1f4a37 55%, #1c4532 100%);
+  box-shadow: 0 24px 50px rgba(0, 41, 29, 0.22);
+  color: #fff;
+  text-align: center;
+}
+
+.mihmc-svc-cta::before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  left: -60px;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.07);
+  filter: blur(50px);
+  pointer-events: none;
+  animation: mihmcSvcGlow 14s ease-in-out infinite alternate;
+}
+
+.mihmc-svc-cta > * {
+  position: relative;
+}
+
+.mihmc-svc-cta-pill {
+  display: inline-block;
+  padding: 5px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #FFDEAC;
+  font-size: 10px;
+  letter-spacing: 1.6px;
+}
+
+.mihmc-svc-cta h2 {
+  margin: 18px 0 14px;
+  color: #fff;
+  font-size: 40px;
+  line-height: 1.15;
+}
+
+.mihmc-svc-cta > p:not(.mihmc-svc-cta-note) {
+  max-width: 440px;
+  margin: 0 auto;
+  color: #8fb09b;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.mihmc-svc-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.mihmc-svc-cta-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px 24px;
+  margin: 34px 0 0;
+  padding: 22px 34px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  list-style: none;
+}
+
+.mihmc-svc-cta-info li {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #6f9580;
+  font-size: 13px;
+}
+
+.mihmc-svc-cta-info strong {
+  color: #cfe0d5;
+  font-weight: 500;
+}
+
+.mihmc-svc-cta-info a {
+  color: #cfe0d5;
+  text-decoration: none;
+}
+
+.mihmc-svc-cta-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 20px !important;
+  color: #4f7561;
+  font-size: 13px;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 900px) {
+  .mihmc-svc-hero {
+    padding: 40px 22px 44px;
+  }
+
+  .mihmc-svc-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .mihmc-svc-hero-media {
+    max-width: 520px;
+    min-height: 380px;
+  }
+
+  .mihmc-svc-hero h1 {
+    font-size: 36px;
+  }
+
+  .mihmc-svc-lead {
+    max-width: 520px;
+  }
+
+  .mihmc-svc-philosophy {
+    padding: 48px 22px 60px;
+  }
+
+  .mihmc-svc-philosophy-card {
+    grid-template-columns: 1fr;
+    padding: 28px 22px;
+  }
+
+  .mihmc-svc-disciplines {
+    padding: 56px 22px 60px;
+  }
+
+  .mihmc-svc-disc-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .mihmc-svc-cards {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .mihmc-svc-card-photo {
+    height: 200px;
+  }
+
+  .mihmc-svc-cta-wrap {
+    padding: 16px 22px 56px;
+  }
+
+  .mihmc-svc-cta-info {
+    justify-content: center;
+    padding: 22px 0 0;
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 600px) {
+  .mihmc-br {
+    display: none;
+  }
+
+  .mihmc-svc-hero {
+    padding: 32px 16px 40px;
+  }
+
+  .mihmc-svc-hero h1 {
+    font-size: 30px;
+  }
+
+  .mihmc-svc-sub {
+    font-size: 16px;
+  }
+
+  .mihmc-svc-lead {
+    font-size: 12px;
+  }
+
+  .mihmc-svc-actions .mihmc-svc-btn,
+  .mihmc-svc-cta-actions .mihmc-svc-btn {
+    width: 100%;
+  }
+
+  .mihmc-svc-chips li {
+    max-width: none;
+    width: 100%;
+  }
+
+  .mihmc-svc-hero-media {
+    min-height: 330px;
+  }
+
+  .mihmc-svc-philosophy h2,
+  .mihmc-svc-disc-head h2 {
+    font-size: 27px;
+  }
+
+  .mihmc-svc-philosophy-text p {
+    font-size: 12px;
+  }
+
+  .mihmc-svc-card-text,
+  .mihmc-svc-card-body li {
+    font-size: 11.5px;
+  }
+
+  .mihmc-svc-cta-wrap {
+    padding: 8px 16px 44px;
+  }
+
+  .mihmc-svc-cta {
+    padding: 36px 18px 28px;
+    border-radius: 18px;
+  }
+
+  .mihmc-svc-cta h2 {
+    font-size: 26px;
+  }
+
+  .mihmc-svc-cta-info {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .mihmc-svc-hero::before,
+  .mihmc-svc-cta::before,
+  .mihmc-svc-hero-media > img {
+    animation: none;
+  }
+
+  .mihmc-svc-btn,
+  .mihmc-svc-card,
+  .mihmc-svc-card-photo img,
+  .mihmc-svc-card-btn {
+    transition: none;
+  }
+}

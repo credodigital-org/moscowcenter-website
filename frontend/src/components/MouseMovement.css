@@ -1,0 +1,83 @@
+/* =========================================
+   MOSCOW MEDICAL CENTER - CURSOR ANIMATION
+========================================= */
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  background: #198754;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 999999;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  box-shadow: 0 0 10px rgba(25, 135, 84, 0.45);
+}
+
+.cursor-trail {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  border: 2px solid rgba(25, 135, 84, 0.7);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 999998;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  background: rgba(25, 135, 84, 0.04);
+  transition:
+    width 0.2s ease,
+    height 0.2s ease,
+    opacity 0.15s ease;
+}
+
+/* Hover effect for desktop */
+body.cursor-hover .custom-cursor {
+  width: 24px;
+  height: 24px;
+  background: rgba(25, 135, 84, 0.35);
+}
+
+/* Desktop and laptop */
+@media (hover: hover) and (pointer: fine) {
+  body,
+  body a,
+  body button {
+    cursor: none !important;
+  }
+
+  .custom-cursor,
+  .cursor-trail {
+    display: block;
+  }
+}
+
+/* Mobile and touch devices */
+@media (hover: none), (pointer: coarse) {
+  .custom-cursor,
+  .cursor-trail {
+    display: block;
+  }
+
+  body,
+  body a,
+  body button,
+  body input,
+  body select,
+  body textarea {
+    cursor: auto;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .cursor-trail {
+    transition: none;
+  }
+}

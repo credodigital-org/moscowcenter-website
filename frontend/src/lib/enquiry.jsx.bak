@@ -1,0 +1,65 @@
+import React, { useState } from "react";
+import { apiPost } from "../api";
+
+/* Appointment forms (home page and Contact page).
+   The original form design is untouched: this only replaces the placeholder
+   alert() with a real submission to /api/appointments/ and shows a short
+   status line after the visitor presses the button. */
+
+export function useEnquiryForm(source, toPayload) {
+  const [status, setStatus] = useState({ state: "idle", message: "" });
+
+  async function submit(event) {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    setStatus({ state: "sending", message: "" });
+    try {
+      await apiPost("appointments", { ...toPayload(data), source, website: data.get("website") || "" });
+      form.reset();
+      setStatus({
+        state: "sent",
+        message: "Thank you — your request has been received. Our team will contact you shortly.",
+      });
+    } catch {
+      setStatus({
+        state: "error",
+        message: "Sorry, we could not send your request. Please call or WhatsApp us instead.",
+      });
+    }
+  }
+
+  return { status, submit };
+}
+
+/** Hidden field that only spam bots fill in; real visitors never see it. */
+export function EnquiryHoneypot() {
+  return (
+    <input
+      type="text"
+      name="website"
+      tabIndex={-1}
+      autoComplete="off"
+      aria-hidden="true"
+      style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }}
+    />
+  );
+}
+
+export function EnquiryStatus({ status }) {
+  if (!status.message) return null;
+  return (
+    <p
+      role={status.state === "error" ? "alert" : "status"}
+      style={{
+        margin: "14px 0 0",
+        textAlign: "center",
+        fontSize: 14,
+        lineHeight: 1.5,
+        color: status.state === "error" ? "#a52a2a" : "#145a38",
+      }}
+    >
+      {status.message}
+    </p>
+  );
+}

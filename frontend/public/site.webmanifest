@@ -1,0 +1,13 @@
+{
+  "name": "Moscow International Holistic Medical Center",
+  "short_name": "Moscow Center",
+  "description": "Ayurveda, Homeopathy and Cupping (Hijama) therapy in Abu Dhabi.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#fdf8f1",
+  "theme_color": "#0a3024",
+  "icons": [
+    { "src": "/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

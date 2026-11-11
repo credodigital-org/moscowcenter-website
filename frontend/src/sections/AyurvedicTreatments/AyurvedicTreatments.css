@@ -1,0 +1,637 @@
+/* ==========================================
+   AYURVEDIC TREATMENTS SECTION
+========================================== */
+
+.ayurvedic-treatments-section,
+.ayurvedic-treatments-section * {
+  box-sizing: border-box;
+}
+
+.ayurvedic-treatments-section {
+  width: 100%;
+  padding: 0 24px 24px;
+  background: #f7f3ec;
+  color: #17450f;
+  font-family: "DM Sans", Arial, sans-serif;
+}
+
+.ayurvedic-treatments-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* ==========================================
+   SECTION HEADING
+========================================== */
+
+.ayurvedic-treatments-header {
+  margin: 0 auto 45px;
+  text-align: center;
+}
+
+.ayurvedic-treatments-header h2 {
+  margin: 0 0 12px;
+  color: #17480f;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.7px;
+}
+
+.ayurvedic-treatments-header p {
+  max-width: 720px;
+  margin: 0 auto;
+  color: #555850;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+/* ==========================================
+   TREATMENT GRID
+========================================== */
+
+.ayurvedic-treatments-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px 22px;
+}
+
+/* ==========================================
+   IMAGE CARD
+========================================== */
+
+.ayurvedic-treatment-card {
+  position: relative;
+  min-width: 0;
+  height: 392px;
+  overflow: hidden;
+  isolation: isolate;
+
+  border-radius: 14px;
+  background: #d9c2a0;
+
+  box-shadow: 0 2px 5px rgba(43, 34, 21, 0.05);
+}
+
+.ayurvedic-treatment-image {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+
+  transition: transform 0.55s ease;
+}
+
+.ayurvedic-treatment-card:hover .ayurvedic-treatment-image {
+  transform: scale(1.04);
+}
+
+/* ==========================================
+   BROWN GLASS TEXT PANEL
+========================================== */
+
+.ayurvedic-treatment-overlay {
+  position: absolute;
+  left: 11px;
+  bottom: 7px;
+
+  width: 163px;
+  min-height: 160px;
+  padding: 16px 14px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+
+  background: rgba(67, 42, 23, 0.76);
+  color: #ffffff;
+
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.ayurvedic-treatment-overlay h3 {
+  margin: 0 0 7px;
+
+  color: #ffffff;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.ayurvedic-treatment-overlay p {
+  margin: 0 0 11px;
+
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+/* ==========================================
+   APPOINTMENT BUTTON
+========================================== */
+
+.ayurvedic-treatment-button {
+  min-height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 5px 9px;
+  border: 0;
+  border-radius: 2px;
+
+  background: #ffffff;
+  color: #17442b;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+.ayurvedic-treatment-button:hover {
+  background: #dfead9;
+  color: #103b20;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 800px) {
+  .ayurvedic-treatments-section {
+    padding: 0 22px 35px;
+  }
+
+  .ayurvedic-treatments-container {
+    max-width: 650px;
+  }
+
+  .ayurvedic-treatments-header {
+    margin-bottom: 35px;
+  }
+
+  .ayurvedic-treatments-header h2 {
+    font-size: 36px;
+  }
+
+  .ayurvedic-treatments-grid {
+    gap: 22px 18px;
+  }
+
+  .ayurvedic-treatment-card {
+    height: 350px;
+  }
+
+  .ayurvedic-treatment-overlay {
+    left: 9px;
+    bottom: 9px;
+    width: min(163px, calc(100% - 18px));
+    padding: 14px 12px;
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 560px) {
+  .ayurvedic-treatments-section {
+    padding: 0 16px 35px;
+  }
+
+  .ayurvedic-treatments-header {
+    margin-bottom: 27px;
+  }
+
+  .ayurvedic-treatments-header h2 {
+    font-size: 32px;
+    line-height: 1.2;
+  }
+
+  .ayurvedic-treatments-header p {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+
+  .ayurvedic-treatments-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+
+  .ayurvedic-treatment-card {
+    height: auto;
+    aspect-ratio: 0.95 / 1;
+    min-height: 350px;
+    border-radius: 13px;
+  }
+
+  .ayurvedic-treatment-overlay {
+    left: 12px;
+    bottom: 12px;
+    width: min(205px, calc(100% - 24px));
+    min-height: 0;
+    padding: 16px;
+  }
+
+  .ayurvedic-treatment-overlay h3 {
+    font-size: 17px;
+  }
+
+  .ayurvedic-treatment-overlay p {
+    font-size: 11px;
+    line-height: 1.55;
+  }
+
+  .ayurvedic-treatment-button {
+    min-height: 27px;
+    padding: 7px 11px;
+    font-size: 9px;
+  }
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 360px) {
+  .ayurvedic-treatments-section {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .ayurvedic-treatments-header h2 {
+    font-size: 29px;
+  }
+
+  .ayurvedic-treatment-card {
+    min-height: 320px;
+  }
+
+  .ayurvedic-treatment-overlay {
+    left: 9px;
+    bottom: 9px;
+    width: min(195px, calc(100% - 18px));
+    padding: 13px;
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .ayurvedic-treatment-image,
+  .ayurvedic-treatment-button {
+    transition: none;
+  }
+}
+
+/* ==========================================
+   ROTATING CENTRE REVEAL
+========================================== */
+
+.at-reveal,
+.at-card {
+  opacity: 0;
+}
+
+.at-card.spin-cw  { --rot: -14deg; --flip: -60deg; }
+.at-card.spin-ccw { --rot: 14deg;  --flip: 60deg; }
+
+.is-visible .at-reveal {
+  opacity: 1;
+  animation: atFadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0s) backwards;
+}
+
+/* Reveal first, then the floating loop takes over */
+.is-visible .at-card {
+  opacity: 1;
+  transform-origin: center center;
+  animation:
+    atSpinIn 1.1s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0s) backwards,
+    atCardFloat 6s ease-in-out calc(2s + var(--i, 0) * 0.5s) infinite;
+}
+
+@keyframes atFadeUp {
+  from { opacity: 0; transform: translateY(26px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Each card grows out of its own centre while rotating and flipping */
+@keyframes atSpinIn {
+  0% {
+    opacity: 0;
+    transform: perspective(900px) scale(0.4) rotate(var(--rot)) rotateY(var(--flip));
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(900px) scale(1) rotate(0deg) rotateY(0deg);
+  }
+}
+
+/* Text panel slides up after its card lands */
+.is-visible .ayurvedic-treatment-overlay {
+  animation:
+    atOverlayIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) calc(var(--delay, 0s) + 0.7s) backwards,
+    atOverlayFloat 5s ease-in-out calc(2.5s + var(--i, 0) * 0.4s) infinite;
+}
+
+@keyframes atOverlayIn {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================
+   LIVE (CONTINUOUS) ANIMATIONS
+   Same on desktop and mobile, no hover needed.
+   Uses `translate` / `scale` so it doesn't
+   clash with the reveal transforms.
+========================================== */
+
+/* Soft drifting background glows */
+.ayurvedic-treatments-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.ayurvedic-treatments-container {
+  position: relative;
+  z-index: 1;
+}
+
+.ayurvedic-treatments-section::before,
+.ayurvedic-treatments-section::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  filter: blur(70px);
+  pointer-events: none;
+  opacity: 0.45;
+}
+
+.ayurvedic-treatments-section::before {
+  width: 280px;
+  height: 280px;
+  top: 5%;
+  left: -90px;
+  background: #e3d3b8;
+  animation: atGlowA 15s ease-in-out infinite alternate;
+}
+
+.ayurvedic-treatments-section::after {
+  width: 320px;
+  height: 320px;
+  bottom: -80px;
+  right: -100px;
+  background: #dfecde;
+  animation: atGlowB 18s ease-in-out infinite alternate;
+}
+
+@keyframes atGlowA {
+  to { transform: translate(60px, 50px) scale(1.2); }
+}
+
+@keyframes atGlowB {
+  to { transform: translate(-60px, -40px) scale(1.15); }
+}
+
+/* Heading underline: draws in, then breathes */
+.ayurvedic-treatments-header h2 {
+  position: relative;
+  padding-bottom: 14px;
+}
+
+.ayurvedic-treatments-header h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 60px;
+  height: 3px;
+  margin: 0 auto;
+  border-radius: 2px;
+  background: #236b17;
+  transform: scaleX(0);
+}
+
+.is-visible .ayurvedic-treatments-header h2::after {
+  animation:
+    atLineIn 0.9s ease 0.8s forwards,
+    atLineBreathe 3s ease-in-out 1.8s infinite;
+}
+
+@keyframes atLineIn {
+  to { transform: scaleX(1); }
+}
+
+@keyframes atLineBreathe {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.4; }
+}
+
+/* Cards: gentle float */
+@keyframes atCardFloat {
+  0%, 100% { translate: 0 0; }
+  50%      { translate: 0 -8px; }
+}
+
+/* Images: slow Ken Burns zoom, offset per card */
+.is-visible .ayurvedic-treatment-image {
+  animation: atKenBurns 12s ease-in-out calc(var(--i, 0) * 1.5s) infinite alternate;
+}
+
+/* Replace the hover zoom with the continuous zoom */
+.ayurvedic-treatment-card:hover .ayurvedic-treatment-image {
+  transform: none;
+}
+
+@keyframes atKenBurns {
+  from { transform: scale(1); }
+  to   { transform: scale(1.1); }
+}
+
+/* Cards: light shimmer sweep */
+.ayurvedic-treatment-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -70%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    100deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+}
+
+.is-visible .ayurvedic-treatment-card::after {
+  animation: atShimmer 7s ease-in-out calc(3s + var(--i, 0) * 1s) infinite;
+}
+
+@keyframes atShimmer {
+  0%        { left: -70%; }
+  35%, 100% { left: 150%; }
+}
+
+/* Text panel: gentle float */
+@keyframes atOverlayFloat {
+  0%, 100% { translate: 0 0; }
+  50%      { translate: 0 -4px; }
+}
+
+/* Button: pulsing ring */
+.is-visible .ayurvedic-treatment-button {
+  animation: atButtonPulse 2.6s ease-out calc(2.5s + var(--i, 0) * 0.4s) infinite;
+}
+
+@keyframes atButtonPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.65); }
+  70%  { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+}
+
+/* ==========================================
+   ACCESSIBILITY (replace your old block)
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .ayurvedic-treatment-image,
+  .ayurvedic-treatment-button {
+    transition: none;
+  }
+
+  .at-reveal,
+  .at-card {
+    opacity: 1;
+  }
+
+  .ayurvedic-treatments-header h2::after {
+    transform: scaleX(1);
+  }
+
+  .ayurvedic-treatments-section::before,
+  .ayurvedic-treatments-section::after,
+  .ayurvedic-treatments-header h2::after,
+  .at-reveal,
+  .at-card,
+  .ayurvedic-treatment-image,
+  .ayurvedic-treatment-card::after,
+  .ayurvedic-treatment-overlay,
+  .ayurvedic-treatment-button {
+    animation: none !important;
+  }
+}
+
+/* ==========================================
+   MOBILE: SWIPEABLE CARD CAROUSEL (560px and below)
+   Paste at the END of the file so it overrides earlier rules.
+========================================== */
+
+@media (max-width: 560px) {
+  .ayurvedic-treatments-section {
+    padding: 0 0 35px;
+  }
+
+  .ayurvedic-treatments-header {
+    padding: 0 16px;
+  }
+
+  /* One row of cards that scrolls sideways and snaps */
+  .ayurvedic-treatments-grid {
+    display: flex;
+    gap: 14px;
+
+    max-width: none;
+    margin: 0;
+    padding: 14px 16px 22px;      /* top room for the float animation */
+
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 16px;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+  }
+
+  .ayurvedic-treatments-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Each card is ~84% wide so the next one peeks in */
+  .ayurvedic-treatments-grid .ayurvedic-treatment-card {
+    flex: 0 0 84%;
+    height: 330px;
+    min-height: 0;
+    aspect-ratio: auto;
+    scroll-snap-align: center;
+    border-radius: 16px;
+  }
+
+  /* Text panel spans the bottom of the card */
+  .ayurvedic-treatments-grid .ayurvedic-treatment-overlay {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    width: auto;
+    min-height: 0;
+    padding: 16px 16px 18px;
+    border-radius: 12px;
+  }
+
+  .ayurvedic-treatment-overlay h3 {
+    font-size: 19px;
+  }
+
+  .ayurvedic-treatment-overlay p {
+    margin-bottom: 14px;
+    font-size: 12.5px;
+    line-height: 1.55;
+  }
+
+  /* Bigger tap target for the button */
+  .ayurvedic-treatment-button {
+    min-height: 34px;
+    padding: 9px 16px;
+    font-size: 11px;
+  }
+
+  /* Calmer motion on phones: drop the card float so swiping feels steady */
+  .is-visible .at-card {
+    animation: atSpinIn 1.1s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0s) backwards;
+  }
+}
+
+@media (max-width: 360px) {
+  .ayurvedic-treatments-grid .ayurvedic-treatment-card {
+    flex-basis: 88%;
+    height: 390px;
+  }
+}

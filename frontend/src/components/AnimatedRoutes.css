@@ -1,0 +1,109 @@
+/* Page-change curtain. Import once, e.g. in AnimatedRoutes.jsx or App.css */
+
+.mihmc-curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: linear-gradient(135deg, #00291d 0%, #14503a 100%);
+  pointer-events: none;
+}
+
+.mihmc-curtain-text {
+  color: #f2c77e;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 34px;
+  letter-spacing: 6px;
+}
+
+.mihmc-curtain-line {
+  display: block;
+  width: 90px;
+  height: 2px;
+  background: #f2c77e;
+  transform-origin: center;
+}
+
+/* ==========================================
+   LOADING SCREEN (first visit)
+========================================== */
+
+.mihmc-preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: linear-gradient(135deg, #00291d 0%, #14503a 100%);
+  color: #f2c77e;
+  text-align: center;
+}
+
+.mihmc-preloader-logo {
+  width: 110px;
+  height: auto;
+  margin-bottom: 22px;
+}
+
+.mihmc-preloader-title {
+  margin: 0;
+  color: #fff;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 4px;
+  line-height: 1.5;
+}
+
+.mihmc-preloader-title span {
+  display: block;
+  color: #f2c77e;
+  font-size: 12px;
+  letter-spacing: 5px;
+}
+
+.mihmc-preloader-bar {
+  width: 220px;
+  height: 2px;
+  margin-top: 30px;
+  overflow: hidden;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.mihmc-preloader-bar span {
+  display: block;
+  height: 100%;
+  background: #f2c77e;
+}
+
+.mihmc-preloader-percent {
+  margin: 12px 0 0;
+  color: #cfe0d5;
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+@media (max-width: 600px) {
+  .mihmc-preloader-title {
+    font-size: 15px;
+    letter-spacing: 2.5px;
+  }
+
+  .mihmc-preloader-title span {
+    font-size: 10px;
+    letter-spacing: 3px;
+  }
+
+  .mihmc-preloader-bar {
+    width: 180px;
+  }
+}
