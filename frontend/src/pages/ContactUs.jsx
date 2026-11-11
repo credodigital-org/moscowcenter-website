@@ -95,7 +95,7 @@ export default function ContactUs() {
     transition: { duration: 0.8, delay: reduce ? 0 : delay, ease: "easeOut" },
   });
 
-  // Sends the request to WhatsApp on phones/tablets or email on desktop; no backend record is created.
+  // Opens an appointment email draft; no backend record is created.
   const enquiry = useEnquiryForm("contact", (d) => ({
     full_name: d.get("name") || "",
     phone: `+971 ${d.get("phone") || ""}`.trim(),
@@ -335,7 +335,7 @@ export default function ContactUs() {
             <label className="mihmc-ct-consent">
               <input type="checkbox" required />
               <span>
-                <T k="contact.contact-page.i-agree-to-the-processing--36d1" d={"I agree to the processing of my contact information in accordance with MIHMC patient privacy policies. Submitting this form sends an appointment request; confirmation will be provided by phone or WhatsApp."} /></span>
+                <T k="contact.contact-page.i-agree-to-the-processing--36d1" d={"I agree to the processing of my contact information in accordance with MIHMC patient privacy policies. Submitting this form opens an appointment email draft; I must press Send. The clinic may contact me by phone or email."} /></span>
             </label>
 
             <motion.button

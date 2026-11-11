@@ -18,3 +18,14 @@ frontend/.env.local
 .DS_Store
 .vscode/
 .idea/
+
+
+
+**/.env
+**/.env.*
+!**/.env.example
+**/.venv/
+**/node_modules/
+**/dist/
+**/*.bak
+**/*.before-*
