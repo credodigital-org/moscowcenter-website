@@ -853,127 +853,9 @@ const testimonialFields = [
   { name: "is_published", label: "Published on the website", type: "checkbox" },
 ];
 
-/* ------------------------------ enquiries inbox ------------------------------ */
-
-const digitsOnly = (value) => String(value || "").replace(/[^\d]/g, "");
-
-function EnquiriesPanel({ onChanged }) {
-  const [items, setItems] = useState(null);
-  const [filter, setFilter] = useState("new");
-  const [error, setError] = useState("");
-  const [notice, setNotice] = useState("");
-
-  const load = useCallback(async () => {
-    try {
-      setItems(await adminRequest("appointments"));
-      setError("");
-    } catch (err) {
-      setError(err.message);
-      setItems([]);
-    }
-  }, []);
-
-  useEffect(() => {
-    load();
-  }, [load]);
-
-  async function setHandled(item, handled) {
-    try {
-      await adminRequest(`appointments/${item.id}`, {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ is_handled: handled }),
-      });
-      await load();
-      onChanged?.();
-    } catch (err) {
-      setError(err.message);
-    }
-  }
-
-  async function remove(item) {
-    if (!window.confirm(`Delete the request from “${item.full_name}”? This cannot be undone.`)) return;
-    try {
-      await adminRequest(`appointments/${item.id}`, { method: "DELETE" });
-      setNotice("Request deleted.");
-      await load();
-      onChanged?.();
-    } catch (err) {
-      setError(err.message);
-    }
-  }
-
-  if (items === null) return <p className="mca-muted">Loading…</p>;
-
-  const newCount = items.filter((i) => !i.is_handled).length;
-  const visible = items.filter((i) => (filter === "all" ? true : filter === "new" ? !i.is_handled : i.is_handled));
-
-  return (
-    <div className="mca-panel">
-      <p className="mca-intro">
-        Appointment requests sent from the home page and the Contact page. Call or WhatsApp the patient, then mark the request as handled.
-      </p>
-      <Notice kind="error" onClose={() => setError("")}>{error}</Notice>
-      <Notice kind="success" onClose={() => setNotice("")}>{notice}</Notice>
-
-      <div className="mca-tabs" role="tablist">
-        {[["new", `New (${newCount})`], ["handled", "Handled"], ["all", "All"]].map(([key, label]) => (
-          <button key={key} role="tab" aria-selected={filter === key} className={filter === key ? "active" : ""} onClick={() => setFilter(key)}>
-            {label}
-          </button>
-        ))}
-        <button className="mca-refresh" onClick={load}>Refresh</button>
-      </div>
-
-      {visible.length === 0 ? (
-        <p className="mca-empty">{filter === "new" ? "No new requests. 🎉" : "Nothing here."}</p>
-      ) : (
-        <ul className="mca-enq-list">
-          {visible.map((item) => {
-            const wa = digitsOnly(item.phone);
-            return (
-              <li key={item.id} className={item.is_handled ? "done" : ""}>
-                <div className="mca-enq-head">
-                  <strong>{item.full_name}</strong>
-                  <span className={`mca-pill ${item.is_handled ? "off" : "on"}`}>{item.is_handled ? "Handled" : "New"}</span>
-                  <small>{new Date(item.created_at).toLocaleString()}</small>
-                </div>
-                <dl className="mca-enq-meta">
-                  <div><dt>Phone</dt><dd><a href={`tel:${item.phone}`}>{item.phone}</a></dd></div>
-                  {item.email && <div><dt>Email</dt><dd><a href={`mailto:${item.email}`}>{item.email}</a></dd></div>}
-                  {item.department && <div><dt>For</dt><dd>{item.department}</dd></div>}
-                  {(item.preferred_date || item.preferred_time) && (
-                    <div><dt>Preferred</dt><dd>{[item.preferred_date, item.preferred_time].filter(Boolean).join(" · ")}</dd></div>
-                  )}
-                  <div><dt>Form</dt><dd>{item.source === "home" ? "Home page" : "Contact page"}</dd></div>
-                </dl>
-                {item.concern && <p className="mca-enq-concern">{item.concern}</p>}
-                <div className="mca-actions">
-                  <a className="mca-btn ghost" href={`tel:${item.phone}`}>Call</a>
-                  {wa && <a className="mca-btn ghost" href={`https://wa.me/${wa}`} target="_blank" rel="noreferrer">WhatsApp</a>}
-                  <button className="mca-btn ghost" onClick={() => setHandled(item, !item.is_handled)}>
-                    {item.is_handled ? "Mark as new" : "Mark as handled"}
-                  </button>
-                  <button className="mca-btn ghost danger" onClick={() => remove(item)}>Delete</button>
-                </div>
-              </li>
-            );
-          })}
-        </ul>
-      )}
-    </div>
-  );
-}
-
 /* ------------------------------ the admin, page by page ------------------------------ */
 
 const SECTIONS = [
-  {
-    key: "enquiries",
-    label: "Enquiries",
-    hint: "Appointment requests",
-    render: (ctx) => <EnquiriesPanel onChanged={ctx.refreshCount} />,
-  },
   {
     key: "home",
     label: "Home Page",
@@ -1228,20 +1110,6 @@ export default function AdminPage() {
   useVisibleCursor();
   const [loggedIn, setLoggedIn] = useState(isAdminLoggedIn());
   const [active, setActive] = useState("home");
-  const [newCount, setNewCount] = useState(0);
-
-  const refreshCount = useCallback(async () => {
-    try {
-      const rows = await adminRequest("appointments");
-      setNewCount(rows.filter((r) => !r.is_handled).length);
-    } catch {
-      /* the badge is optional */
-    }
-  }, []);
-
-  useEffect(() => {
-    if (loggedIn) refreshCount();
-  }, [loggedIn, active, refreshCount]);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -1254,6 +1122,7 @@ export default function AdminPage() {
 
   return (
     <div className="mca-shell">
+      {menuOpen && <button className="mca-backdrop" aria-label="Close admin menu" onClick={() => setMenuOpen(false)} />}
       <aside className={`mca-sidebar ${menuOpen ? "open" : ""}`}>
         <div className="mca-brand">
           <strong>Moscow Centre</strong>
@@ -1271,7 +1140,6 @@ export default function AdminPage() {
             >
               <strong>
                 {s.label}
-                {s.key === "enquiries" && newCount > 0 && <em className="mca-badge">{newCount}</em>}
               </strong>
               <span>{s.hint}</span>
             </button>
@@ -1293,10 +1161,10 @@ export default function AdminPage() {
 
       <main className="mca-main">
         <header className="mca-topbar">
-          <button className="mca-menu" onClick={() => setMenuOpen((o) => !o)} aria-label="Menu">☰</button>
+          <button className="mca-menu" onClick={() => setMenuOpen((o) => !o)} aria-label="Toggle admin menu" aria-expanded={menuOpen}>☰</button>
           <h1>{section.label}</h1>
         </header>
-        <div className="mca-content" key={active}>{section.render({ refreshCount })}</div>
+        <div className="mca-content" key={active}>{section.render()}</div>
       </main>
     </div>
   );

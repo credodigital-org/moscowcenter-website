@@ -1,0 +1,17 @@
+Moscow Centre admin responsive update
+
+Contents
+- frontend/src/pages/AdminPage.jsx
+- frontend/src/styles/AdminPage.css
+
+Apply
+1. Back up the matching two files in your project.
+2. Extract this ZIP into the project root and allow the two files to be replaced.
+3. From the frontend folder, rebuild/redeploy the website as usual.
+
+Changes
+- Removes the Enquiries section from the admin navigation and removes its appointment-count API request.
+- Adds a mobile menu backdrop and improves the sidebar, content spacing, tabs, forms, editor, buttons, and login layout on smaller screens.
+- Keeps the existing admin sections, booking form, and public Contact page form unchanged.
+
+This is a two-file source overlay, not a full project ZIP. It does not modify the database, run migrations, or deploy the site.
