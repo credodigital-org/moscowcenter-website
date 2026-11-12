@@ -98,7 +98,7 @@ export default function ContactUs() {
   // Opens an appointment email draft; no backend record is created.
   const enquiry = useEnquiryForm("contact", (d) => ({
     full_name: d.get("name") || "",
-    phone: `+971 ${d.get("phone") || ""}`.trim(),
+    phone: d.get("phone") || "", // formatted + validated in lib/enquiry.jsx
     email: d.get("email") || "",
     department: d.get("department") || "",
     preferred_date: d.get("date") || "",

@@ -936,7 +936,7 @@ export const TEXT_MANIFEST = [
   "key": "contact.contact-page.i-agree-to-the-processing--36d1",
   "page": "contact",
   "section": "Contact page",
-  "text": "I agree to the processing of my contact information in accordance with MIHMC patient privacy policies. Submitting this form sends an appointment request; confirmation will be provided by phone or WhatsApp."
+  "text": "I agree to the processing of my contact information in accordance with MIHMC patient privacy policies. Submitting this form opens an appointment email draft; I must press Send. The clinic may contact me by phone or email."
  },
  {
   "key": "contact.contact-page.request-an-appointment-673a",
@@ -1537,6 +1537,15 @@ export const TEXT_MANIFEST = [
   "page": "treatments",
   "section": "Treatments page — why choose our cupping",
   "text": "Tailored selection between dry and wet cupping (Hijama) based on your specific constitution, symptoms, and health goals."
+ },
+ {
+  "key": "site.booking-email",
+  "page": "site",
+  "section": "Contact details & announcement",
+  "text": "info@moscowcenter.ae",
+  "label": "Booking e-mail (where 'Book Consultation' e-mails go)",
+  "help": "The address the appointment form's e-mail draft is addressed to, on the home page and the Contact page.",
+  "setting": true
  },
  {
   "key": "site.announcement",
