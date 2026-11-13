@@ -248,10 +248,11 @@ export default function Footer() {
         </div>
 
         {/* Bottom footer */}
-        <div className="moscow-footer-bottom reveal" style={{ "--d": 5 }}>
+        {/* <div className="moscow-footer-bottom reveal" style={{ "--d": 5 }}>
           <p className="moscow-footer-copyright">
             © {currentYear} Moscow International Holistic Centre, Abu Dhabi.
           </p>
+
 
           <nav className="moscow-footer-legal" aria-label="Legal information">
             <a href="/privacy-policy"><T k="site.footer.privacy-policy-9db1" d={"Privacy Policy"} /></a>
@@ -260,7 +261,62 @@ export default function Footer() {
             <span className="moscow-footer-dot">•</span>
             <a href="/terms-of-care"><T k="site.footer.terms-of-care-d1d5" d={"Terms of Care"} /></a>
           </nav>
-        </div>
+
+          
+        </div> */}
+
+        {/* Bottom footer */}
+<div className="moscow-footer-bottom reveal" style={{ "--d": 5 }}>
+
+  <div className="moscow-footer-bottom-main">
+    <p className="moscow-footer-copyright">
+      © {currentYear} Moscow International Holistic Centre, Abu Dhabi.
+    </p>
+
+    <nav className="moscow-footer-legal" aria-label="Legal information">
+      <a href="/privacy-policy">
+        <T k="site.footer.privacy-policy-9db1" d="Privacy Policy" />
+      </a>
+
+      <span className="moscow-footer-dot">•</span>
+
+      <a href="/patient-care-charter">
+        <T k="site.footer.patient-care-charter-e55d" d="Patient Care Charter" />
+      </a>
+
+      <span className="moscow-footer-dot">•</span>
+
+      <a href="/terms-of-care">
+        <T k="site.footer.terms-of-care-d1d5" d="Terms of Care" />
+      </a>
+    </nav>
+  </div>
+
+  {/* <div className="moscow-footer-credit">
+    Designed &amp; Developed by{" "}
+    <a
+      href="https://wa.me/971509132555"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Contact Credo Digital Designs LLC on WhatsApp"
+    >
+      Credo Digital Designs LLC
+    </a>
+  </div> */}
+
+  <div className="moscow-footer-credit">
+  Designed &amp; Developed by{" "}
+  <a
+    href="https://credodesigns.ae/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Credo Digital Designs LLC website"
+  >
+    Credo Digital Designs LLC
+  </a>
+</div>
+
+</div>
       </div>
     </footer>
   );
