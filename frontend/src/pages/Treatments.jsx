@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import {
   BadgeCheck,
@@ -114,6 +114,52 @@ const DEFAULT_PACKAGES = [
   { img: backImg, title: "Back Pain Care", text: "Individualised support for back discomfort." },
 ];
 
+const PACKAGE_DETAILS = {
+  "Obesity Management": {
+    description:
+      "Receive personalised support for healthy weight management with our expert team. Our program includes dietary guidance, lifestyle coaching and ongoing monitoring to help you work towards your wellness goals.",
+    benefits: [
+      "Personalised Nutrition Plan",
+      "Lifestyle Support",
+      "Expert Guidance",
+      "Long-Term Wellness",
+    ],
+  },
+
+  "Postnatal Care": {
+    description:
+      "A personalised postnatal care program designed to support mothers after childbirth through traditional therapies, relaxation and individualised wellness guidance.",
+    benefits: [
+      "Postnatal Wellness Support",
+      "Relaxation Therapies",
+      "Personalised Care",
+      "Recovery Guidance",
+    ],
+  },
+
+  "Neck Pain Care": {
+    description:
+      "Individualised care for neck discomfort using traditional therapies selected following an initial assessment. Treatment approaches are tailored to individual needs.",
+    benefits: [
+      "Initial Health Assessment",
+      "Personalised Therapy",
+      "Muscle Relaxation Support",
+      "Individual Care Plan",
+    ],
+  },
+
+  "Back Pain Care": {
+    description:
+      "A personalised care approach for back discomfort, with traditional therapies selected according to individual assessment and wellness requirements.",
+    benefits: [
+      "Personalised Assessment",
+      "Traditional Therapies",
+      "Relaxation Support",
+      "Ongoing Wellness Guidance",
+    ],
+  },
+};
+
 const DEFAULT_HOMEO = [
   {
     img: homeoOneImg, tag: "BIOLOGICAL & DIAGNOSTIC",
@@ -175,6 +221,8 @@ function TreatmentsView({ AYURVEDA, PACKAGES, HOMEO }) {
   const heroSrc = useSlotImage("page-hero-treatments", heroImg);
   const cuppingSrc = useSlotImage("treatments-cupping", cuppingImg);
   const reduce = useReducedMotion();
+
+  const [selectedPackage, setSelectedPackage] = useState(null);
 
   const fade = (delay = 0, x = 0, y = 28) => ({
     initial: reduce ? { opacity: 1 } : { opacity: 0, x, y },
@@ -260,7 +308,7 @@ function TreatmentsView({ AYURVEDA, PACKAGES, HOMEO }) {
 
           <RelaxationSlider />
 
-          <motion.div className="mihmc-tr-packages" {...fade(0, 0, 32)}>
+          {/* <motion.div className="mihmc-tr-packages" {...fade(0, 0, 32)}>
             <h3><T k="treatments.treatments-page.specialised-care-packages-06d6" d={"Specialised Care Packages"} /></h3>
             <ul>
               {PACKAGES.map((p) => (
@@ -273,6 +321,121 @@ function TreatmentsView({ AYURVEDA, PACKAGES, HOMEO }) {
                 </li>
               ))}
             </ul>
+          </motion.div> */}
+
+          <motion.div className="mihmc-tr-packages" {...fade(0, 0, 32)}>
+            <h3>
+              <T
+                k="treatments.treatments-page.specialised-care-packages-06d6"
+                d={"Specialised Care Packages"}
+              />
+            </h3>
+
+            <ul>
+              {PACKAGES.map((p) => (
+                <li key={p.title}>
+                  <img src={p.img} alt={p.title} loading="lazy" />
+
+                  <div className="mihmc-tr-package-info">
+                    <strong>{p.title}</strong>
+                    <span>{p.text}</span>
+                  </div>
+
+                  <button
+                    type="button"
+                    className="mihmc-tr-view-btn"
+                    onClick={() => setSelectedPackage(p)}
+                  >
+                    View Details <ArrowRight size={16} />
+                  </button>
+                </li>
+              ))}
+            </ul>
+
+            {/* PACKAGE DETAILS MODAL */}
+
+            {selectedPackage && (
+              <div
+                className="mihmc-tr-modal-overlay"
+                onClick={() => setSelectedPackage(null)}
+              >
+                <motion.div
+                  className="mihmc-tr-modal"
+                  initial={{ opacity: 0, scale: 0.94, y: 20 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  transition={{ duration: 0.3 }}
+                  onClick={(e) => e.stopPropagation()}
+                  role="dialog"
+                  aria-modal="true"
+                  aria-labelledby="package-modal-title"
+                >
+                  {/* Close Button */}
+
+                  <button
+                    type="button"
+                    className="mihmc-tr-modal-close"
+                    onClick={() => setSelectedPackage(null)}
+                    aria-label="Close package details"
+                  >
+                    ×
+                  </button>
+
+                  {/* Package Image */}
+
+                  <img
+                    className="mihmc-tr-modal-image"
+                    src={selectedPackage.img}
+                    alt={selectedPackage.title}
+                  />
+
+                  {/* Package Content */}
+
+                  <div className="mihmc-tr-modal-content">
+                    <h2 id="package-modal-title">
+                      {selectedPackage.title}
+                    </h2>
+
+                    <div className="mihmc-tr-modal-line"></div>
+
+                    <p>
+                      {PACKAGE_DETAILS[selectedPackage.title]?.description ||
+                      selectedPackage.text}
+                    </p>
+
+                    {/* Benefits */}
+
+                    <div className="mihmc-tr-modal-benefits">
+                      <h4>Key Benefits:</h4>
+
+                      <div className="mihmc-tr-benefits-grid">
+                        {(
+                          PACKAGE_DETAILS[selectedPackage.title]?.benefits || [
+                            "Personalised Care",
+                            "Expert Guidance",
+                            "Individual Assessment",
+                            "Wellness Support",
+                          ]
+                        ).map((benefit) => (
+                          <span key={benefit}>
+                            <BadgeCheck size={17} />
+                            {benefit}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Contact Button */}
+
+                    <a
+                      href="/contact"
+                      className="mihmc-tr-modal-contact"
+                    >
+                      Get in Touch <ArrowRight size={18} />
+                    </a>
+                  </div>
+                </motion.div>
+              </div>
+            )}
           </motion.div>
 
           <motion.div className="mihmc-tr-banner" {...fade(0, 0, 32)}>
