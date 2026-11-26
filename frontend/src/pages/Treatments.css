@@ -1000,3 +1000,262 @@
     transition: none;
   }
 }
+
+
+/* =========================================
+   SPECIALISED CARE PACKAGE VIEW DETAILS
+========================================= */
+
+.mihmc-tr-packages li {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.mihmc-tr-package-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.mihmc-tr-packages li .mihmc-tr-view-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-shrink: 0;
+  padding: 13px 25px;
+  border: none;
+  border-radius: 40px;
+  background: #004c36;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mihmc-tr-packages li .mihmc-tr-view-btn:hover {
+  background: #087453;
+  transform: translateY(-2px);
+}
+
+/* MODAL OVERLAY */
+
+.mihmc-tr-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  background: rgba(13, 29, 23, 0.65);
+  backdrop-filter: blur(5px);
+}
+
+/* MODAL BOX */
+
+.mihmc-tr-modal {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 26px;
+  border-radius: 20px;
+  background: #fffdf8;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.22);
+}
+
+/* CLOSE BUTTON */
+
+.mihmc-tr-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: #004c36;
+  color: #fff;
+  font-size: 29px;
+  line-height: 1;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.mihmc-tr-modal-close:hover {
+  background: #b47b32;
+  transform: rotate(90deg);
+}
+
+/* MODAL IMAGE */
+
+.mihmc-tr-modal-image {
+  display: block;
+  width: 100%;
+  height: 190px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* MODAL CONTENT */
+
+.mihmc-tr-modal-content {
+  padding-top: 17px;
+}
+
+.mihmc-tr-modal-content h2 {
+  color: #073326;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.mihmc-tr-modal-line {
+  width: 100px;
+  height: 3px;
+  margin: 12px 0 18px;
+  background: linear-gradient(
+    to right,
+    #b78a42,
+    #e9d8b7
+  );
+}
+
+.mihmc-tr-modal-content > p {
+  margin-bottom: 18px;
+  color: #53564f;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* BENEFITS BOX */
+
+.mihmc-tr-modal-benefits {
+  padding: 17px 20px;
+  border-radius: 12px;
+  background: #edf0df;
+}
+
+.mihmc-tr-modal-benefits h4 {
+  margin-bottom: 14px;
+  color: #073326;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.mihmc-tr-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.mihmc-tr-benefits-grid span {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #174c39;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.mihmc-tr-benefits-grid svg {
+  flex-shrink: 0;
+  color: #08704d;
+}
+
+/* CONTACT BUTTON */
+
+.mihmc-tr-modal-contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 65%;
+  margin: 18px auto 0;
+  padding: 14px 22px;
+  border-radius: 40px;
+  background: #004c36;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.mihmc-tr-modal-contact:hover {
+  background: #087453;
+  transform: translateY(-2px);
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+  .mihmc-tr-modal {
+    max-width: 560px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .mihmc-tr-packages {
+    padding: 18px 14px;
+  }
+
+  .mihmc-tr-packages li {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .mihmc-tr-packages li img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .mihmc-tr-package-info {
+    flex: 1;
+  }
+
+  .mihmc-tr-packages li .mihmc-tr-view-btn {
+    width: 100%;
+    padding: 11px;
+  }
+
+  .mihmc-tr-modal-overlay {
+    padding: 12px;
+  }
+
+  .mihmc-tr-modal {
+    max-height: 92vh;
+    padding: 17px;
+    border-radius: 15px;
+  }
+
+  .mihmc-tr-modal-image {
+    height: 160px;
+  }
+
+  .mihmc-tr-modal-content h2 {
+    font-size: 23px;
+  }
+
+  .mihmc-tr-modal-content > p {
+    font-size: 13px;
+  }
+
+  .mihmc-tr-benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .mihmc-tr-modal-contact {
+    width: 100%;
+  }
+}
