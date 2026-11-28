@@ -1259,3 +1259,83 @@
     width: 100%;
   }
 }
+
+
+
+/* =========================================
+   UPDATED BENEFITS CHECKLIST ONLY
+   OLD MODAL SIZE AND BUTTON PRESERVED
+========================================= */
+
+.mihmc-tr-modal-benefits {
+  margin-top: 18px;
+  padding: 17px 20px;
+  border-radius: 17px;
+  background: #edf1df;
+}
+
+.mihmc-tr-benefits-list {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.mihmc-tr-benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  color: #174b3a;
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+/* GREEN CHECK CIRCLE */
+
+.mihmc-tr-check-icon {
+  display: grid;
+  place-items: center;
+
+  width: 21px;
+  height: 21px;
+  min-width: 21px;
+
+  border-radius: 50%;
+  background: #07944d;
+  color: #fff;
+}
+
+.mihmc-tr-check-icon svg {
+  width: 19px;
+  height: 19px;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .mihmc-tr-modal-benefits {
+    padding: 14px 12px;
+  }
+
+  .mihmc-tr-benefits-list {
+    gap: 10px;
+  }
+
+  .mihmc-tr-benefit-item {
+    gap: 9px;
+    font-size: 13px;
+  }
+
+  .mihmc-tr-check-icon {
+    width: 15px;
+    height: 15px;
+    min-width: 15px;
+  }
+
+  .mihmc-tr-check-icon svg {
+    width: 15px;
+    height: 15px;
+  }
+}

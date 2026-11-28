@@ -4,6 +4,7 @@ import {
   BadgeCheck,
   Leaf,
   UserCheck,
+  Check,
   Clock,
   ArrowRight,
   Quote,
@@ -118,44 +119,56 @@ const PACKAGE_DETAILS = {
   "Obesity Management": {
     description:
       "Receive personalised support for healthy weight management with our expert team. Our program includes dietary guidance, lifestyle coaching and ongoing monitoring to help you work towards your wellness goals.",
+
     benefits: [
-      "Personalised Nutrition Plan",
-      "Lifestyle Support",
-      "Expert Guidance",
-      "Long-Term Wellness",
+      "Personalised Treatment Plan",
+      "Dietary & Nutritional Guidance",
+      "Lifestyle Modification Support",
+      "Physical Activity Recommendations",
+      "Regular Progress Monitoring",
+      "Expert Wellness Support",
     ],
   },
 
   "Postnatal Care": {
     description:
       "A personalised postnatal care program designed to support mothers after childbirth through traditional therapies, relaxation and individualised wellness guidance.",
+
     benefits: [
-      "Postnatal Wellness Support",
-      "Relaxation Therapies",
-      "Personalised Care",
-      "Recovery Guidance",
+      "Personalised Postnatal Care",
+      "Traditional Relaxation Therapies",
+      "Maternal Wellness Guidance",
+      "Individual Care Plan",
+      "Recovery Support",
+      "Expert Wellness Support",
     ],
   },
 
   "Neck Pain Care": {
     description:
       "Individualised care for neck discomfort using traditional therapies selected following an initial assessment. Treatment approaches are tailored to individual needs.",
+
     benefits: [
       "Initial Health Assessment",
-      "Personalised Therapy",
+      "Personalised Therapy Plan",
       "Muscle Relaxation Support",
+      "Neck Mobility Guidance",
       "Individual Care Plan",
+      "Expert Wellness Support",
     ],
   },
 
   "Back Pain Care": {
     description:
       "A personalised care approach for back discomfort, with traditional therapies selected according to individual assessment and wellness requirements.",
+
     benefits: [
       "Personalised Assessment",
       "Traditional Therapies",
-      "Relaxation Support",
-      "Ongoing Wellness Guidance",
+      "Back Relaxation Support",
+      "Individual Care Plan",
+      "Mobility Guidance",
+      "Expert Wellness Support",
     ],
   },
 };
@@ -361,15 +374,17 @@ function TreatmentsView({ AYURVEDA, PACKAGES, HOMEO }) {
               >
                 <motion.div
                   className="mihmc-tr-modal"
-                  initial={{ opacity: 0, scale: 0.94, y: 20 }}
+                  initial={{ opacity: 0, scale: 0.94, y: 25 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
-                  transition={{ duration: 0.3 }}
+                  exit={{ opacity: 0, scale: 0.94 }}
+                  transition={{ duration: 0.35, ease: "easeOut" }}
                   onClick={(e) => e.stopPropagation()}
                   role="dialog"
                   aria-modal="true"
                   aria-labelledby="package-modal-title"
                 >
-                  {/* Close Button */}
+
+                  {/* CLOSE BUTTON */}
 
                   <button
                     type="button"
@@ -380,17 +395,20 @@ function TreatmentsView({ AYURVEDA, PACKAGES, HOMEO }) {
                     ×
                   </button>
 
-                  {/* Package Image */}
+                  {/* PACKAGE IMAGE */}
 
-                  <img
-                    className="mihmc-tr-modal-image"
-                    src={selectedPackage.img}
-                    alt={selectedPackage.title}
-                  />
+                  <div className="mihmc-tr-modal-image-wrap">
+                    <img
+                      className="mihmc-tr-modal-image"
+                      src={selectedPackage.img}
+                      alt={selectedPackage.title}
+                    />
+                  </div>
 
-                  {/* Package Content */}
+                  {/* CONTENT */}
 
                   <div className="mihmc-tr-modal-content">
+
                     <h2 id="package-modal-title">
                       {selectedPackage.title}
                     </h2>
@@ -399,15 +417,15 @@ function TreatmentsView({ AYURVEDA, PACKAGES, HOMEO }) {
 
                     <p>
                       {PACKAGE_DETAILS[selectedPackage.title]?.description ||
-                      selectedPackage.text}
+                        selectedPackage.text}
                     </p>
 
-                    {/* Benefits */}
+                    {/* BENEFITS CHECKLIST */}
 
                     <div className="mihmc-tr-modal-benefits">
-                      <h4>Key Benefits:</h4>
 
-                      <div className="mihmc-tr-benefits-grid">
+                      <div className="mihmc-tr-benefits-list">
+
                         {(
                           PACKAGE_DETAILS[selectedPackage.title]?.benefits || [
                             "Personalised Care",
@@ -415,27 +433,45 @@ function TreatmentsView({ AYURVEDA, PACKAGES, HOMEO }) {
                             "Individual Assessment",
                             "Wellness Support",
                           ]
-                        ).map((benefit) => (
-                          <span key={benefit}>
-                            <BadgeCheck size={17} />
-                            {benefit}
-                          </span>
+                        ).map((benefit, index) => (
+                          <motion.div
+                            className="mihmc-tr-benefit-item"
+                            key={benefit}
+                            initial={{ opacity: 0, x: -12 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{
+                              duration: 0.3,
+                              delay: index * 0.07,
+                            }}
+                          >
+                            <span className="mihmc-tr-check-icon">
+                              <Check size={17} strokeWidth={3} />
+                            </span>
+
+                            <span>{benefit}</span>
+                          </motion.div>
                         ))}
+
                       </div>
+
                     </div>
 
-                    {/* Contact Button */}
+                    {/* CONTACT BUTTON */}
 
                     <a
                       href="/contact"
                       className="mihmc-tr-modal-contact"
+                      onClick={() => setSelectedPackage(null)}
                     >
-                      Get in Touch <ArrowRight size={18} />
-                    </a>
-                  </div>
-                </motion.div>
-              </div>
-            )}
+                      Get in Touch
+                    <ArrowRight size={21} />
+                  </a>
+
+                </div>
+
+              </motion.div>
+            </div>
+          )}
           </motion.div>
 
           <motion.div className="mihmc-tr-banner" {...fade(0, 0, 32)}>
